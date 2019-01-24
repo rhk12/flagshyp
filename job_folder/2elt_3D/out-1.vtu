@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<VTKFile type="UnstructuredGrid" version="0.1" byte_order="LittleEndian">
+   <UnstructuredGrid>
+      <Piece NumberOfPoints="12" NumberOfCells="2">
+         <Points>
+            <DataArray type="Float32" NumberOfComponents="3" format="ascii">
+               7.6554951122e-03 4.7132850099e-02 0.0000000000e+00
+               1.0064107732e+00 4.7132850099e-02 0.0000000000e+00
+               7.6554951122e-03 1.0409314957e+00 1.0000000000e-01
+               1.0064107732e+00 1.0409314957e+00 1.0000000000e-01
+               7.6554951122e-03 -2.5570821821e-03 5.0000000000e-01
+               1.0064107732e+00 -2.5570821821e-03 5.0000000000e-01
+               7.6554951122e-03 9.9124156343e-01 6.0000000000e-01
+               1.0064107732e+00 9.9124156343e-01 6.0000000000e-01
+               7.6554951122e-03 -5.2247014463e-02 1.0000000000e+00
+               1.0064107732e+00 -5.2247014463e-02 1.0000000000e+00
+               7.6554951122e-03 9.4155163115e-01 1.1000000000e+00
+               1.0064107732e+00 9.4155163115e-01 1.1000000000e+00
+            </DataArray>
+         </Points>
+         <Cells>
+            <DataArray type="Int32" Name="connectivity" format="ascii">
+               0 1 3 2 4 5 7 6
+               4 5 7 6 8 9 11 10
+            </DataArray>
+            <DataArray type="Int32" Name="offsets" format="ascii">
+               8
+               16
+            </DataArray>
+            <DataArray type="UInt8" Name="types" format="ascii">
+               12
+               12
+            </DataArray>
+         </Cells>
+         <PointData>
+            <DataArray type="Float32" Name="Disp" NumberOfComponents="3" ComponentName0="x" ComponentName1="y" ComponentName2="z" format="ascii">
+               7.6554951122e-03 4.7132850099e-02 0.0000000000e+00
+               6.4107731994e-03 4.7132850099e-02 0.0000000000e+00
+               7.6554951122e-03 4.0931495714e-02 1.0000000000e-01
+               6.4107731994e-03 4.0931495714e-02 1.0000000000e-01
+               7.6554951122e-03 -2.5570821821e-03 0.0000000000e+00
+               6.4107731994e-03 -2.5570821821e-03 0.0000000000e+00
+               7.6554951122e-03 -8.7584365668e-03 1.0000000000e-01
+               6.4107731994e-03 -8.7584365668e-03 1.0000000000e-01
+               7.6554951122e-03 -5.2247014463e-02 0.0000000000e+00
+               6.4107731994e-03 -5.2247014463e-02 0.0000000000e+00
+               7.6554951122e-03 -5.8448368848e-02 1.0000000000e-01
+               6.4107731994e-03 -5.8448368848e-02 1.0000000000e-01
+            </DataArray>
+            <DataArray type="Int32" Name="Boundary" NumberOfComponents="1" ComponentName0="BC_Value" format="ascii">
+               4
+               4
+               4
+               4
+               4
+               4
+               4
+               4
+               4
+               4
+               4
+               4
+            </DataArray>
+         </PointData>
+         <CellData>
+            <DataArray type="Float32" Name="Stress" NumberOfComponents="7" ComponentName0="xx" ComponentName1="xy" ComponentName2="xz" ComponentName3="yy" ComponentName4="yz" ComponentName5="zz" ComponentName6="pressure" format="ascii">
+               1.4134136223e-10 -3.6767910796e-15 -5.9487313693e-15 1.6909007527e-10 -5.2586806899e-12 1.2436297939e+00 4.1454326472e-01 
+               1.4134689252e-10 4.7924442615e-15 1.2779056198e-14 1.6907349132e-10 -5.2417506404e-12 1.2436297939e+00 4.1454326472e-01 
+            </DataArray>
+            <DataArray type="Float32" Name="E(Lagrangian)" NumberOfComponents="9" ComponentName0="xx" ComponentName1="xy" ComponentName2="xz" ComponentName3="yx" ComponentName4="yy" ComponentName5="yz" ComponentName6="zx" ComponentName7="zy" ComponentName8="zz" format="ascii">
+               -1.24395e-03 -1.93549e-17 -2.78944e-17 -1.93549e-17 -1.18213e-03 6.18213e-04 -2.78944e-17 6.18213e-04 4.93818e-03
+               -1.24395e-03 2.57262e-17 6.15079e-17 2.57262e-17 -1.18213e-03 6.18213e-04 6.15079e-17 6.18213e-04 4.93818e-03
+            </DataArray>
+         </CellData>
+      </Piece>
+   </UnstructuredGrid>
+</VTKFile>

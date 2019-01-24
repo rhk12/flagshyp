@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<VTKFile type="UnstructuredGrid" version="0.1" byte_order="LittleEndian">
+   <UnstructuredGrid>
+      <Piece NumberOfPoints="4" NumberOfCells="1">
+         <Points>
+            <DataArray type="Float32" NumberOfComponents="3" format="ascii">
+               0.0000000000e+00 0.0000000000e+00 0.0000000000e+00
+               1.0000000000e+00 0.0000000000e+00 0.0000000000e+00
+               1.0000000000e+00 1.0000000000e+00 0.0000000000e+00
+               0.0000000000e+00 1.0000000000e+00 0.0000000000e+00
+            </DataArray>
+         </Points>
+         <Cells>
+            <DataArray type="Int32" Name="connectivity" format="ascii">
+               0 1 2 3
+            </DataArray>
+            <DataArray type="Int32" Name="offsets" format="ascii">
+               4
+            </DataArray>
+            <DataArray type="UInt8" Name="types" format="ascii">
+               9
+            </DataArray>
+         </Cells>
+         <PointData>
+            <DataArray type="Float32" Name="Disp" NumberOfComponents="3" ComponentName0="x" ComponentName1="y" ComponentName2="z" format="ascii">
+               0.0000000000e+00 0.0000000000e+00 0.0000000000e+00
+               0.0000000000e+00 0.0000000000e+00 0.0000000000e+00
+               0.0000000000e+00 0.0000000000e+00 0.0000000000e+00
+               0.0000000000e+00 0.0000000000e+00 0.0000000000e+00
+            </DataArray>
+            <DataArray type="Int32" Name="Boundary" NumberOfComponents="1" ComponentName0="BC_Value" format="ascii">
+               3
+               2
+               2
+               3
+            </DataArray>
+         </PointData>
+         <CellData>
+            <DataArray type="Float32" Name="Stress" NumberOfComponents="4" ComponentName0="xx" ComponentName1="xy" ComponentName2="yy" ComponentName3="pressure" format="ascii">
+               0.0000000000e+00 0.0000000000e+00 0.0000000000e+00 0.0000000000e+00
+            </DataArray>
+            <DataArray type="Float32" Name="E(Lagrangian)" NumberOfComponents="4" ComponentName0="xx" ComponentName1="xy" ComponentName2="yx" ComponentName3="yy" format="ascii">
+               0.0000000000e+00 0.0000000000e+00 0.0000000000e+00 0.0000000000e+00
+            </DataArray>
+         </CellData>
+      </Piece>
+   </UnstructuredGrid>
+</VTKFile>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?><msgwrapper><Started><phase type="symconst">BATCHPRE_PHASE</phase><jobName type="string">Job-1</jobName><clientHost type="string">comp-ic-0015.aci.ics.psu.edu</clientHost><handle type="integer">0</handle></Started>
+<Odb_File><file type="string">/storage/work/rhk12/classes/me563/sp18/app2/flagshyp/job_folder/abaqaus/Job-1.odb</file><phase type="symconst">BATCHPRE_PHASE</phase><jobName type="string">Job-1</jobName></Odb_File>
+<Completed><message type="string">Analysis phase complete</message><phase type="symconst">BATCHPRE_PHASE</phase><jobName type="string">Job-1</jobName></Completed>
+<Started><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">Job-1</jobName><clientHost type="string">comp-ic-0015.aci.ics.psu.edu</clientHost><handle type="integer">0</handle></Started>
+<Step><stepId type="integer">1</stepId><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">Job-1</jobName></Step>
+<Odb_Frame><step type="integer">0</step><frame type="integer">0</frame><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">Job-1</jobName></Odb_Frame>
+<MEMORY_ESTIMATE><memory type="float">24</memory><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">Job-1</jobName></MEMORY_ESTIMATE>
+<PHYSICAL_MEMORY><physical_memory type="float">259072</physical_memory><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">Job-1</jobName></PHYSICAL_MEMORY>
+<MINIMUM_MEMORY><minimum_memory type="float">17</minimum_memory><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">Job-1</jobName></MINIMUM_MEMORY>
+<Odb_Frame><step type="integer">0</step><frame type="integer">1</frame><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">Job-1</jobName></Odb_Frame>
+<Status><step type="integer">1</step><increment type="integer">1</increment><attempts type="integer">1</attempts><severe type="integer">0</severe><equilibrium type="integer">2</equilibrium><iterations type="integer">2</iterations><totalTime type="float">1</totalTime><stepTime type="float">1</stepTime><timeIncrement type="float">1</timeIncrement><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">Job-1</jobName></Status>
+<End_Step><stepId type="integer">1</stepId><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">Job-1</jobName></End_Step>
+<Completed><message type="string">Analysis phase complete</message><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">Job-1</jobName></Completed>
+<JOB_COMPLETED><jobName type="string">Job-1</jobName><time type="string">Thu Jan 25 18:54:43 2018</time></JOB_COMPLETED></msgwrapper>
