@@ -25,7 +25,7 @@ for igauss = 1:QUADRATURE.boundary.ngauss
     Nf(:,igauss)        = interpolation.N;
     DNf_chi(:,:,igauss) = interpolation.DN_chi;
 end
-Ne'*Ne
+
 %--------------------------------------------------------------------------
 % Store the information.
 %--------------------------------------------------------------------------

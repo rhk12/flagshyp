@@ -27,21 +27,12 @@ space = '   ';
 output_title = [PRO.title space 'at increment:' space  ...
                num2str(CON.incrm) ', ' space 'load:  ' num2str(CON.xlamb)];
 
-% fprintf(fid3,'# vtk DataFile Version 3.0\n');
-% %fprintf(fid3,'Title\n');
-% fprintf(fid3,'%c',output_title);
-% fprintf(fid3,'\n');
-% fprintf(fid3,'ASCII\n');
-% fprintf(fid3,'DATASET UNSTRUCTURED_GRID\n');
 
 fprintf(fid3,'<?xml version="1.0"?>\n');
 fprintf(fid3,'<VTKFile type="UnstructuredGrid" version="0.1" byte_order="LittleEndian">\n');
 fprintf(fid3,'%s<UnstructuredGrid>\n',space);
 fprintf(fid3,'%s%s<Piece NumberOfPoints="%d" NumberOfCells="%d">\n',...
     space,space,GEOM.npoin, FEM.mesh.nelem);
-
-
-
 
 
 %--------------------------------------------------------------------------
