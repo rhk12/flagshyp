@@ -377,7 +377,8 @@ for ielement=1:FEM.mesh.nelem
 %          KINEMATICS.F
         
     end
-   % xlocal
+    xlocal-x0local;
+    
     F_avg_over_gauss_pts= F_avg_over_gauss_pts/QUADRATURE.ngauss;
     Green_Strain_Avg = (1./2.)*(F_avg_over_gauss_pts'*F_avg_over_gauss_pts-eye(GEOM.ndime));
     
@@ -387,6 +388,10 @@ for ielement=1:FEM.mesh.nelem
     U_avg=[sqrt(C_e_values(1,1)), 0; 0, sqrt(C_e_values(GEOM.ndime,GEOM.ndime))];
     gradu=F_avg_over_gauss_pts-eye(GEOM.ndime);
     smalle=.5*(gradu+gradu');
+    
+     %lnU=log(sqrt(C_e_values(1,1)))*C_e_vectors(:,1)*C_e_vectors(:,1)'+ ...
+     %    log(sqrt(C_e_values(2,2)))*C_e_vectors(:,2)*C_e_vectors(:,2)'
+    
     %lnE=log(Green_Strain_Avg(2,2))
     %KINEMATICS.n;
     %KINEMATICS.lambda
@@ -404,9 +409,7 @@ for ielement=1:FEM.mesh.nelem
                        KINEMATICS.lambda(3,7)+ KINEMATICS.lambda(3,8))/8.0;
        end
     end
-    Abaqus_NE= lambda_avg-1; 
-    lnV=log(lambda_avg);
-    %log(lambda_avg);
+   
     
    % fprintf(fid4,'%.5f %.5f %.5f %.5f %.5f %.5f %.5f \n',...
    %   xlocal(2,3)-x0local(2,3),Green_Strain_Avg(2,2),log(U_avg(2,2)),smalle(2,2),Abaqus_NE,lnV,stress_avg(3));
@@ -489,22 +492,33 @@ for ielement=1:FEM.mesh.nelem
     for igauss=1:QUADRATURE.ngauss 
          kinematics_gauss = kinematics_gauss_point(KINEMATICS,igauss);
          F_avg_over_gauss_pts= F_avg_over_gauss_pts+ kinematics_gauss.F;
-%          KINEMATICS.F
-        
+         % KINEMATICS.F
     end
     % compute average F (over gauss points)
     F_avg_over_gauss_pts= F_avg_over_gauss_pts/QUADRATURE.ngauss;
   
     %KINEMATICS.b;
     b_avg = F_avg_over_gauss_pts * F_avg_over_gauss_pts';
-    [b_e_vectors,b_e_values] = eig(b_avg);
-    % could add for loop on ndime for next line.
-    V_avg=[sqrt(b_e_values(1,1)), 0; 0, sqrt(b_e_values(GEOM.ndime,GEOM.ndime))];
-    lnV=log(V_avg);
+   
+    % can be used to check calculation
+    logm(sqrtm(b_avg));
     
-    % take care of ln(0) = - Inf 
+    [b_e_vectors,b_e_values] = eig(b_avg);
+
+    
+    % take care of ln(0) = -Inf 
     if FEM.mesh.element_type == 'quad4'
        if QUADRATURE.ngauss == 4 % the 2 is b/c it is the largest e-value from matlab 
+           V=  sqrt(b_e_values(1,1))*b_e_vectors(:,1)*b_e_vectors(:,1)'+ ...
+               sqrt(b_e_values(2,2))*b_e_vectors(:,2)*b_e_vectors(:,2)';
+           
+           lnV=log(sqrt(b_e_values(1,1)))*b_e_vectors(:,1)*b_e_vectors(:,1)'+ ...
+               log(sqrt(b_e_values(2,2)))*b_e_vectors(:,2)*b_e_vectors(:,2)';
+           
+             
+           %lnV=log(V_avg);
+         
+           
            if isinf(lnV(1,2)) == 1
                lnV(1,2)=0;
            end
@@ -534,8 +548,8 @@ for ielement=1:FEM.mesh.nelem
            end
        end
     end
-    lnV;
-    Abaqus_NE= lnV-1; 
+    %lnV
+    Abaqus_NE= V-eye(GEOM.ndime);
  
     
    % fprintf(fid4,'%.5f %.5f %.5f %.5f %.5f %.5f %.5f \n',...

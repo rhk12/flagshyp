@@ -49,28 +49,24 @@
 *Material, name=Material-1
 *Hyperelastic, neo hooke
  0.2, 0.333333
-** 
-** BOUNDARY CONDITIONS
-** 
-** Name: BC-1 Type: Displacement/Rotation
-*Boundary
-Set-1, 2, 2
-** Name: BC-2 Type: Displacement/Rotation
-*Boundary
-Set-2, 1, 1
 ** ----------------------------------------------------------------
 ** 
 ** STEP: Step-1
 ** 
 *Step, name=Step-1, nlgeom=YES
 *Static
-0.2, 1., 1e-05, 0.2
+0.25, 1., 1e-05, 0.25
 ** 
 ** BOUNDARY CONDITIONS
 ** 
+** Name: BC-1 Type: Displacement/Rotation
+*Boundary
+Set-1, 1, 1
+Set-1, 2, 2
 ** Name: BC-3 Type: Displacement/Rotation
 *Boundary
-Set-3, 2, 2, 0.1
+Set-3, 1, 1, 0.5
+Set-3, 2, 2
 ** 
 ** OUTPUT REQUESTS
 ** 
