@@ -163,7 +163,6 @@ mdb.jobs['2DPlaneStrain-v2']._Message(COMPLETED, {'phase': STANDARD_PHASE,
     'message': 'Analysis phase complete', 'jobName': '2DPlaneStrain-v2'})
 mdb.jobs['2DPlaneStrain-v2']._Message(JOB_COMPLETED, {
     'time': 'Thu Jan 25 19:27:21 2018', 'jobName': '2DPlaneStrain-v2'})
-# Save by rhk12 on 2019_02_04-11.35.04; build 2017 2016_09_27-17.54.59 126836
 from part import *
 from material import *
 from section import *
@@ -230,7 +229,6 @@ mdb.jobs['2DPlaneStrain-v2']._Message(COMPLETED, {'phase': STANDARD_PHASE,
     'message': 'Analysis phase complete', 'jobName': '2DPlaneStrain-v2'})
 mdb.jobs['2DPlaneStrain-v2']._Message(JOB_COMPLETED, {
     'time': 'Mon Feb  4 11:35:31 2019', 'jobName': '2DPlaneStrain-v2'})
-# Save by rhk12 on 2019_02_04-11.45.44; build 2017 2016_09_27-17.54.59 126836
 from part import *
 from material import *
 from section import *
@@ -298,7 +296,6 @@ mdb.jobs['2DPlaneStrain-v2']._Message(COMPLETED, {'phase': STANDARD_PHASE,
     'message': 'Analysis phase complete', 'jobName': '2DPlaneStrain-v2'})
 mdb.jobs['2DPlaneStrain-v2']._Message(JOB_COMPLETED, {
     'time': 'Mon Feb  4 12:28:49 2019', 'jobName': '2DPlaneStrain-v2'})
-# Save by rhk12 on 2019_02_04-12.47.37; build 2017 2016_09_27-17.54.59 126836
 from part import *
 from material import *
 from section import *
@@ -372,7 +369,6 @@ mdb.jobs['2DPlaneStrain-v2']._Message(COMPLETED, {'phase': STANDARD_PHASE,
     'message': 'Analysis phase complete', 'jobName': '2DPlaneStrain-v2'})
 mdb.jobs['2DPlaneStrain-v2']._Message(JOB_COMPLETED, {
     'time': 'Mon Feb  4 14:01:17 2019', 'jobName': '2DPlaneStrain-v2'})
-# Save by rhk12 on 2019_02_04-14.17.08; build 2017 2016_09_27-17.54.59 126836
 from part import *
 from material import *
 from section import *
@@ -386,10 +382,10 @@ from job import *
 from sketch import *
 from visualization import *
 from connectorBehavior import *
-mdb.models['Model-1'].boundaryConditions['BC-1'].move('Step-1', 'Initial')
-mdb.models['Model-1'].boundaryConditions['BC-2'].move('Step-1', 'Initial')
-mdb.models['Model-1'].steps['Step-1'].setValues(initialInc=0.2, maxInc=0.2)
-# Save by rhk12 on 2019_02_06-10.52.04; build 2017 2016_09_27-17.54.59 126836
+mdb.models['Model-1'].boundaryConditions['BC-1'].setValues(u1=0.0)
+del mdb.models['Model-1'].boundaryConditions['BC-2']
+mdb.models['Model-1'].boundaryConditions['BC-3'].setValues(u1=0.5, u2=UNSET)
+# Save by rhk12 on 2019_02_05-19.44.37; build 2017 2016_09_27-17.54.59 126836
 from part import *
 from material import *
 from section import *
@@ -408,7 +404,7 @@ mdb.jobs['2DPlaneStrain-v2']._Message(STARTED, {'phase': BATCHPRE_PHASE,
     'clientHost': 'comp-ic-0015.aci.ics.psu.edu', 'handle': 0, 
     'jobName': '2DPlaneStrain-v2'})
 mdb.jobs['2DPlaneStrain-v2']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
-    'file': '/storage/work/r/rhk12/classes/me563/sp19/flagshyp/job_folder/2D_1Elt/abaqus/2DPlaneStrain-v2.odb', 
+    'file': '/storage/work/r/rhk12/classes/me563/sp19/flagshyp/job_folder/2D_1Elt_SimpleShear/abaqus/2DPlaneStrain-v2.odb', 
     'jobName': '2DPlaneStrain-v2'})
 mdb.jobs['2DPlaneStrain-v2']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
     'message': 'Analysis phase complete', 'jobName': '2DPlaneStrain-v2'})
@@ -428,32 +424,26 @@ mdb.jobs['2DPlaneStrain-v2']._Message(MINIMUM_MEMORY, {'minimum_memory': 17.0,
     'phase': STANDARD_PHASE, 'jobName': '2DPlaneStrain-v2'})
 mdb.jobs['2DPlaneStrain-v2']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
     'step': 0, 'frame': 1, 'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(STATUS, {'totalTime': 0.2, 'attempts': 1, 
-    'timeIncrement': 0.2, 'increment': 1, 'stepTime': 0.2, 'step': 1, 
-    'jobName': '2DPlaneStrain-v2', 'severe': 0, 'iterations': 2, 
+mdb.jobs['2DPlaneStrain-v2']._Message(STATUS, {'totalTime': 0.25, 
+    'attempts': 1, 'timeIncrement': 0.25, 'increment': 1, 'stepTime': 0.25, 
+    'step': 1, 'jobName': '2DPlaneStrain-v2', 'severe': 0, 'iterations': 2, 
     'phase': STANDARD_PHASE, 'equilibrium': 2})
 mdb.jobs['2DPlaneStrain-v2']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
     'step': 0, 'frame': 2, 'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(STATUS, {'totalTime': 0.4, 'attempts': 1, 
-    'timeIncrement': 0.2, 'increment': 2, 'stepTime': 0.4, 'step': 1, 
+mdb.jobs['2DPlaneStrain-v2']._Message(STATUS, {'totalTime': 0.5, 'attempts': 1, 
+    'timeIncrement': 0.25, 'increment': 2, 'stepTime': 0.5, 'step': 1, 
     'jobName': '2DPlaneStrain-v2', 'severe': 0, 'iterations': 1, 
     'phase': STANDARD_PHASE, 'equilibrium': 1})
 mdb.jobs['2DPlaneStrain-v2']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
     'step': 0, 'frame': 3, 'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(STATUS, {'totalTime': 0.6, 'attempts': 1, 
-    'timeIncrement': 0.2, 'increment': 3, 'stepTime': 0.6, 'step': 1, 
-    'jobName': '2DPlaneStrain-v2', 'severe': 0, 'iterations': 1, 
+mdb.jobs['2DPlaneStrain-v2']._Message(STATUS, {'totalTime': 0.75, 
+    'attempts': 1, 'timeIncrement': 0.25, 'increment': 3, 'stepTime': 0.75, 
+    'step': 1, 'jobName': '2DPlaneStrain-v2', 'severe': 0, 'iterations': 1, 
     'phase': STANDARD_PHASE, 'equilibrium': 1})
 mdb.jobs['2DPlaneStrain-v2']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
     'step': 0, 'frame': 4, 'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(STATUS, {'totalTime': 0.8, 'attempts': 1, 
-    'timeIncrement': 0.2, 'increment': 4, 'stepTime': 0.8, 'step': 1, 
-    'jobName': '2DPlaneStrain-v2', 'severe': 0, 'iterations': 1, 
-    'phase': STANDARD_PHASE, 'equilibrium': 1})
-mdb.jobs['2DPlaneStrain-v2']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
-    'step': 0, 'frame': 5, 'jobName': '2DPlaneStrain-v2'})
 mdb.jobs['2DPlaneStrain-v2']._Message(STATUS, {'totalTime': 1.0, 'attempts': 1, 
-    'timeIncrement': 0.2, 'increment': 5, 'stepTime': 1.0, 'step': 1, 
+    'timeIncrement': 0.25, 'increment': 4, 'stepTime': 1.0, 'step': 1, 
     'jobName': '2DPlaneStrain-v2', 'severe': 0, 'iterations': 1, 
     'phase': STANDARD_PHASE, 'equilibrium': 1})
 mdb.jobs['2DPlaneStrain-v2']._Message(END_STEP, {'phase': STANDARD_PHASE, 
@@ -461,7 +451,61 @@ mdb.jobs['2DPlaneStrain-v2']._Message(END_STEP, {'phase': STANDARD_PHASE,
 mdb.jobs['2DPlaneStrain-v2']._Message(COMPLETED, {'phase': STANDARD_PHASE, 
     'message': 'Analysis phase complete', 'jobName': '2DPlaneStrain-v2'})
 mdb.jobs['2DPlaneStrain-v2']._Message(JOB_COMPLETED, {
-    'time': 'Wed Feb  6 10:52:25 2019', 'jobName': '2DPlaneStrain-v2'})
+    'time': 'Tue Feb  5 19:44:55 2019', 'jobName': '2DPlaneStrain-v2'})
+mdb.models['Model-1'].boundaryConditions['BC-3'].setValues(u2=0.0)
+mdb.jobs['2DPlaneStrain-v2'].submit(consistencyChecking=OFF)
+mdb.jobs['2DPlaneStrain-v2']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'comp-ic-0015.aci.ics.psu.edu', 'handle': 0, 
+    'jobName': '2DPlaneStrain-v2'})
+mdb.jobs['2DPlaneStrain-v2']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': '/storage/work/r/rhk12/classes/me563/sp19/flagshyp/job_folder/2D_1Elt_SimpleShear/abaqus/2DPlaneStrain-v2.odb', 
+    'jobName': '2DPlaneStrain-v2'})
+mdb.jobs['2DPlaneStrain-v2']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': '2DPlaneStrain-v2'})
+mdb.jobs['2DPlaneStrain-v2']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'comp-ic-0015.aci.ics.psu.edu', 'handle': 0, 
+    'jobName': '2DPlaneStrain-v2'})
+mdb.jobs['2DPlaneStrain-v2']._Message(STEP, {'phase': STANDARD_PHASE, 
+    'stepId': 1, 'jobName': '2DPlaneStrain-v2'})
+mdb.jobs['2DPlaneStrain-v2']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 0, 'jobName': '2DPlaneStrain-v2'})
+mdb.jobs['2DPlaneStrain-v2']._Message(MEMORY_ESTIMATE, {
+    'phase': STANDARD_PHASE, 'jobName': '2DPlaneStrain-v2', 'memory': 24.0})
+mdb.jobs['2DPlaneStrain-v2']._Message(PHYSICAL_MEMORY, {
+    'phase': STANDARD_PHASE, 'physical_memory': 259072.0, 
+    'jobName': '2DPlaneStrain-v2'})
+mdb.jobs['2DPlaneStrain-v2']._Message(MINIMUM_MEMORY, {'minimum_memory': 17.0, 
+    'phase': STANDARD_PHASE, 'jobName': '2DPlaneStrain-v2'})
+mdb.jobs['2DPlaneStrain-v2']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 1, 'jobName': '2DPlaneStrain-v2'})
+mdb.jobs['2DPlaneStrain-v2']._Message(STATUS, {'totalTime': 0.25, 
+    'attempts': 1, 'timeIncrement': 0.25, 'increment': 1, 'stepTime': 0.25, 
+    'step': 1, 'jobName': '2DPlaneStrain-v2', 'severe': 0, 'iterations': 1, 
+    'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['2DPlaneStrain-v2']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 2, 'jobName': '2DPlaneStrain-v2'})
+mdb.jobs['2DPlaneStrain-v2']._Message(STATUS, {'totalTime': 0.5, 'attempts': 1, 
+    'timeIncrement': 0.25, 'increment': 2, 'stepTime': 0.5, 'step': 1, 
+    'jobName': '2DPlaneStrain-v2', 'severe': 0, 'iterations': 1, 
+    'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['2DPlaneStrain-v2']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 3, 'jobName': '2DPlaneStrain-v2'})
+mdb.jobs['2DPlaneStrain-v2']._Message(STATUS, {'totalTime': 0.75, 
+    'attempts': 1, 'timeIncrement': 0.25, 'increment': 3, 'stepTime': 0.75, 
+    'step': 1, 'jobName': '2DPlaneStrain-v2', 'severe': 0, 'iterations': 1, 
+    'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['2DPlaneStrain-v2']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
+    'step': 0, 'frame': 4, 'jobName': '2DPlaneStrain-v2'})
+mdb.jobs['2DPlaneStrain-v2']._Message(STATUS, {'totalTime': 1.0, 'attempts': 1, 
+    'timeIncrement': 0.25, 'increment': 4, 'stepTime': 1.0, 'step': 1, 
+    'jobName': '2DPlaneStrain-v2', 'severe': 0, 'iterations': 1, 
+    'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['2DPlaneStrain-v2']._Message(END_STEP, {'phase': STANDARD_PHASE, 
+    'stepId': 1, 'jobName': '2DPlaneStrain-v2'})
+mdb.jobs['2DPlaneStrain-v2']._Message(COMPLETED, {'phase': STANDARD_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': '2DPlaneStrain-v2'})
+mdb.jobs['2DPlaneStrain-v2']._Message(JOB_COMPLETED, {
+    'time': 'Tue Feb  5 19:45:42 2019', 'jobName': '2DPlaneStrain-v2'})
 mdb.models['Model-1'].fieldOutputRequests['F-Output-1'].setValues(variables=(
     'S', 'PE', 'PEEQ', 'PEMAG', 'NE', 'LE', 'U', 'RF', 'CF', 'CSTRESS', 
     'CDISP'))
@@ -479,7 +523,7 @@ mdb.jobs['2DPlaneStrain-v2']._Message(WARNING, {'phase': BATCHPRE_PHASE,
     'message': 'OUTPUT REQUEST PEMAG IS NOT AVAILABLE FOR THE MATERIAL FOR ELEMENT TYPE CPE4R', 
     'jobName': '2DPlaneStrain-v2'})
 mdb.jobs['2DPlaneStrain-v2']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
-    'file': '/storage/work/r/rhk12/classes/me563/sp19/flagshyp/job_folder/2D_1Elt/abaqus/2DPlaneStrain-v2.odb', 
+    'file': '/storage/work/r/rhk12/classes/me563/sp19/flagshyp/job_folder/2D_1Elt_SimpleShear/abaqus/2DPlaneStrain-v2.odb', 
     'jobName': '2DPlaneStrain-v2'})
 mdb.jobs['2DPlaneStrain-v2']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
     'message': 'Analysis phase complete', 'jobName': '2DPlaneStrain-v2'})
@@ -499,32 +543,26 @@ mdb.jobs['2DPlaneStrain-v2']._Message(MINIMUM_MEMORY, {'minimum_memory': 17.0,
     'phase': STANDARD_PHASE, 'jobName': '2DPlaneStrain-v2'})
 mdb.jobs['2DPlaneStrain-v2']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
     'step': 0, 'frame': 1, 'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(STATUS, {'totalTime': 0.2, 'attempts': 1, 
-    'timeIncrement': 0.2, 'increment': 1, 'stepTime': 0.2, 'step': 1, 
-    'jobName': '2DPlaneStrain-v2', 'severe': 0, 'iterations': 2, 
-    'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['2DPlaneStrain-v2']._Message(STATUS, {'totalTime': 0.25, 
+    'attempts': 1, 'timeIncrement': 0.25, 'increment': 1, 'stepTime': 0.25, 
+    'step': 1, 'jobName': '2DPlaneStrain-v2', 'severe': 0, 'iterations': 1, 
+    'phase': STANDARD_PHASE, 'equilibrium': 1})
 mdb.jobs['2DPlaneStrain-v2']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
     'step': 0, 'frame': 2, 'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(STATUS, {'totalTime': 0.4, 'attempts': 1, 
-    'timeIncrement': 0.2, 'increment': 2, 'stepTime': 0.4, 'step': 1, 
+mdb.jobs['2DPlaneStrain-v2']._Message(STATUS, {'totalTime': 0.5, 'attempts': 1, 
+    'timeIncrement': 0.25, 'increment': 2, 'stepTime': 0.5, 'step': 1, 
     'jobName': '2DPlaneStrain-v2', 'severe': 0, 'iterations': 1, 
     'phase': STANDARD_PHASE, 'equilibrium': 1})
 mdb.jobs['2DPlaneStrain-v2']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
     'step': 0, 'frame': 3, 'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(STATUS, {'totalTime': 0.6, 'attempts': 1, 
-    'timeIncrement': 0.2, 'increment': 3, 'stepTime': 0.6, 'step': 1, 
-    'jobName': '2DPlaneStrain-v2', 'severe': 0, 'iterations': 1, 
+mdb.jobs['2DPlaneStrain-v2']._Message(STATUS, {'totalTime': 0.75, 
+    'attempts': 1, 'timeIncrement': 0.25, 'increment': 3, 'stepTime': 0.75, 
+    'step': 1, 'jobName': '2DPlaneStrain-v2', 'severe': 0, 'iterations': 1, 
     'phase': STANDARD_PHASE, 'equilibrium': 1})
 mdb.jobs['2DPlaneStrain-v2']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
     'step': 0, 'frame': 4, 'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(STATUS, {'totalTime': 0.8, 'attempts': 1, 
-    'timeIncrement': 0.2, 'increment': 4, 'stepTime': 0.8, 'step': 1, 
-    'jobName': '2DPlaneStrain-v2', 'severe': 0, 'iterations': 1, 
-    'phase': STANDARD_PHASE, 'equilibrium': 1})
-mdb.jobs['2DPlaneStrain-v2']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
-    'step': 0, 'frame': 5, 'jobName': '2DPlaneStrain-v2'})
 mdb.jobs['2DPlaneStrain-v2']._Message(STATUS, {'totalTime': 1.0, 'attempts': 1, 
-    'timeIncrement': 0.2, 'increment': 5, 'stepTime': 1.0, 'step': 1, 
+    'timeIncrement': 0.25, 'increment': 4, 'stepTime': 1.0, 'step': 1, 
     'jobName': '2DPlaneStrain-v2', 'severe': 0, 'iterations': 1, 
     'phase': STANDARD_PHASE, 'equilibrium': 1})
 mdb.jobs['2DPlaneStrain-v2']._Message(END_STEP, {'phase': STANDARD_PHASE, 
@@ -532,7 +570,37 @@ mdb.jobs['2DPlaneStrain-v2']._Message(END_STEP, {'phase': STANDARD_PHASE,
 mdb.jobs['2DPlaneStrain-v2']._Message(COMPLETED, {'phase': STANDARD_PHASE, 
     'message': 'Analysis phase complete', 'jobName': '2DPlaneStrain-v2'})
 mdb.jobs['2DPlaneStrain-v2']._Message(JOB_COMPLETED, {
-    'time': 'Wed Feb  6 10:53:23 2019', 'jobName': '2DPlaneStrain-v2'})
+    'time': 'Tue Feb  5 20:52:07 2019', 'jobName': '2DPlaneStrain-v2'})
+# Save by rhk12 on 2019_02_06-09.24.44; build 2017 2016_09_27-17.54.59 126836
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['Model-1'].materials['Material-1'].hyperelastic.setValues(table=((
+    0.2, 0.333333333333333), ))
+# Save by rhk12 on 2019_02_06-12.34.00; build 2017 2016_09_27-17.54.59 126836
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
 mdb.models['Model-1'].parts['Part-1'].setElementType(elemTypes=(ElemType(
     elemCode=CPE4, elemLibrary=STANDARD), ElemType(elemCode=CPE3, 
     elemLibrary=STANDARD)), regions=(
@@ -553,7 +621,7 @@ mdb.jobs['2DPlaneStrain-v2']._Message(WARNING, {'phase': BATCHPRE_PHASE,
     'message': 'OUTPUT REQUEST PEMAG IS NOT AVAILABLE FOR THE MATERIAL FOR ELEMENT TYPE CPE4', 
     'jobName': '2DPlaneStrain-v2'})
 mdb.jobs['2DPlaneStrain-v2']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
-    'file': '/storage/work/r/rhk12/classes/me563/sp19/flagshyp/job_folder/2D_1Elt/abaqus/2DPlaneStrain-v2.odb', 
+    'file': '/storage/work/r/rhk12/classes/me563/sp19/flagshyp/job_folder/2D_1Elt_SimpleShear/abaqus/2DPlaneStrain-v2.odb', 
     'jobName': '2DPlaneStrain-v2'})
 mdb.jobs['2DPlaneStrain-v2']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
     'message': 'Analysis phase complete', 'jobName': '2DPlaneStrain-v2'})
@@ -573,32 +641,26 @@ mdb.jobs['2DPlaneStrain-v2']._Message(MINIMUM_MEMORY, {'minimum_memory': 17.0,
     'phase': STANDARD_PHASE, 'jobName': '2DPlaneStrain-v2'})
 mdb.jobs['2DPlaneStrain-v2']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
     'step': 0, 'frame': 1, 'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(STATUS, {'totalTime': 0.2, 'attempts': 1, 
-    'timeIncrement': 0.2, 'increment': 1, 'stepTime': 0.2, 'step': 1, 
-    'jobName': '2DPlaneStrain-v2', 'severe': 0, 'iterations': 2, 
-    'phase': STANDARD_PHASE, 'equilibrium': 2})
+mdb.jobs['2DPlaneStrain-v2']._Message(STATUS, {'totalTime': 0.25, 
+    'attempts': 1, 'timeIncrement': 0.25, 'increment': 1, 'stepTime': 0.25, 
+    'step': 1, 'jobName': '2DPlaneStrain-v2', 'severe': 0, 'iterations': 1, 
+    'phase': STANDARD_PHASE, 'equilibrium': 1})
 mdb.jobs['2DPlaneStrain-v2']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
     'step': 0, 'frame': 2, 'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(STATUS, {'totalTime': 0.4, 'attempts': 1, 
-    'timeIncrement': 0.2, 'increment': 2, 'stepTime': 0.4, 'step': 1, 
+mdb.jobs['2DPlaneStrain-v2']._Message(STATUS, {'totalTime': 0.5, 'attempts': 1, 
+    'timeIncrement': 0.25, 'increment': 2, 'stepTime': 0.5, 'step': 1, 
     'jobName': '2DPlaneStrain-v2', 'severe': 0, 'iterations': 1, 
     'phase': STANDARD_PHASE, 'equilibrium': 1})
 mdb.jobs['2DPlaneStrain-v2']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
     'step': 0, 'frame': 3, 'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(STATUS, {'totalTime': 0.6, 'attempts': 1, 
-    'timeIncrement': 0.2, 'increment': 3, 'stepTime': 0.6, 'step': 1, 
-    'jobName': '2DPlaneStrain-v2', 'severe': 0, 'iterations': 1, 
+mdb.jobs['2DPlaneStrain-v2']._Message(STATUS, {'totalTime': 0.75, 
+    'attempts': 1, 'timeIncrement': 0.25, 'increment': 3, 'stepTime': 0.75, 
+    'step': 1, 'jobName': '2DPlaneStrain-v2', 'severe': 0, 'iterations': 1, 
     'phase': STANDARD_PHASE, 'equilibrium': 1})
 mdb.jobs['2DPlaneStrain-v2']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
     'step': 0, 'frame': 4, 'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(STATUS, {'totalTime': 0.8, 'attempts': 1, 
-    'timeIncrement': 0.2, 'increment': 4, 'stepTime': 0.8, 'step': 1, 
-    'jobName': '2DPlaneStrain-v2', 'severe': 0, 'iterations': 1, 
-    'phase': STANDARD_PHASE, 'equilibrium': 1})
-mdb.jobs['2DPlaneStrain-v2']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
-    'step': 0, 'frame': 5, 'jobName': '2DPlaneStrain-v2'})
 mdb.jobs['2DPlaneStrain-v2']._Message(STATUS, {'totalTime': 1.0, 'attempts': 1, 
-    'timeIncrement': 0.2, 'increment': 5, 'stepTime': 1.0, 'step': 1, 
+    'timeIncrement': 0.25, 'increment': 4, 'stepTime': 1.0, 'step': 1, 
     'jobName': '2DPlaneStrain-v2', 'severe': 0, 'iterations': 1, 
     'phase': STANDARD_PHASE, 'equilibrium': 1})
 mdb.jobs['2DPlaneStrain-v2']._Message(END_STEP, {'phase': STANDARD_PHASE, 
@@ -606,165 +668,5 @@ mdb.jobs['2DPlaneStrain-v2']._Message(END_STEP, {'phase': STANDARD_PHASE,
 mdb.jobs['2DPlaneStrain-v2']._Message(COMPLETED, {'phase': STANDARD_PHASE, 
     'message': 'Analysis phase complete', 'jobName': '2DPlaneStrain-v2'})
 mdb.jobs['2DPlaneStrain-v2']._Message(JOB_COMPLETED, {
-    'time': 'Wed Feb  6 10:56:04 2019', 'jobName': '2DPlaneStrain-v2'})
-# Save by rhk12 on 2019_02_06-10.58.03; build 2017 2016_09_27-17.54.59 126836
-from part import *
-from material import *
-from section import *
-from assembly import *
-from step import *
-from interaction import *
-from load import *
-from mesh import *
-from optimization import *
-from job import *
-from sketch import *
-from visualization import *
-from connectorBehavior import *
-mdb.models['Model-1'].boundaryConditions['BC-3'].setValues(u2=0.1)
-mdb.jobs['2DPlaneStrain-v2'].submit(consistencyChecking=OFF)
-mdb.jobs['2DPlaneStrain-v2']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
-    'clientHost': 'comp-ic-0015.aci.ics.psu.edu', 'handle': 0, 
-    'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
-    'message': 'OUTPUT REQUEST PE IS NOT AVAILABLE FOR THE MATERIAL FOR ELEMENT TYPE CPE4', 
-    'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
-    'message': 'OUTPUT REQUEST PEEQ IS NOT AVAILABLE FOR THE MATERIAL FOR ELEMENT TYPE CPE4', 
-    'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
-    'message': 'OUTPUT REQUEST PEMAG IS NOT AVAILABLE FOR THE MATERIAL FOR ELEMENT TYPE CPE4', 
-    'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
-    'file': '/storage/work/r/rhk12/classes/me563/sp19/flagshyp/job_folder/2D_1Elt/abaqus/2DPlaneStrain-v2.odb', 
-    'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
-    'message': 'Analysis phase complete', 'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(STARTED, {'phase': STANDARD_PHASE, 
-    'clientHost': 'comp-ic-0015.aci.ics.psu.edu', 'handle': 0, 
-    'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(STEP, {'phase': STANDARD_PHASE, 
-    'stepId': 1, 'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
-    'step': 0, 'frame': 0, 'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(MEMORY_ESTIMATE, {
-    'phase': STANDARD_PHASE, 'jobName': '2DPlaneStrain-v2', 'memory': 24.0})
-mdb.jobs['2DPlaneStrain-v2']._Message(PHYSICAL_MEMORY, {
-    'phase': STANDARD_PHASE, 'physical_memory': 259072.0, 
-    'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(MINIMUM_MEMORY, {'minimum_memory': 17.0, 
-    'phase': STANDARD_PHASE, 'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
-    'step': 0, 'frame': 1, 'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(STATUS, {'totalTime': 0.2, 'attempts': 1, 
-    'timeIncrement': 0.2, 'increment': 1, 'stepTime': 0.2, 'step': 1, 
-    'jobName': '2DPlaneStrain-v2', 'severe': 0, 'iterations': 2, 
-    'phase': STANDARD_PHASE, 'equilibrium': 2})
-mdb.jobs['2DPlaneStrain-v2']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
-    'step': 0, 'frame': 2, 'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(STATUS, {'totalTime': 0.4, 'attempts': 1, 
-    'timeIncrement': 0.2, 'increment': 2, 'stepTime': 0.4, 'step': 1, 
-    'jobName': '2DPlaneStrain-v2', 'severe': 0, 'iterations': 1, 
-    'phase': STANDARD_PHASE, 'equilibrium': 1})
-mdb.jobs['2DPlaneStrain-v2']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
-    'step': 0, 'frame': 3, 'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(STATUS, {'totalTime': 0.6, 'attempts': 1, 
-    'timeIncrement': 0.2, 'increment': 3, 'stepTime': 0.6, 'step': 1, 
-    'jobName': '2DPlaneStrain-v2', 'severe': 0, 'iterations': 1, 
-    'phase': STANDARD_PHASE, 'equilibrium': 1})
-mdb.jobs['2DPlaneStrain-v2']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
-    'step': 0, 'frame': 4, 'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(STATUS, {'totalTime': 0.8, 'attempts': 1, 
-    'timeIncrement': 0.2, 'increment': 4, 'stepTime': 0.8, 'step': 1, 
-    'jobName': '2DPlaneStrain-v2', 'severe': 0, 'iterations': 1, 
-    'phase': STANDARD_PHASE, 'equilibrium': 1})
-mdb.jobs['2DPlaneStrain-v2']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
-    'step': 0, 'frame': 5, 'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(STATUS, {'totalTime': 1.0, 'attempts': 1, 
-    'timeIncrement': 0.2, 'increment': 5, 'stepTime': 1.0, 'step': 1, 
-    'jobName': '2DPlaneStrain-v2', 'severe': 0, 'iterations': 1, 
-    'phase': STANDARD_PHASE, 'equilibrium': 1})
-mdb.jobs['2DPlaneStrain-v2']._Message(END_STEP, {'phase': STANDARD_PHASE, 
-    'stepId': 1, 'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(COMPLETED, {'phase': STANDARD_PHASE, 
-    'message': 'Analysis phase complete', 'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(JOB_COMPLETED, {
-    'time': 'Wed Feb  6 11:01:37 2019', 'jobName': '2DPlaneStrain-v2'})
-mdb.models['Model-1'].materials['Material-1'].hyperelastic.setValues(table=((
-    0.2, 0.333333333333333), ))
-mdb.jobs['2DPlaneStrain-v2'].submit(consistencyChecking=OFF)
-mdb.jobs['2DPlaneStrain-v2']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
-    'clientHost': 'comp-ic-0015.aci.ics.psu.edu', 'handle': 0, 
-    'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
-    'message': 'OUTPUT REQUEST PE IS NOT AVAILABLE FOR THE MATERIAL FOR ELEMENT TYPE CPE4', 
-    'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
-    'message': 'OUTPUT REQUEST PEEQ IS NOT AVAILABLE FOR THE MATERIAL FOR ELEMENT TYPE CPE4', 
-    'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
-    'message': 'OUTPUT REQUEST PEMAG IS NOT AVAILABLE FOR THE MATERIAL FOR ELEMENT TYPE CPE4', 
-    'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
-    'file': '/storage/work/r/rhk12/classes/me563/sp19/flagshyp/job_folder/2D_1Elt/abaqus/2DPlaneStrain-v2.odb', 
-    'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
-    'message': 'Analysis phase complete', 'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(STARTED, {'phase': STANDARD_PHASE, 
-    'clientHost': 'comp-ic-0015.aci.ics.psu.edu', 'handle': 0, 
-    'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(STEP, {'phase': STANDARD_PHASE, 
-    'stepId': 1, 'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
-    'step': 0, 'frame': 0, 'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(MEMORY_ESTIMATE, {
-    'phase': STANDARD_PHASE, 'jobName': '2DPlaneStrain-v2', 'memory': 24.0})
-mdb.jobs['2DPlaneStrain-v2']._Message(PHYSICAL_MEMORY, {
-    'phase': STANDARD_PHASE, 'physical_memory': 259072.0, 
-    'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(MINIMUM_MEMORY, {'minimum_memory': 17.0, 
-    'phase': STANDARD_PHASE, 'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
-    'step': 0, 'frame': 1, 'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(STATUS, {'totalTime': 0.2, 'attempts': 1, 
-    'timeIncrement': 0.2, 'increment': 1, 'stepTime': 0.2, 'step': 1, 
-    'jobName': '2DPlaneStrain-v2', 'severe': 0, 'iterations': 2, 
-    'phase': STANDARD_PHASE, 'equilibrium': 2})
-mdb.jobs['2DPlaneStrain-v2']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
-    'step': 0, 'frame': 2, 'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(STATUS, {'totalTime': 0.4, 'attempts': 1, 
-    'timeIncrement': 0.2, 'increment': 2, 'stepTime': 0.4, 'step': 1, 
-    'jobName': '2DPlaneStrain-v2', 'severe': 0, 'iterations': 1, 
-    'phase': STANDARD_PHASE, 'equilibrium': 1})
-mdb.jobs['2DPlaneStrain-v2']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
-    'step': 0, 'frame': 3, 'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(STATUS, {'totalTime': 0.6, 'attempts': 1, 
-    'timeIncrement': 0.2, 'increment': 3, 'stepTime': 0.6, 'step': 1, 
-    'jobName': '2DPlaneStrain-v2', 'severe': 0, 'iterations': 1, 
-    'phase': STANDARD_PHASE, 'equilibrium': 1})
-mdb.jobs['2DPlaneStrain-v2']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
-    'step': 0, 'frame': 4, 'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(STATUS, {'totalTime': 0.8, 'attempts': 1, 
-    'timeIncrement': 0.2, 'increment': 4, 'stepTime': 0.8, 'step': 1, 
-    'jobName': '2DPlaneStrain-v2', 'severe': 0, 'iterations': 1, 
-    'phase': STANDARD_PHASE, 'equilibrium': 1})
-mdb.jobs['2DPlaneStrain-v2']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 
-    'step': 0, 'frame': 5, 'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(STATUS, {'totalTime': 1.0, 'attempts': 1, 
-    'timeIncrement': 0.2, 'increment': 5, 'stepTime': 1.0, 'step': 1, 
-    'jobName': '2DPlaneStrain-v2', 'severe': 0, 'iterations': 1, 
-    'phase': STANDARD_PHASE, 'equilibrium': 1})
-mdb.jobs['2DPlaneStrain-v2']._Message(END_STEP, {'phase': STANDARD_PHASE, 
-    'stepId': 1, 'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(COMPLETED, {'phase': STANDARD_PHASE, 
-    'message': 'Analysis phase complete', 'jobName': '2DPlaneStrain-v2'})
-mdb.jobs['2DPlaneStrain-v2']._Message(JOB_COMPLETED, {
-    'time': 'Wed Feb  6 12:15:37 2019', 'jobName': '2DPlaneStrain-v2'})
-mdb.models['Model-1'].parts['Part-1'].setElementType(elemTypes=(ElemType(
-    elemCode=CPE4, elemLibrary=STANDARD), ElemType(elemCode=CPE3, 
-    elemLibrary=STANDARD)), regions=(
-    mdb.models['Model-1'].parts['Part-1'].faces.getSequenceFromMask(('[#1 ]', 
-    ), ), ))
-# Save by rhk12 on 2019_02_06-12.23.58; build 2017 2016_09_27-17.54.59 126836
-# Save by rhk12 on 2019_02_06-12.31.57; build 2017 2016_09_27-17.54.59 126836
-# Save by rhk12 on 2019_02_06-12.32.28; build 2017 2016_09_27-17.54.59 126836
+    'time': 'Wed Feb  6 12:34:46 2019', 'jobName': '2DPlaneStrain-v2'})
+# Save by rhk12 on 2019_02_06-12.35.20; build 2017 2016_09_27-17.54.59 126836

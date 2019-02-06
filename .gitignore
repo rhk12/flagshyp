@@ -3,3 +3,13 @@
 results.dat
 *-OUTPUT.txt
 *-OUTPUT_FLAGOUT.txt
+*abaqus/2DPlaneStrain-v2.com
+*abaqus/2DPlaneStrain-v2.dat
+*abaqus/2DPlaneStrain-v2.ipm
+*abaqus/2DPlaneStrain-v2.jnl
+*abaqus/2DPlaneStrain-v2.log
+*abaqus/2DPlaneStrain-v2.msg
+*abaqus/2DPlaneStrain-v2.odb
+*abaqus/2DPlaneStrain-v2.sim
+*abaqus/2DPlaneStrain-v2.sta
+*abaqus.rpy*
