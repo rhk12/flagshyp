@@ -18,7 +18,7 @@
 *Elset, elset=Set-1
  1,
 ** Section: Section-1
-*Solid Section, elset=Set-1, material=Material-1
+*Solid Section, elset=Set-1, material=Material-2
 ,
 *End Part
 **  
@@ -46,14 +46,14 @@
 ** 
 ** MATERIALS
 ** 
-*Material, name=Material-1
-*Hyperelastic, neo hooke
- 0.2, 0.333333
+*Material, name=Material-2
+*Elastic
+1., 0.25
 ** ----------------------------------------------------------------
 ** 
 ** STEP: Step-1
 ** 
-*Step, name=Step-1, nlgeom=YES
+*Step, name=Step-1, nlgeom=NO
 *Static
 0.25, 1., 1e-05, 0.25
 ** 
@@ -78,7 +78,7 @@ Set-3, 2, 2
 *Node Output
 CF, RF, U
 *Element Output, directions=YES
-LE, NE, PE, PEEQ, PEMAG, S
+E, LE, NE, PE, PEEQ, PEMAG, S
 *Contact Output
 CDISP, CSTRESS
 ** 

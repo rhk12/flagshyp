@@ -3,21 +3,21 @@ Abaqus JOB 2DPlaneStrain-v2
 Abaqus 3DEXPERIENCE R2017x
 Abaqus License Manager checked out the following licenses:
 Abaqus/Standard checked out 5 tokens from Flexnet server lm.rcc.psu.edu.
-<278 out of 300 licenses remain available>.
-Abaqus Warning: Your Abaqus license will expire in 22 days.
+<251 out of 300 licenses remain available>.
+Abaqus Warning: Your Abaqus license will expire in 18 days.
 Begin Analysis Input File Processor
-Wed 06 Feb 2019 12:34:41 PM EST
+Sun 10 Feb 2019 10:42:01 AM EST
 Run pre
-Wed 06 Feb 2019 12:34:43 PM EST
+Sun 10 Feb 2019 10:42:05 AM EST
 End Analysis Input File Processor
 Begin Abaqus/Standard Analysis
-Wed 06 Feb 2019 12:34:43 PM EST
+Sun 10 Feb 2019 10:42:05 AM EST
 Run standard
-Wed 06 Feb 2019 12:34:46 PM EST
+Sun 10 Feb 2019 10:42:08 AM EST
 End Abaqus/Standard Analysis
 Begin MFS->SFS and SIM cleanup
-Wed 06 Feb 2019 12:34:46 PM EST
+Sun 10 Feb 2019 10:42:08 AM EST
 Run SMASimUtility
-Wed 06 Feb 2019 12:34:46 PM EST
+Sun 10 Feb 2019 10:42:08 AM EST
 End MFS->SFS and SIM cleanup
 Abaqus JOB 2DPlaneStrain-v2 COMPLETED

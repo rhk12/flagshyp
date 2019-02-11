@@ -6,18 +6,18 @@ Abaqus/Standard checked out 5 tokens from Flexnet server lm.rcc.psu.edu.
 <278 out of 300 licenses remain available>.
 Abaqus Warning: Your Abaqus license will expire in 22 days.
 Begin Analysis Input File Processor
-Wed 06 Feb 2019 12:15:32 PM EST
+Wed 06 Feb 2019 01:45:13 PM EST
 Run pre
-Wed 06 Feb 2019 12:15:34 PM EST
+Wed 06 Feb 2019 01:45:33 PM EST
 End Analysis Input File Processor
 Begin Abaqus/Standard Analysis
-Wed 06 Feb 2019 12:15:34 PM EST
+Wed 06 Feb 2019 01:45:33 PM EST
 Run standard
-Wed 06 Feb 2019 12:15:37 PM EST
+Wed 06 Feb 2019 01:45:37 PM EST
 End Abaqus/Standard Analysis
 Begin MFS->SFS and SIM cleanup
-Wed 06 Feb 2019 12:15:37 PM EST
+Wed 06 Feb 2019 01:45:38 PM EST
 Run SMASimUtility
-Wed 06 Feb 2019 12:15:37 PM EST
+Wed 06 Feb 2019 01:45:38 PM EST
 End MFS->SFS and SIM cleanup
 Abaqus JOB 2DPlaneStrain-v2 COMPLETED

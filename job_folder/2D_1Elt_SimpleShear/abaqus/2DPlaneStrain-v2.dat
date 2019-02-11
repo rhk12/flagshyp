@@ -1,6 +1,6 @@
 1
 
-   Abaqus 3DEXPERIENCE R2017x                                  Date 06-Feb-2019   Time 12:34:42
+   Abaqus 3DEXPERIENCE R2017x                                  Date 10-Feb-2019   Time 10:42:03
    For use by PENNSYLVANIA STATE UNIVERSITY under license from Dassault Systemes or its subsidiary.
 
 
@@ -18,7 +18,7 @@
                    used or reproduced only in accordance with the terms
                    of such license.
  
-                          On machine comp-ic-0015.aci.ics.psu.edu 
+                          On machine comp-ic-0014.aci.ics.psu.edu 
                           you are authorized to run
                           Abaqus/Standard until 28-Feb-2019
 
@@ -88,10 +88,10 @@
   *Elset, elset=ASSEMBLY_SET-1
   *Elset, elset=ASSEMBLY_SET-2
   *Elset, elset=ASSEMBLY_SET-3
-  *material, name=MATERIAL-1
-  *hyperelastic, neohooke
-  *solidsection, elset=ASSEMBLY_PART-1-1_SET-1, material=MATERIAL-1
-  *solidsection, elset=ASSEMBLY_PART-1-1_SET-1, material=MATERIAL-1
+  *material, name=MATERIAL-2
+  *elastic
+  *solidsection, elset=ASSEMBLY_PART-1-1_SET-1, material=MATERIAL-2
+  *solidsection, elset=ASSEMBLY_PART-1-1_SET-1, material=MATERIAL-2
   *boundary
   *boundary
   *boundary
@@ -105,11 +105,11 @@
   *output, field
   *output, history, variable=PRESELECT
   *elementoutput, directions=YES
-  *Step, name=Step-1, nlgeom=YES
+  *Step, name=Step-1, nlgeom=NO
   *output, field
   *output, history, variable=PRESELECT
-  *Step, name=Step-1, nlgeom=YES
-  *Step, name=Step-1, nlgeom=YES
+  *Step, name=Step-1, nlgeom=NO
+  *Step, name=Step-1, nlgeom=NO
   *static
   *boundary
   *boundary
@@ -120,6 +120,12 @@
   *output, history, variable=PRESELECT
   *endstep
 
+ ***WARNING: STRAIN OUTPUT REQUEST LE IS NOT VALID FOR SOME ELEMENTS IN THIS 
+             ANALYSIS. THIS REQUEST IS SWITCHED TO THE STRAIN MEASURE, E.
+
+ ***WARNING: STRAIN OUTPUT REQUEST NE IS NOT VALID FOR SOME ELEMENTS IN THIS 
+             ANALYSIS. THIS REQUEST IS SWITCHED TO THE STRAIN MEASURE, E.
+
  ***WARNING: OUTPUT REQUEST PE IS NOT AVAILABLE FOR THE MATERIAL FOR ELEMENT 
              TYPE CPE4
 
@@ -128,7 +134,7 @@
 
  ***WARNING: OUTPUT REQUEST PEMAG IS NOT AVAILABLE FOR THE MATERIAL FOR ELEMENT 
              TYPE CPE4
-  *Step, name=Step-1, nlgeom=YES
+  *Step, name=Step-1, nlgeom=NO
   *static
   *boundary
   *boundary
@@ -153,13 +159,13 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =  9.00000E-02
-       SYSTEM TIME (SEC)    =  3.00000E-02
-       TOTAL CPU TIME (SEC) =  0.12000    
-       WALLCLOCK TIME (SEC) =          0
+       USER TIME (SEC)      =  0.13000    
+       SYSTEM TIME (SEC)    =  6.00000E-02
+       TOTAL CPU TIME (SEC) =  0.19000    
+       WALLCLOCK TIME (SEC) =          1
 1
 
-   Abaqus 3DEXPERIENCE R2017x                                  Date 06-Feb-2019   Time 12:34:44
+   Abaqus 3DEXPERIENCE R2017x                                  Date 10-Feb-2019   Time 10:42:06
    For use by PENNSYLVANIA STATE UNIVERSITY under license from Dassault Systemes or its subsidiary.
 
                                                                                                STEP    1  INCREMENT    1
@@ -178,8 +184,6 @@
           THE MAXIMUM TIME INCREMENT ALLOWED IS                0.250    
 
      LINEAR EQUATION SOLVER TYPE         DIRECT SPARSE
-
-          LARGE DISPLACEMENT THEORY WILL BE USED
   
                    M E M O R Y   E S T I M A T E
   
@@ -225,12 +229,12 @@
 
 
                               ANALYSIS COMPLETE
-                              WITH      3 WARNING MESSAGES ON THE DAT FILE
+                              WITH      5 WARNING MESSAGES ON THE DAT FILE
 
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =  9.00000E-02
-       SYSTEM TIME (SEC)    =  3.00000E-02
-       TOTAL CPU TIME (SEC) =  0.12000    
+       USER TIME (SEC)      =  0.11000    
+       SYSTEM TIME (SEC)    =  5.00000E-02
+       TOTAL CPU TIME (SEC) =  0.16000    
        WALLCLOCK TIME (SEC) =          0

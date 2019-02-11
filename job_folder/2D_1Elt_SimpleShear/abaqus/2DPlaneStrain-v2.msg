@@ -1,6 +1,6 @@
 1
 
-   Abaqus 3DEXPERIENCE R2017x                                  Date 06-Feb-2019   Time 12:34:44
+   Abaqus 3DEXPERIENCE R2017x                                  Date 10-Feb-2019   Time 10:42:06
    For use by PENNSYLVANIA STATE UNIVERSITY under license from Dassault Systemes or its subsidiary.
 
                                                                                  
@@ -76,8 +76,6 @@
 
      THE MAXIMUM NUMBER OF INCREMENTS IN THIS STEP IS                     100
 
-          LARGE DISPLACEMENT THEORY WILL BE USED
-
      LINEAR EXTRAPOLATION WILL BE USED
 
      CHARACTERISTIC ELEMENT LENGTH      1.00    
@@ -101,15 +99,15 @@
 
      CHECK POINT  END OF SOLVER       
 
-       ELAPSED USER TIME (SEC)      =   0.0000    
+       ELAPSED USER TIME (SEC)      =  1.00000E-02
        ELAPSED SYSTEM TIME (SEC)    =   0.0000    
-       ELAPSED TOTAL CPU TIME (SEC) =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =  1.00000E-02
        ELAPSED WALLCLOCK TIME (SEC) =          0
 
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                      2.507E-02   TIME AVG. FORCE       2.507E-02
+ AVERAGE FORCE                      2.500E-02   TIME AVG. FORCE       2.500E-02
  ALL FORCE     RESIDUALS ARE ZERO
  LARGEST INCREMENT OF DISP.         0.125       AT NODE          3   DOF  1
    INSTANCE: PART-1-1                                                                        
@@ -140,11 +138,11 @@
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                      5.052E-02   TIME AVG. FORCE       3.779E-02
+ AVERAGE FORCE                      5.000E-02   TIME AVG. FORCE       3.750E-02
  ALL FORCE     RESIDUALS ARE ZERO
  LARGEST INCREMENT OF DISP.         0.125       AT NODE          3   DOF  1
    INSTANCE: PART-1-1                                                                        
- LARGEST CORRECTION TO DISP.       -5.000E-38   AT NODE          1   DOF  1
+ LARGEST CORRECTION TO DISP.       -5.000E-38   AT NODE          1   DOF  2
    INSTANCE: PART-1-1                                                                        
           THE FORCE     EQUILIBRIUM RESPONSE WAS LINEAR IN THIS INCREMENT
 
@@ -163,19 +161,19 @@
 
      CHECK POINT  END OF SOLVER       
 
-       ELAPSED USER TIME (SEC)      =   0.0000    
+       ELAPSED USER TIME (SEC)      =  1.00000E-02
        ELAPSED SYSTEM TIME (SEC)    =   0.0000    
-       ELAPSED TOTAL CPU TIME (SEC) =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =  1.00000E-02
        ELAPSED WALLCLOCK TIME (SEC) =          0
 
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                      7.676E-02   TIME AVG. FORCE       5.078E-02
+ AVERAGE FORCE                      7.500E-02   TIME AVG. FORCE       5.000E-02
  ALL FORCE     RESIDUALS ARE ZERO
  LARGEST INCREMENT OF DISP.         0.125       AT NODE          3   DOF  1
    INSTANCE: PART-1-1                                                                        
- LARGEST CORRECTION TO DISP.        2.500E-38   AT NODE          1   DOF  1
+ LARGEST CORRECTION TO DISP.        2.500E-38   AT NODE          1   DOF  2
    INSTANCE: PART-1-1                                                                        
           THE FORCE     EQUILIBRIUM RESPONSE WAS LINEAR IN THIS INCREMENT
 
@@ -202,7 +200,7 @@
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                      0.104       TIME AVG. FORCE       6.413E-02
+ AVERAGE FORCE                      0.100       TIME AVG. FORCE       6.250E-02
  ALL FORCE     RESIDUALS ARE ZERO
  LARGEST INCREMENT OF DISP.         0.125       AT NODE          3   DOF  1
    INSTANCE: PART-1-1                                                                        
@@ -226,12 +224,12 @@
                        0  CUTBACKS IN AUTOMATIC INCREMENTATION
                        4  ITERATIONS INCLUDING CONTACT ITERATIONS IF PRESENT
                        4  PASSES THROUGH THE EQUATION SOLVER OF WHICH 
-                       4  INVOLVE MATRIX DECOMPOSITION, INCLUDING
+                       1  INVOLVE MATRIX DECOMPOSITION, INCLUDING
                        0  DECOMPOSITION(S) OF THE MASS MATRIX
                        1  REORDERING OF EQUATIONS TO MINIMIZE WAVEFRONT
                        0  ADDITIONAL RESIDUAL EVALUATIONS FOR LINE SEARCHES
                        0  ADDITIONAL OPERATOR EVALUATIONS FOR LINE SEARCHES
-                       3  WARNING MESSAGES DURING USER INPUT PROCESSING
+                       5  WARNING MESSAGES DURING USER INPUT PROCESSING
                        0  WARNING MESSAGES DURING ANALYSIS
                        0  ANALYSIS WARNINGS ARE NUMERICAL PROBLEM MESSAGES
                        0  ANALYSIS WARNINGS ARE NEGATIVE EIGENVALUE MESSAGES
@@ -240,7 +238,7 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =  9.00000E-02
-       SYSTEM TIME (SEC)    =  3.00000E-02
-       TOTAL CPU TIME (SEC) =  0.12000    
+       USER TIME (SEC)      =  0.11000    
+       SYSTEM TIME (SEC)    =  5.00000E-02
+       TOTAL CPU TIME (SEC) =  0.16000    
        WALLCLOCK TIME (SEC) =          0

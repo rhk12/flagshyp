@@ -22,4 +22,4 @@
 <Status><step type="integer">1</step><increment type="integer">5</increment><attempts type="integer">1</attempts><severe type="integer">0</severe><equilibrium type="integer">1</equilibrium><iterations type="integer">1</iterations><totalTime type="float">1</totalTime><stepTime type="float">1</stepTime><timeIncrement type="float">0.2</timeIncrement><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">2DPlaneStrain-v2</jobName></Status>
 <End_Step><stepId type="integer">1</stepId><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">2DPlaneStrain-v2</jobName></End_Step>
 <Completed><message type="string">Analysis phase complete</message><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">2DPlaneStrain-v2</jobName></Completed>
-<JOB_COMPLETED><jobName type="string">2DPlaneStrain-v2</jobName><time type="string">Wed Feb  6 12:15:37 2019</time></JOB_COMPLETED></msgwrapper>
+<JOB_COMPLETED><jobName type="string">2DPlaneStrain-v2</jobName><time type="string">Wed Feb  6 13:45:38 2019</time></JOB_COMPLETED></msgwrapper>

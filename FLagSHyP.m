@@ -49,13 +49,16 @@ addpath((fullfile(basedir_fem,'job_folder')));
 %--------------------------------------------------------------------------
 if (abs(CON.ARCLEN.arcln)==0)  
     if ~CON.searc 
+     
        Newton_Raphson_algorithm(PRO,FEM,GEOM,QUADRATURE,BC,MAT,LOAD,CON,...
                                 CONSTANT,GLOBAL,PLAST,KINEMATICS);
-     else
+    else
+          x=1
         Line_Search_Newton_Raphson_algorithm(PRO,FEM,GEOM,QUADRATURE,BC,...
                                 MAT,LOAD,CON,CONSTANT,GLOBAL,PLAST,KINEMATICS); 
      end
- else
+else
+  
         Arc_Length_Newton_Raphson_algorithm(PRO,FEM,GEOM,QUADRATURE,BC,...
                                 MAT,LOAD,CON,CONSTANT,GLOBAL,PLAST,KINEMATICS);
 end
