@@ -1,0 +1,1 @@
+rm *.rec  abaqus.rpy* *.jnl *.inp *.com *.odb *.dat *.msg *.prt *.sta *.sim *.ipm *.log 
