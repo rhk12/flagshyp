@@ -7,12 +7,12 @@
 %  pressure component.
 %-------------------------------------------------------------------------- 
 function [PRO,FEM,GEOM,QUADRATURE,BC,MAT,LOAD,CON,CONSTANT,GLOBAL,...
-          PLAST,KINEMATICS] = input_data_and_initialisation(basedir_fem)
+          PLAST,KINEMATICS] = input_data_and_initialisation(basedir_fem,ansmlv,inputfile)
 %--------------------------------------------------------------------------
 % Welcomes the user and determines whether the problem is being
 % restarted or a data file is to be read.
 %-------------------------------------------------------------------------- 
-PRO = welcome(basedir_fem);
+PRO = welcome(basedir_fem,ansmlv,inputfile);
 if( ~ PRO.rest )
     fid = PRO.fid_input;
     %----------------------------------------------------------------------
@@ -41,7 +41,7 @@ if( ~ PRO.rest )
     cd(PRO.job_folder);
     save_restart_file(PRO,FEM,GEOM,QUADRATURE,BC,MAT,LOAD,CON,CONSTANT,...
                       GLOBAL,PLAST,KINEMATICS,'internal')    
-    output_vtk(PRO,CON,GEOM,FEM,BC,GLOBAL,MAT,PLAST,QUADRATURE.element,CONSTANT,KINEMATICS); 
+    %output_vtk(PRO,CON,GEOM,FEM,BC,GLOBAL,MAT,PLAST,QUADRATURE.element,CONSTANT,KINEMATICS); 
     output_vtu(PRO,CON,GEOM,FEM,BC,GLOBAL,MAT,PLAST,QUADRATURE.element,CONSTANT,KINEMATICS); 
 else 
     %----------------------------------------------------------------------

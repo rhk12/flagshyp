@@ -1,5 +1,5 @@
 %--------------------------------------------------------------------------
-% Compute conttribution (and extract relevant information for subsequent
+% Compute contribution (and extract relevant information for subsequent
 % assembly) of the constitutive term of the stiffness matrix.
 %--------------------------------------------------------------------------
 function [element_indexi,element_indexj,element_stiffness,counter] = ...

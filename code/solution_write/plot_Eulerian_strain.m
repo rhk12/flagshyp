@@ -54,10 +54,10 @@ for ielement=1:FEM.mesh.nelem
          % KINEMATICS.F
     end
     % compute average F (over gauss points)
-    F_avg_over_gauss_pts= F_avg_over_gauss_pts/QUADRATURE.ngauss
+    F_avg_over_gauss_pts= F_avg_over_gauss_pts/QUADRATURE.ngauss;
   
     %KINEMATICS.b;
-    b_avg = F_avg_over_gauss_pts * F_avg_over_gauss_pts'
+    b_avg = F_avg_over_gauss_pts * F_avg_over_gauss_pts';
     
     e=(1./2.)*(eye(GEOM.ndime)-inv(b_avg));
    
@@ -71,10 +71,8 @@ for ielement=1:FEM.mesh.nelem
        end
     elseif FEM.mesh.element_type == 'hexa8'
        if QUADRATURE.ngauss == 8
-           %fprintf(fid3,'%s%s%s%s%s%.5e %.5e %.5e ',space,space,space,space,space,...
-            %       Green_Strain_Avg(1,1),Green_Strain_Avg(1,2),Green_Strain_Avg(1,3));
-           %fprintf(fid3,'%.5e %.5e %.5e ', Green_Strain_Avg(2,1),Green_Strain_Avg(2,2),Green_Strain_Avg(2,3));
-           %fprintf(fid3,'%.5e %.5e %.5e\n',Green_Strain_Avg(3,1),Green_Strain_Avg(3,2),Green_Strain_Avg(3,3));
+            fprintf(fid3,'%s%s%s%s%s%.10e %.10e %.10e %.10e %.10e %.10e %.10e %.10e %.10e  \n',space,space,space,space,space,...
+                   e(1,1),e(1,2),e(1,3),e(2,1),e(2,2),e(2,3),e(3,1),e(3,2),e(3,3)   );          
        end
     end
     
@@ -82,11 +80,6 @@ for ielement=1:FEM.mesh.nelem
 end
  
 fprintf(fid3,'%s%s%s%s</DataArray>\n',space,space,space,space); 
-
-
-
-
-
 
 
 

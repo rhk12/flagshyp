@@ -1,19 +1,41 @@
 %--------------------------------------------------------------------------
 % Opens input, output and restart files.
 %--------------------------------------------------------------------------
-function PRO  = welcome(basedir_fem)
+function PRO  = welcome(basedir_fem,ansmlv,inputfile)
 %--------------------------------------------------------------------------
 % Welcomes the user on screen.
 %--------------------------------------------------------------------------
 fprintf([' P R O G R A M    F L a g S H y P \n Finite element LArGe'...
          ' Strain HYperelasticity \n Program \n\n']);
-ansmlv   = input([' Is the problem starting from scratch (y/n) ?: ' ' \n'],'s');
+%ansmlv   = input([' Is the problem starting from scratch (y/n) ?: ' ' \n'],'s');
+
+%Kraft added. Read from file:
+ansmlv;
+inputfile;
+%ansmlv = 'n';
+%PRO.inputfile_name = 'text';
+PRO.rest = true;
+%fileid = fopen('run_params.txt','r');
+%formatspec = '%s %s';
+%A =textscan(fileid,formatspec);
+%celldisp(A);
+%A{1}{1};
+%A{2}{1};
+%ansmlv = A{1}{1}
+%PRO.inputfile_name = A{2}{1}
+
+PRO.inputfile_name = inputfile;
+
+%fclose(fileid);
+
 PRO.rest = true;
 %--------------------------------------------------------------------------
 % Reads in the input file name.
 %--------------------------------------------------------------------------
 if( strcmp(deblank(ansmlv),deblank('y')) || strcmp(deblank(ansmlv),deblank('Y')))
-    PRO.inputfile_name = input([' Enter the data file name   : ' ' \n'],'s');
+    %PRO.inputfile_name = input([' Enter the data file name   : ' ' \n'],'s');
+    %PRO.inputfile_name = 'twisting_column.dat'
+    PRO.inputfile_name;
     auxiliar = 0;
     for ichar=1:length(PRO.inputfile_name)
         if  (PRO.inputfile_name(ichar) == '.')

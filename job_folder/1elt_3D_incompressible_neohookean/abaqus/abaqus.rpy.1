@@ -1,0 +1,297 @@
+# -*- coding: mbcs -*-
+#
+# Abaqus/CAE Release 2017 replay file
+# Internal Version: 2016_09_27-17.54.59 126836
+# Run by rhk12 on Mon Feb 18 12:35:43 2019
+#
+
+# from driverUtils import executeOnCaeGraphicsStartup
+# executeOnCaeGraphicsStartup()
+#: Executing "onCaeGraphicsStartup()" in the site directory ...
+from abaqus import *
+from abaqusConstants import *
+session.Viewport(name='Viewport: 1', origin=(0.0, 0.0), width=214.577072143555, 
+    height=129.225494384766)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].maximize()
+from caeModules import *
+from driverUtils import executeOnCaeStartup
+executeOnCaeStartup()
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=ON)
+s = mdb.models['Model-1'].ConstrainedSketch(name='__profile__', 
+    sheetSize=200.0)
+g, v, d, c = s.geometry, s.vertices, s.dimensions, s.constraints
+s.setPrimaryObject(option=STANDALONE)
+session.viewports['Viewport: 1'].view.setValues(cameraPosition=(188.562, 0, 0))
+session.viewports['Viewport: 1'].view.setValues(cameraPosition=(0, 188.562, 0), 
+    cameraUpVector=(0, 0, 1))
+s.unsetPrimaryObject()
+del mdb.models['Model-1'].sketches['__profile__']
+s1 = mdb.models['Model-1'].ConstrainedSketch(name='__profile__', 
+    sheetSize=200.0)
+g, v, d, c = s1.geometry, s1.vertices, s1.dimensions, s1.constraints
+s1.setPrimaryObject(option=STANDALONE)
+s1.rectangle(point1=(0.0, 0.0), point2=(0.01, 0.01))
+p = mdb.models['Model-1'].Part(name='Part-1', dimensionality=THREE_D, 
+    type=DEFORMABLE_BODY)
+p = mdb.models['Model-1'].parts['Part-1']
+p.BaseSolidExtrude(sketch=s1, depth=0.01)
+s1.unsetPrimaryObject()
+p = mdb.models['Model-1'].parts['Part-1']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+del mdb.models['Model-1'].sketches['__profile__']
+session.viewports['Viewport: 1'].partDisplay.setValues(sectionAssignments=ON, 
+    engineeringFeatures=ON)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=OFF)
+mdb.models['Model-1'].Material(name='Material-1')
+mdb.models['Model-1'].materials['Material-1'].Hyperelastic(
+    materialType=ISOTROPIC, testData=OFF, type=NEO_HOOKE, 
+    volumetricResponse=VOLUMETRIC_DATA, table=((0.1678, 19.99648), ))
+mdb.models['Model-1'].HomogeneousSolidSection(name='Section-1', 
+    material='Material-1', thickness=None)
+p = mdb.models['Model-1'].parts['Part-1']
+c = p.cells
+cells = c.getSequenceFromMask(mask=('[#1 ]', ), )
+region = p.Set(cells=cells, name='Set-1')
+p = mdb.models['Model-1'].parts['Part-1']
+p.SectionAssignment(region=region, sectionName='Section-1', offset=0.0, 
+    offsetType=MIDDLE_SURFACE, offsetField='', 
+    thicknessAssignment=FROM_SECTION)
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(
+    optimizationTasks=OFF, geometricRestrictions=OFF, stopConditions=OFF)
+a = mdb.models['Model-1'].rootAssembly
+a.DatumCsysByDefault(CARTESIAN)
+p = mdb.models['Model-1'].parts['Part-1']
+a.Instance(name='Part-1-1', part=p, dependent=ON)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(
+    adaptiveMeshConstraints=ON)
+mdb.models['Model-1'].StaticStep(name='Step-1', previous='Initial', nlgeom=ON)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(step='Step-1')
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=ON, bcs=ON, 
+    predefinedFields=ON, connectors=ON, adaptiveMeshConstraints=OFF)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.0247313, 
+    farPlane=0.0492605, width=0.0202013, height=0.0116055, cameraPosition=(
+    0.023411, -0.0074256, 0.0345877), cameraUpVector=(0.293985, 0.930893, 
+    -0.216819), cameraTarget=(0.00520979, 0.00458042, 0.00520979))
+a = mdb.models['Model-1'].rootAssembly
+f1 = a.instances['Part-1-1'].faces
+faces1 = f1.getSequenceFromMask(mask=('[#8 ]', ), )
+region = a.Set(faces=faces1, name='Set-1')
+mdb.models['Model-1'].DisplacementBC(name='BC-1', createStepName='Step-1', 
+    region=region, u1=UNSET, u2=0.0, u3=UNSET, ur1=UNSET, ur2=UNSET, ur3=UNSET, 
+    amplitude=UNSET, fixed=OFF, distributionType=UNIFORM, fieldName='', 
+    localCsys=None)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.0243878, 
+    farPlane=0.0492156, width=0.0199208, height=0.0114443, cameraPosition=(
+    0.0282004, 0.0201481, 0.0292218), cameraUpVector=(-0.215169, 0.659842, 
+    -0.719938), cameraTarget=(0.00526294, 0.00488639, 0.00515025))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.0256014, 
+    farPlane=0.0475227, width=0.0209121, height=0.0120138, cameraPosition=(
+    -0.0121731, 0.0371399, 0.00201776), cameraUpVector=(-0.124254, -0.523657, 
+    -0.842819), cameraTarget=(0.00502557, 0.00498629, 0.00499031))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.0256128, 
+    farPlane=0.0475199, width=0.0209214, height=0.0120191, cameraPosition=(
+    -0.00503851, 0.0396087, -0.00121034), cameraUpVector=(-0.137667, -0.540863, 
+    -0.829768), cameraTarget=(0.00502103, 0.00498472, 0.00499236))
+a = mdb.models['Model-1'].rootAssembly
+f1 = a.instances['Part-1-1'].faces
+faces1 = f1.getSequenceFromMask(mask=('[#1 ]', ), )
+region = a.Set(faces=faces1, name='Set-2')
+mdb.models['Model-1'].DisplacementBC(name='BC-2', createStepName='Step-1', 
+    region=region, u1=0.0, u2=UNSET, u3=UNSET, ur1=UNSET, ur2=UNSET, ur3=UNSET, 
+    amplitude=UNSET, fixed=OFF, distributionType=UNIFORM, fieldName='', 
+    localCsys=None)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.0262782, 
+    farPlane=0.0468599, width=0.021465, height=0.0123315, cameraPosition=(
+    0.000947182, 0.0408244, -0.00112239), cameraUpVector=(-0.119483, -0.500158, 
+    -0.857651), cameraTarget=(0.00501793, 0.00498409, 0.00499231))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.0253242, 
+    farPlane=0.0478178, width=0.0206857, height=0.0118838, cameraPosition=(
+    0.000210697, 0.038447, -0.00899282), cameraUpVector=(-0.161208, -0.684734, 
+    -0.71074), cameraTarget=(0.00501826, 0.00498515, 0.00499582))
+a = mdb.models['Model-1'].rootAssembly
+f1 = a.instances['Part-1-1'].faces
+faces1 = f1.getSequenceFromMask(mask=('[#20 ]', ), )
+region = a.Set(faces=faces1, name='Set-3')
+mdb.models['Model-1'].DisplacementBC(name='BC-3', createStepName='Step-1', 
+    region=region, u1=UNSET, u2=UNSET, u3=0.0, ur1=UNSET, ur2=UNSET, ur3=UNSET, 
+    amplitude=UNSET, fixed=OFF, distributionType=UNIFORM, fieldName='', 
+    localCsys=None)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.0249914, 
+    farPlane=0.0481457, width=0.0204139, height=0.0117277, cameraPosition=(
+    0.0196294, 0.0135405, 0.0374083), cameraUpVector=(-0.31427, 0.833707, 
+    -0.454056), cameraTarget=(0.00501062, 0.00499495, 0.00497757))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.0246945, 
+    farPlane=0.0484404, width=0.0201713, height=0.0115884, cameraPosition=(
+    0.0170813, 0.0202478, 0.0359632), cameraUpVector=(-0.334414, 0.714152, 
+    -0.614942), cameraTarget=(0.00501179, 0.00499187, 0.00497823))
+a = mdb.models['Model-1'].rootAssembly
+f1 = a.instances['Part-1-1'].faces
+faces1 = f1.getSequenceFromMask(mask=('[#2 ]', ), )
+region = a.Set(faces=faces1, name='Set-4')
+mdb.models['Model-1'].DisplacementBC(name='BC-4', createStepName='Step-1', 
+    region=region, u1=UNSET, u2=0.005, u3=UNSET, ur1=UNSET, ur2=UNSET, 
+    ur3=UNSET, amplitude=UNSET, fixed=OFF, distributionType=UNIFORM, 
+    fieldName='', localCsys=None)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=ON, loads=OFF, 
+    bcs=OFF, predefinedFields=OFF, connectors=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=ON)
+p = mdb.models['Model-1'].parts['Part-1']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+session.viewports['Viewport: 1'].partDisplay.setValues(sectionAssignments=OFF, 
+    engineeringFeatures=OFF, mesh=ON)
+session.viewports['Viewport: 1'].partDisplay.meshOptions.setValues(
+    meshTechnique=ON)
+p = mdb.models['Model-1'].parts['Part-1']
+p.seedPart(size=1.0, deviationFactor=0.1, minSizeFactor=0.1)
+p = mdb.models['Model-1'].parts['Part-1']
+p.generateMesh()
+elemType1 = mesh.ElemType(elemCode=C3D8R, elemLibrary=STANDARD, 
+    kinematicSplit=AVERAGE_STRAIN, secondOrderAccuracy=OFF, 
+    hourglassControl=DEFAULT, distortionControl=DEFAULT)
+elemType2 = mesh.ElemType(elemCode=C3D6, elemLibrary=STANDARD)
+elemType3 = mesh.ElemType(elemCode=C3D4, elemLibrary=STANDARD)
+p = mdb.models['Model-1'].parts['Part-1']
+c = p.cells
+cells = c.getSequenceFromMask(mask=('[#1 ]', ), )
+pickedRegions =(cells, )
+p.setElementType(regions=pickedRegions, elemTypes=(elemType1, elemType2, 
+    elemType3))
+elemType1 = mesh.ElemType(elemCode=C3D8, elemLibrary=STANDARD, 
+    secondOrderAccuracy=OFF, distortionControl=DEFAULT)
+elemType2 = mesh.ElemType(elemCode=C3D6, elemLibrary=STANDARD)
+elemType3 = mesh.ElemType(elemCode=C3D4, elemLibrary=STANDARD)
+p = mdb.models['Model-1'].parts['Part-1']
+c = p.cells
+cells = c.getSequenceFromMask(mask=('[#1 ]', ), )
+pickedRegions =(cells, )
+p.setElementType(regions=pickedRegions, elemTypes=(elemType1, elemType2, 
+    elemType3))
+a1 = mdb.models['Model-1'].rootAssembly
+a1.regenerate()
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=OFF)
+mdb.Job(name='Job-1', model='Model-1', description='', type=ANALYSIS, 
+    atTime=None, waitMinutes=0, waitHours=0, queue=None, memory=90, 
+    memoryUnits=PERCENTAGE, getMemoryFromAnalysis=True, 
+    explicitPrecision=SINGLE, nodalOutputPrecision=SINGLE, echoPrint=OFF, 
+    modelPrint=OFF, contactPrint=OFF, historyPrint=OFF, userSubroutine='', 
+    scratch='', resultsFormat=ODB, multiprocessingMode=DEFAULT, numCpus=1, 
+    numGPUs=0)
+mdb.jobs['Job-1'].submit(consistencyChecking=OFF)
+#: The job input file "Job-1.inp" has been submitted for analysis.
+#: Job Job-1: Analysis Input File Processor completed successfully.
+#: Job Job-1: Abaqus/Standard completed successfully.
+#: Job Job-1 completed successfully. 
+o3 = session.openOdb(
+    name='/storage/work/r/rhk12/classes/me563/sp19/flagshyp/job_folder/1elt_3D_incompressible_neohookean/abaqus/Job-1.odb')
+#: Model: /storage/work/r/rhk12/classes/me563/sp19/flagshyp/job_folder/1elt_3D_incompressible_neohookean/abaqus/Job-1.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     1
+#: Number of Meshes:             1
+#: Number of Element Sets:       6
+#: Number of Node Sets:          6
+#: Number of Steps:              1
+session.viewports['Viewport: 1'].setValues(displayedObject=o3)
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.0193137, 
+    farPlane=0.0505828, width=0.0283545, height=0.0162895, 
+    viewOffsetX=0.000638175, viewOffsetY=6.27589e-05)
+session.viewports['Viewport: 1'].view.setProjection(projection=PARALLEL)
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='U', outputPosition=NODAL, refinement=(INVARIANT, 
+    'Magnitude'), )
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='LE', outputPosition=INTEGRATION_POINT, refinement=(
+    INVARIANT, 'Max. Principal'), )
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='LE', outputPosition=INTEGRATION_POINT, refinement=(
+    COMPONENT, 'LE11'), )
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='LE', outputPosition=INTEGRATION_POINT, refinement=(
+    COMPONENT, 'LE22'), )
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='LE', outputPosition=INTEGRATION_POINT, refinement=(
+    COMPONENT, 'LE11'), )
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='U', outputPosition=NODAL, refinement=(INVARIANT, 
+    'Magnitude'), )
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='U', outputPosition=NODAL, refinement=(COMPONENT, 'U1'), )
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='U', outputPosition=NODAL, refinement=(COMPONENT, 'U3'), )
+odb = session.odbs['/storage/work/r/rhk12/classes/me563/sp19/flagshyp/job_folder/1elt_3D_incompressible_neohookean/abaqus/Job-1.odb']
+xyList = xyPlot.xyDataListFromField(odb=odb, outputPosition=NODAL, variable=((
+    'U', NODAL, ((COMPONENT, 'U3'), )), ), nodePick=(('PART-1-1', 2, ('[#21 ]', 
+    )), ), )
+xyp = session.XYPlot('XYPlot-1')
+chartName = xyp.charts.keys()[0]
+chart = xyp.charts[chartName]
+curveList = session.curveSet(xyData=xyList)
+chart.setValues(curvesToPlot=curveList)
+session.viewports['Viewport: 1'].setValues(displayedObject=xyp)
+odb = session.odbs['/storage/work/r/rhk12/classes/me563/sp19/flagshyp/job_folder/1elt_3D_incompressible_neohookean/abaqus/Job-1.odb']
+session.viewports['Viewport: 1'].setValues(displayedObject=odb)
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='LE', outputPosition=INTEGRATION_POINT, refinement=(
+    INVARIANT, 'Max. Principal'), )
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='LE', outputPosition=INTEGRATION_POINT, refinement=(
+    COMPONENT, 'LE11'), )
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='LE', outputPosition=INTEGRATION_POINT, refinement=(
+    COMPONENT, 'LE22'), )
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='LE', outputPosition=INTEGRATION_POINT, refinement=(
+    COMPONENT, 'LE11'), )
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='LE', outputPosition=INTEGRATION_POINT, refinement=(
+    COMPONENT, 'LE33'), )
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    UNDEFORMED, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='LE', outputPosition=INTEGRATION_POINT, refinement=(
+    COMPONENT, 'LE11'), )
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.015201, 
+    farPlane=0.0510068, cameraPosition=(0.00764668, 0.0405587, 0.00547104), 
+    cameraUpVector=(-0.718319, -0.3154, -0.620114), cameraTarget=(0.0069252, 
+    0.00561836, 0.00529209))
+session.viewports['Viewport: 1'].odbDisplay.setFrame(step=0, frame=0 )
+session.viewports['Viewport: 1'].odbDisplay.setFrame(step=0, frame=1 )
+session.viewports['Viewport: 1'].odbDisplay.setFrame(step=0, frame=0 )
+session.viewports['Viewport: 1'].odbDisplay.setFrame(step=0, frame=1 )
+session.viewports['Viewport: 1'].odbDisplay.setFrame(step=0, frame=0 )
+session.viewports['Viewport: 1'].odbDisplay.setFrame(step=0, frame=1 )
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.0141118, 
+    farPlane=0.0545482, cameraPosition=(0.0310631, 0.024196, -0.0100298), 
+    cameraUpVector=(-0.767492, 0.614186, 0.183663), cameraTarget=(0.00562061, 
+    0.00652997, 0.00615568))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.0174986, 
+    farPlane=0.0529506, cameraPosition=(0.0389917, 0.0132031, 0.0132379), 
+    cameraUpVector=(-0.508521, 0.860715, -0.0240141), cameraTarget=(0.00547783, 
+    0.00672793, 0.00573666))
+session.viewports['Viewport: 1'].odbDisplay.setFrame(step=0, frame=0 )
+session.viewports['Viewport: 1'].odbDisplay.setFrame(step=0, frame=1 )
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.0163413, 
+    farPlane=0.0524818, cameraPosition=(0.00390351, 0.0418684, 0.00645209), 
+    cameraUpVector=(-0.87007, -0.358569, -0.338239), cameraTarget=(0.00520257, 
+    0.00695281, 0.00568343))
+session.viewports['Viewport: 1'].odbDisplay.setFrame(step=0, frame=0 )
+session.viewports['Viewport: 1'].odbDisplay.setFrame(step=0, frame=1 )
+mdb.saveAs(
+    pathName='/storage/work/r/rhk12/classes/me563/sp19/flagshyp/job_folder/1elt_3D_incompressible_neohookean/abaqus/1elt_3D_neohookean')
+#: The model database has been saved to "/storage/work/r/rhk12/classes/me563/sp19/flagshyp/job_folder/1elt_3D_incompressible_neohookean/abaqus/1elt_3D_neohookean.cae".
