@@ -15,5 +15,6 @@ results.dat
 */*/abaqus/*.prt
 */*/abaqus/*.rec
 */*/abaqus/*.inp
+*/*/abaqus/*.nfs*
 */*/abaqus.rpy
 */*/abaqus.rpy.*
