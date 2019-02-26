@@ -2,7 +2,7 @@
 #
 # Abaqus/CAE Release 2017 replay file
 # Internal Version: 2016_09_27-17.54.59 126836
-# Run by rhk12 on Tue Feb 26 13:41:45 2019
+# Run by rhk12 on Tue Feb 26 13:35:55 2019
 #
 
 # from driverUtils import executeOnCaeGraphicsStartup
@@ -34,11 +34,18 @@ mdb.jobs['Job-1'].submit(consistencyChecking=OFF)
 #: Job Job-1: Analysis Input File Processor completed successfully.
 #: Job Job-1: Abaqus/Standard completed successfully.
 #: Job Job-1 completed successfully. 
-session.viewports['Viewport: 1'].view.setValues(nearPlane=0.0253339, 
-    farPlane=0.0478369, width=0.0139308, height=0.0114175, 
-    viewOffsetX=0.000262108, viewOffsetY=3.39164e-05)
-mdb.jobs['Job-1'].submit(consistencyChecking=OFF)
-#: The job input file "Job-1.inp" has been submitted for analysis.
-#: Job Job-1: Analysis Input File Processor completed successfully.
-#: Job Job-1: Abaqus/Standard completed successfully.
-#: Job Job-1 completed successfully. 
+o3 = session.openOdb(
+    name='/storage/work/r/rhk12/classes/me563/sp19/flagshyp/job_folder/1elt_3D_incompressible_neohookean/abaqus/Job-1.odb')
+#: Model: /storage/work/r/rhk12/classes/me563/sp19/flagshyp/job_folder/1elt_3D_incompressible_neohookean/abaqus/Job-1.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     1
+#: Number of Meshes:             1
+#: Number of Element Sets:       6
+#: Number of Node Sets:          6
+#: Number of Steps:              1
+session.viewports['Viewport: 1'].setValues(displayedObject=o3)
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+mdb.save()
+#: The model database has been saved to "/storage/work/r/rhk12/classes/me563/sp19/flagshyp/job_folder/1elt_3D_incompressible_neohookean/abaqus/1elt_3D_neohookean.cae".

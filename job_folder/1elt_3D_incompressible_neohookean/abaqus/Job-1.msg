@@ -1,6 +1,6 @@
 1
 
-   Abaqus 3DEXPERIENCE R2017x                                  Date 26-Feb-2019   Time 13:36:25
+   Abaqus 3DEXPERIENCE R2017x                                  Date 26-Feb-2019   Time 13:49:55
    For use by PENNSYLVANIA STATE UNIVERSITY under license from Dassault Systemes or its subsidiary.
 
                                                                                  
@@ -101,8 +101,8 @@
 
      CHECK POINT  END OF SOLVER       
 
-       ELAPSED USER TIME (SEC)      =  1.00000E-02
-       ELAPSED SYSTEM TIME (SEC)    =   0.0000    
+       ELAPSED USER TIME (SEC)      =   0.0000    
+       ELAPSED SYSTEM TIME (SEC)    =  1.00000E-02
        ELAPSED TOTAL CPU TIME (SEC) =  1.00000E-02
        ELAPSED WALLCLOCK TIME (SEC) =          0
 
@@ -124,9 +124,9 @@
 
      CHECK POINT  END OF SOLVER       
 
-       ELAPSED USER TIME (SEC)      =   0.0000    
+       ELAPSED USER TIME (SEC)      =  1.00000E-02
        ELAPSED SYSTEM TIME (SEC)    =   0.0000    
-       ELAPSED TOTAL CPU TIME (SEC) =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =  1.00000E-02
        ELAPSED WALLCLOCK TIME (SEC) =          0
  
 
@@ -183,9 +183,9 @@
 
      CHECK POINT  END OF SOLVER       
 
-       ELAPSED USER TIME (SEC)      =  1.00000E-02
+       ELAPSED USER TIME (SEC)      =   0.0000    
        ELAPSED SYSTEM TIME (SEC)    =   0.0000    
-       ELAPSED TOTAL CPU TIME (SEC) =  1.00000E-02
+       ELAPSED TOTAL CPU TIME (SEC) =   0.0000    
        ELAPSED WALLCLOCK TIME (SEC) =          0
 
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
@@ -230,7 +230,7 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =  8.00000E-02
-       SYSTEM TIME (SEC)    =  2.00000E-02
+       USER TIME (SEC)      =  7.00000E-02
+       SYSTEM TIME (SEC)    =  3.00000E-02
        TOTAL CPU TIME (SEC) =  0.10000    
        WALLCLOCK TIME (SEC) =          0

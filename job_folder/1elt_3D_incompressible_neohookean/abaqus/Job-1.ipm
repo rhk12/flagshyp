@@ -12,4 +12,4 @@
 <Status><step type="integer">1</step><increment type="integer">1</increment><attempts type="integer">1</attempts><severe type="integer">0</severe><equilibrium type="integer">4</equilibrium><iterations type="integer">4</iterations><totalTime type="float">1</totalTime><stepTime type="float">1</stepTime><timeIncrement type="float">1</timeIncrement><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">Job-1</jobName></Status>
 <End_Step><stepId type="integer">1</stepId><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">Job-1</jobName></End_Step>
 <Completed><message type="string">Analysis phase complete</message><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">Job-1</jobName></Completed>
-<JOB_COMPLETED><jobName type="string">Job-1</jobName><time type="string">Tue Feb 26 13:36:26 2019</time></JOB_COMPLETED></msgwrapper>
+<JOB_COMPLETED><jobName type="string">Job-1</jobName><time type="string">Tue Feb 26 13:49:56 2019</time></JOB_COMPLETED></msgwrapper>
