@@ -12,4 +12,8 @@ results.dat
 */*/abaqus/*.odb
 */*/abaqus/*.sim
 */*/abaqus/*.sta
-*/*/abaqus.rpy*
+*/*/abaqus/*.prt
+*/*/abaqus/*.rec
+*/*/abaqus/*.inp
+*/*/abaqus.rpy
+*/*/abaqus.rpy.*
