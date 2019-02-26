@@ -58,10 +58,10 @@ for ielement=1:FEM.mesh.nelem
          % KINEMATICS.F
     end
     % compute average F (over gauss points)
-    F_avg_over_gauss_pts= F_avg_over_gauss_pts/QUADRATURE.ngauss
+    F_avg_over_gauss_pts= F_avg_over_gauss_pts/QUADRATURE.ngauss;
   
     %KINEMATICS.b;
-    b_avg = F_avg_over_gauss_pts * F_avg_over_gauss_pts'
+    b_avg = F_avg_over_gauss_pts * F_avg_over_gauss_pts';
    
     % can be used to check calculation
     logm(sqrtm(b_avg));
@@ -81,38 +81,46 @@ for ielement=1:FEM.mesh.nelem
              
            %lnV=log(V_avg);
          
-           
-           if isinf(lnV(1,2)) == 1
-               lnV(1,2)=0;
-           end
-           if isinf(lnV(2,1)) == 1
-               lnV(2,1)=0;
-           end
+%            
+%            if isinf(lnV(1,2)) == 1
+%                lnV(1,2)=0;
+%            end
+%            if isinf(lnV(2,1)) == 1
+%                lnV(2,1)=0;
+%            end
        end
     elseif FEM.mesh.element_type == 'hexa8'
        if QUADRATURE.ngauss == 8 % the 3 is b/c it is the largest e-value from matlab 
-           if isinf(lnV(1,2)) == 1
-               lnV(1,2)=0;
-           end
-           if isinf(lnV(2,1)) == 1
-               lnV(2,1)=0;
-           end
-           if isinf(lnV(1,3)) == 1
-               lnV(1,3)=0;
-           end
-           if isinf(lnV(3,1)) == 1
-               lnV(3,1)=0;
-           end
-           if isinf(lnV(2,3)) == 1
-               lnV(2,3)=0;
-           end
-           if isinf(lnV(3,2)) == 1
-               lnV(3,2)=0;
-           end
+          V=  sqrt(b_e_values(1,1))*b_e_vectors(:,1)*b_e_vectors(:,1)'+ ...
+              sqrt(b_e_values(2,2))*b_e_vectors(:,2)*b_e_vectors(:,2)'+ ...
+              sqrt(b_e_values(3,3))*b_e_vectors(:,3)*b_e_vectors(:,3)';
+           
+           lnV=log(sqrt(b_e_values(1,1)))*b_e_vectors(:,1)*b_e_vectors(:,1)'+ ...
+               log(sqrt(b_e_values(2,2)))*b_e_vectors(:,2)*b_e_vectors(:,2)'+ ...
+               log(sqrt(b_e_values(3,3)))*b_e_vectors(:,3)*b_e_vectors(:,3)';
+           
+%            if isinf(lnV(1,2)) == 1
+%                lnV(1,2)=0;
+%            end
+%            if isinf(lnV(2,1)) == 1
+%                lnV(2,1)=0;
+%            end
+%            if isinf(lnV(1,3)) == 1
+%                lnV(1,3)=0;
+%            end
+%            if isinf(lnV(3,1)) == 1
+%                lnV(3,1)=0;
+%            end
+%            if isinf(lnV(2,3)) == 1
+%                lnV(2,3)=0;
+%            end
+%            if isinf(lnV(3,2)) == 1
+%                lnV(3,2)=0;
+%            end
        end
     end
     %lnV
-    Abaqus_NE= V-eye(GEOM.ndime)
+    Abaqus_NE= V-eye(GEOM.ndime);
  
     
    % fprintf(fid4,'%.5f %.5f %.5f %.5f %.5f %.5f %.5f \n',...
@@ -131,10 +139,8 @@ for ielement=1:FEM.mesh.nelem
        end
     elseif FEM.mesh.element_type == 'hexa8'
        if QUADRATURE.ngauss == 8
-           %fprintf(fid3,'%s%s%s%s%s%.5e %.5e %.5e ',space,space,space,space,space,...
-            %       Green_Strain_Avg(1,1),Green_Strain_Avg(1,2),Green_Strain_Avg(1,3));
-           %fprintf(fid3,'%.5e %.5e %.5e ', Green_Strain_Avg(2,1),Green_Strain_Avg(2,2),Green_Strain_Avg(2,3));
-           %fprintf(fid3,'%.5e %.5e %.5e\n',Green_Strain_Avg(3,1),Green_Strain_Avg(3,2),Green_Strain_Avg(3,3));
+           fprintf(fid3,'%s%s%s%s%s%.10e %.10e %.10e %.10e  %.10e %.10e %.10e  %.10e %.10e\n',space,space,space,space,space,...
+                   lnV(1,1),lnV(1,2), lnV(1,3),lnV(2,1),lnV(2,2), lnV(2,3),lnV(3,1), lnV(3,2),lnV(3,3)); 
        end
     end
     

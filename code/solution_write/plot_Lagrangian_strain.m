@@ -58,7 +58,7 @@ for ielement=1:FEM.mesh.nelem
 %          KINEMATICS.F
         
     end
-    xlocal-x0local
+    %xlocal-x0local
     
     F_avg_over_gauss_pts= F_avg_over_gauss_pts/QUADRATURE.ngauss;
     Green_Strain_Avg = (1./2.)*(F_avg_over_gauss_pts'*F_avg_over_gauss_pts-eye(GEOM.ndime));
@@ -68,10 +68,7 @@ for ielement=1:FEM.mesh.nelem
     
     U_avg=[sqrt(C_e_values(1,1)), 0; 0, sqrt(C_e_values(GEOM.ndime,GEOM.ndime))];
     gradu=F_avg_over_gauss_pts-eye(GEOM.ndime);
-    smalle=.5*(gradu+gradu')
-    
-     %lnU=log(sqrt(C_e_values(1,1)))*C_e_vectors(:,1)*C_e_vectors(:,1)'+ ...
-     %    log(sqrt(C_e_values(2,2)))*C_e_vectors(:,2)*C_e_vectors(:,2)'
+    %smalle=.5*(gradu+gradu')
     
     %lnE=log(Green_Strain_Avg(2,2))
     %KINEMATICS.n;
