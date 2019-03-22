@@ -20,6 +20,8 @@ switch matyp
          Cauchy = stress7(kinematics,properties,dim);
     case 8
          Cauchy = stress8(kinematics,properties,dim);
+    case 9 %Mooney-Rivlin
+         Cauchy = stress9(kinematics,properties,dim);
     case 17
          %-----------------------------------------------------------------
          % Select internal variables at a particular Gauss point (igauss)
