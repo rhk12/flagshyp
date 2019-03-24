@@ -19,7 +19,7 @@ switch matyp
     case 7
          Cauchy = stress7(kinematics,properties,dim);
     case 8
-         Cauchy = stress8(kinematics,properties);
+         Cauchy = stress8(kinematics,properties,dim);
     case 9
          Cauchy = stress9(kinematics,properties,dim);
     case 17
