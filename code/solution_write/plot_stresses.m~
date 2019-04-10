@@ -118,17 +118,23 @@ for ielement=1:FEM.mesh.nelem
            zz = 6;
 
            % xx stress
-           stress_avg(1)=Stress(xx,1);
+           stress_avg(1)=(Stress(xx,1)+Stress(xx,2)+Stress(xx,3)+Stress(xx,4)+...
+           )/8.0;  
            % xy stress
-           stress_avg(2)=Stress(xy,1);   
+           stress_avg(2)=(Stress(xy,1)+Stress(xy,3)+Stress(xy,3)+Stress(xy,4)+...
+                          Stress(xy,5)+Stress(xy,6)+Stress(xy,7)+Stress(xy,8))/8.0;   
            % xz stress
-           stress_avg(3)=Stress(xz,1);   
+           stress_avg(3)=(Stress(xz,1)+Stress(xz,2)+Stress(xz,3)+Stress(xz,4)+...
+                          Stress(xz,5)+Stress(xz,6)+Stress(xz,7)+Stress(xz,8))/8.0;   
            % yy stress
-           stress_avg(4)=Stress(yy,1);
+           stress_avg(4)=(Stress(yy,1)+Stress(yy,2)+Stress(yy,3)+Stress(yy,4)+...
+                          Stress(yy,5)+Stress(yy,6)+Stress(yy,7)+Stress(yy,8))/8.0;
            % yz stress
-           stress_avg(5)=Stress(yz,1);   
+           stress_avg(5)=(Stress(yz,1)+Stress(yz,3)+Stress(yz,3)+Stress(yz,4)+...
+                          Stress(yz,5)+Stress(yz,6)+Stress(yz,7)+Stress(yz,8))/8.0;   
            % zz stress
-           stress_avg(6)=Stress(zz,1);            
+           stress_avg(6)=(Stress(zz,1)+Stress(zz,2)+Stress(zz,3)+Stress(zz,4)+...
+                          Stress(zz,5)+Stress(zz,6)+Stress(zz,7)+Stress(zz,8))/8.0;            
                        
        end
    end

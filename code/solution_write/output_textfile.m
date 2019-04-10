@@ -197,12 +197,16 @@ for ielement=1:FEM.mesh.nelem
                lambda_avg=(KINEMATICS.lambda(2,1)+ KINEMATICS.lambda(2,2)+ ...
                            KINEMATICS.lambda(2,3)+ KINEMATICS.lambda(2,4))/4.0;
            end
-        elseif FEM.mesh.element_type == 'hexa8'
+        elseif GEOM.ndime == 3
            if QUADRATURE.ngauss == 8 % the 3 is b/c it is the largest e-value from matlab 
                lambda_avg=(KINEMATICS.lambda(3,1)+ KINEMATICS.lambda(3,2)+ ...
                            KINEMATICS.lambda(3,3)+ KINEMATICS.lambda(3,4)+...
                            KINEMATICS.lambda(3,5)+ KINEMATICS.lambda(3,6)+ ...
                            KINEMATICS.lambda(3,7)+ KINEMATICS.lambda(3,8))/8.0;
+           end
+           if QUADRATURE.ngauss == 1 % the 3 is b/c it is the largest e-value from matlab 
+               %KINEMATICS.lambda
+               lambda_avg=KINEMATICS.lambda(3,1);
            end
         end
         Abaqus_NE= lambda_avg-1; 

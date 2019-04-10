@@ -114,6 +114,11 @@ elseif FEM.mesh.element_type == 'hexa8'
             info(i,3)-1,info(i,4)-1,info(i,5)-1,info(i,6)-1,...
             info(i,7)-1,info(i,8)-1,info(i,9)-1,info(i,10)-1);
     end
+elseif FEM.mesh.element_type == 'tetr4'
+    for i = 1:FEM.mesh.nelem
+        fprintf(fid3,'%s%s%s%s%s%d %d %d %d \n',space,space,space,space,space,...
+            info(i,3)-1,info(i,4)-1,info(i,5)-1,info(i,6)-1 );
+    end
 end
 
 fprintf(fid3,'%s%s%s%s</DataArray>\n',space,space,space,space);
@@ -137,6 +142,8 @@ for i = 1:FEM.mesh.nelem
         fprintf(fid3,'%s%s%s%s%s%d\n',space,space,space,space,space,9);  % element type = quad
     elseif FEM.mesh.element_type == 'hexa8'
         fprintf(fid3,'%s%s%s%s%s%d\n',space,space,space,space,space,12);  % element type = hex
+    elseif FEM.mesh.element_type == 'tetr4'
+        fprintf(fid3,'%s%s%s%s%s%d\n',space,space,space,space,space,10);  % element type = hex
     end 
 end
 fprintf(fid3,'%s%s%s%s</DataArray>\n',space,space,space,space);

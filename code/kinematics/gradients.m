@@ -7,6 +7,8 @@
 % and their associated principal spatial principal directions (n).
 %--------------------------------------------------------------------------
 function KINEMATICS = gradients(xlocal,Xlocal,DN_chi,QUADRATURE,KINEMATICS) 
+
+
 for igauss=1:QUADRATURE.ngauss
     %----------------------------------------------------------------------
     % Derivative of shape functions with respect to ...
@@ -19,13 +21,18 @@ for igauss=1:QUADRATURE.ngauss
     %----------------------------------------------------------------------
     Dx_chi = xlocal*DN_chi(:,:,igauss)';
     DN_x   = (Dx_chi)'\DN_chi(:,:,igauss);  
-    Jx_chi = abs(det(Dx_chi));      
+    Jx_chi = abs(det(Dx_chi));     
+ 
     %----------------------------------------------------------------------
     % Compute various strain measures.
     %----------------------------------------------------------------------
-    F     = xlocal*DN_X';                 
+    
+    %igauss
+    %xlocal
+    %DN_X'
+    F     = xlocal*DN_X'     ;          
     J     = det(F);            
-    b     = F*F';  
+    b     = F*F';
     Ib    = trace(b);     
     [V,D] = eig(b) ;      
     %----------------------------------------------------------------------

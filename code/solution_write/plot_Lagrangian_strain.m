@@ -45,8 +45,8 @@ for ielement=1:FEM.mesh.nelem
     %----------------------------------------------------------------------
     % Compute stresses at Gauss point level.
     %----------------------------------------------------------------------
-    Stress = stress_output(GEOM.ndime,PLAST_element,matyp,Ve,xlocal,x0local,...
-                           properties,QUADRATURE,CONSTANT,FEM,KINEMATICS,GEOM);    
+    %Stress = stress_output(GEOM.ndime,PLAST_element,matyp,Ve,xlocal,x0local,...
+     %                      properties,QUADRATURE,CONSTANT,FEM,KINEMATICS,GEOM);    
 
     KINEMATICS = gradients(xlocal,x0local,FEM.interpolation.element.DN_chi,...
                           QUADRATURE,KINEMATICS)  ;     
@@ -74,42 +74,23 @@ for ielement=1:FEM.mesh.nelem
     %KINEMATICS.n;
     %KINEMATICS.lambda
     %QUADRATURE.ngauss
-    if FEM.mesh.element_type == 'quad4'
-       if QUADRATURE.ngauss == 4 % the 2 is b/c it is the largest e-value from matlab 
-           lambda_avg=(KINEMATICS.lambda(2,1)+ KINEMATICS.lambda(2,2)+ ...
-                       KINEMATICS.lambda(2,3)+ KINEMATICS.lambda(2,4))/4.0;
-       end
-    elseif FEM.mesh.element_type == 'hexa8'
-       if QUADRATURE.ngauss == 8 % the 3 is b/c it is the largest e-value from matlab 
-           lambda_avg=(KINEMATICS.lambda(3,1)+ KINEMATICS.lambda(3,2)+ ...
-                       KINEMATICS.lambda(3,3)+ KINEMATICS.lambda(3,4)+...
-                       KINEMATICS.lambda(3,5)+ KINEMATICS.lambda(3,6)+ ...
-                       KINEMATICS.lambda(3,7)+ KINEMATICS.lambda(3,8))/8.0;
-       end
-    end
-   
-    
-   % fprintf(fid4,'%.5f %.5f %.5f %.5f %.5f %.5f %.5f \n',...
-   %   xlocal(2,3)-x0local(2,3),Green_Strain_Avg(2,2),log(U_avg(2,2)),smalle(2,2),Abaqus_NE,lnV,stress_avg(3));
- % xlocal;
-
        
     %----------------------------------------------------------------------
     % Print Green Strain.
     %----------------------------------------------------------------------   
-    if FEM.mesh.element_type == 'quad4'
-       if QUADRATURE.ngauss == 4
+    if GEOM.ndime == 2
+       %if QUADRATURE.ngauss == 4
            fprintf(fid3,'%s%s%s%s%s%.10e %.10e ',space,space,space,space,space,...
                    Green_Strain_Avg(1,1),Green_Strain_Avg(1,2));
            fprintf(fid3,'%.10e %.10e\n',Green_Strain_Avg(2,1),Green_Strain_Avg(2,2));
-       end
-    elseif FEM.mesh.element_type == 'hexa8'
-       if QUADRATURE.ngauss == 8
+       %end
+    elseif GEOM.ndime == 3
+       %if QUADRATURE.ngauss == 8
            fprintf(fid3,'%s%s%s%s%s%.5e %.5e %.5e ',space,space,space,space,space,...
                    Green_Strain_Avg(1,1),Green_Strain_Avg(1,2),Green_Strain_Avg(1,3));
            fprintf(fid3,'%.5e %.5e %.5e ', Green_Strain_Avg(2,1),Green_Strain_Avg(2,2),Green_Strain_Avg(2,3));
            fprintf(fid3,'%.5e %.5e %.5e\n',Green_Strain_Avg(3,1),Green_Strain_Avg(3,2),Green_Strain_Avg(3,3));
-       end
+       %end
     end
     
  

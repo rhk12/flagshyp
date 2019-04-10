@@ -58,8 +58,11 @@ switch element_type
          DN_chi = [[ -((eta - 1)*(iota - 1))/8, ((eta - 1)*(iota - 1))/8, ((eta + 1)*(iota - 1))/8, -((eta + 1)*(iota - 1))/8, ((eta - 1)*(iota + 1))/8, -((eta - 1)*(iota + 1))/8, -((eta + 1)*(iota + 1))/8, ((eta + 1)*(iota + 1))/8]
                    [ -((chi - 1)*(iota - 1))/8, ((chi + 1)*(iota - 1))/8, ((chi - 1)*(iota - 1))/8, -((chi + 1)*(iota - 1))/8, ((chi - 1)*(iota + 1))/8, -((chi + 1)*(iota + 1))/8, -((chi - 1)*(iota + 1))/8, ((chi + 1)*(iota + 1))/8]
                    [  -((chi - 1)*(eta - 1))/8,  ((chi + 1)*(eta - 1))/8,  ((chi - 1)*(eta + 1))/8,  -((chi + 1)*(eta + 1))/8,  ((chi - 1)*(eta - 1))/8,  -((chi + 1)*(eta - 1))/8,  -((chi - 1)*(eta + 1))/8,  ((chi + 1)*(eta + 1))/8]];
-         interpolation.N = N([1 2 4 3 5 6 8 7]);
-         %interpolation.N = N;
-         interpolation.DN_chi = DN_chi(:,[1 2 4 3 5 6 8 7]);
+         %interpolation.N = N([1 2 4 3 5 6 8 7]) % this is orginal
+         interpolation.N = N([5 6 8 7 1 2 4 3]) ;% for FemTech
+         %interpolation.N = N
+         %interpolation.DN_chi = DN_chi(:,[1 2 4 3 5 6 8 7]) % this is orginal
+         interpolation.DN_chi = DN_chi(:,[5 6 8 7 1 2 4 3]); % for FemTech
          %interpolation.DN_chi = DN_chi;
+         
 end

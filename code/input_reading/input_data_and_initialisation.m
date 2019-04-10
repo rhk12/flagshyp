@@ -7,7 +7,7 @@
 %  pressure component.
 %-------------------------------------------------------------------------- 
 function [PRO,FEM,GEOM,QUADRATURE,BC,MAT,LOAD,CON,CONSTANT,GLOBAL,...
-          PLAST,KINEMATICS] = input_data_and_initialisation(basedir_fem,ansmlv,inputfile)
+          PLAST,KINEMATICS] = input_data_and_initialisation(basedir_fem,ansmlv,inputfile,explicit)
 %--------------------------------------------------------------------------
 % Welcomes the user and determines whether the problem is being
 % restarted or a data file is to be read.
@@ -33,8 +33,10 @@ if( ~ PRO.rest )
     % Initialises kinematic variables and compute initial tangent matrix 
     % and equivalent force vector, excluding pressure component.
     %----------------------------------------------------------------------
+
     [GEOM,LOAD,GLOBAL,PLAST,KINEMATICS] = ...
-     initialisation(FEM,GEOM,QUADRATURE,MAT,LOAD,CONSTANT,CON,GLOBAL);                                           
+     initialisation(FEM,GEOM,QUADRATURE,MAT,LOAD,CONSTANT,CON,GLOBAL,explicit);   
+  
     %----------------------------------------------------------------------
     % Save into restart file.
     %----------------------------------------------------------------------

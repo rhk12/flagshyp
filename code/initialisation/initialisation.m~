@@ -63,18 +63,11 @@ GLOBAL.nominal_pressure = zeros(FEM.mesh.n_dofs,1);
 % residual vector due to the internal contributions 
 % (external contributions will be added later on). 
 %--------------------------------------------------------------------------  
-
 [GLOBAL,PLAST] = residual_and_stiffness_assembly(CON.xlamb,GEOM,MAT,FEM,GLOBAL,...
                                                  CONSTANT,QUADRATURE.element,PLAST,KINEMATICS);
-                                             
-
-
 if(explicit ==1)     
-    
-    [GLOBAL] = mass_assembly(CON.xlamb,GEOM,MAT,FEM,GLOBAL,...
+    [GLOBAL,PLAST] = mass_assembly(CON.xlamb,GEOM,MAT,FEM,GLOBAL,...
                                                  CONSTANT,QUADRATURE.element,PLAST,KINEMATICS);
 end
-
-
 end
 

@@ -48,20 +48,15 @@ addpath((fullfile(basedir_fem,'job_folder')));
 % -Initialises kinematic variables and internal variables.
 % -Compute initial tangent matrix and equivalent force vector, excluding
 %  pressure component.
-global explicit; 
-explicit = 1;
-
 %-------------------------------------------------------------------------- 
 [PRO,FEM,GEOM,QUADRATURE,BC,MAT,LOAD,CON,CONSTANT,...
- GLOBAL,PLAST,KINEMATICS] = input_data_and_initialisation(basedir_fem,ansmlv,inputfile,explicit);
+ GLOBAL,PLAST,KINEMATICS] = input_data_and_initialisation(basedir_fem,ansmlv,inputfile);
 %--------------------------------------------------------------------------
 % SECTION 3
 %--------------------------------------------------------------------------
 % Choose incremental algorithm.  
 %--------------------------------------------------------------------------
-
-
-if (abs(CON.ARCLEN.arcln)==0 && explicit == 0)  
+if (abs(CON.ARCLEN.arcln)==0)  
     if ~CON.searc 
        Newton_Raphson_algorithm(PRO,FEM,GEOM,QUADRATURE,BC,MAT,LOAD,CON,...
                                 CONSTANT,GLOBAL,PLAST,KINEMATICS);
@@ -69,11 +64,9 @@ if (abs(CON.ARCLEN.arcln)==0 && explicit == 0)
         Line_Search_Newton_Raphson_algorithm(PRO,FEM,GEOM,QUADRATURE,BC,...
                                 MAT,LOAD,CON,CONSTANT,GLOBAL,PLAST,KINEMATICS); 
      end
-elseif(explicit == 0) 
+ else
         Arc_Length_Newton_Raphson_algorithm(PRO,FEM,GEOM,QUADRATURE,BC,...
                                 MAT,LOAD,CON,CONSTANT,GLOBAL,PLAST,KINEMATICS);
-else ExplicitDynamics_algorithm(PRO,FEM,GEOM,QUADRATURE,BC,MAT,LOAD,CON,...
-                                CONSTANT,GLOBAL,PLAST,KINEMATICS);
 end
 
 

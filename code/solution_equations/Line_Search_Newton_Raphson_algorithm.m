@@ -3,6 +3,9 @@
 %--------------------------------------------------------------------------
 function Line_Search_Newton_Raphson_algorithm(PRO,FEM,GEOM,QUADRATURE,BC,...
          MAT,LOAD,CON,CONSTANT,GLOBAL,PLAST,KINEMATICS)
+     
+ 
+     
 %--------------------------------------------------------------------------
 % Starts the load increment loop.
 %--------------------------------------------------------------------------
