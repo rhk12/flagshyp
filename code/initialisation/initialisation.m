@@ -32,6 +32,8 @@ GLOBAL.external_load = zeros(FEM.mesh.n_dofs,1);
 
 % Define velocity and accelerations for explicit method;
 if (explicit == 1)
+   % GLOBAL.velocities = zeros(GEOM.npoin,GEOM.ndime);
+   % GLOBAL.accelerations = zeros(GEOM.npoin,GEOM.ndime);
     GLOBAL.velocities = zeros(FEM.mesh.n_dofs,1);
     GLOBAL.accelerations = zeros(FEM.mesh.n_dofs,1);
 end

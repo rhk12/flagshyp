@@ -17,6 +17,9 @@ function FLagSHyP(ansmlv,inputfile)
 
 if nargin ~= 2
     error("requires two input arguments; e.g.: FLagSHyP('y','1elt_3d.dat')");
+    error("y is for restart, 1elt_3d.dat referrs to input data file.");
+    error("Note that your working directory must be named similar to ");
+    error("input data file and you must be in that directory.");
 end
 
 %clear all;close all;clc   

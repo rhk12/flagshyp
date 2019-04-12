@@ -19,6 +19,7 @@ if (~PRO.rest && CON.incrm==1)
 end
 
 string2=sprintf('results.dat');
+
 fid4= fopen(string2,string);
 
 if (~PRO.rest && CON.incrm==1)

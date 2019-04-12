@@ -3,7 +3,7 @@
 % matrix except surface (line) element pressure contributions.
 %--------------------------------------------------------------------------
 function [GLOBAL,updated_PLAST] = getForce_explicit(xlamb,...
-          GEOM,MAT,FEM,GLOBAL,CONSTANT,QUADRATURE,PLAST,KINEMATICS)    
+          GEOM,MAT,FEM,GLOBAL,CONSTANT,QUADRATURE,PLAST,KINEMATICS,BC)    
 %--------------------------------------------------------------------------
 % Initialisation of the updated value of the internal variables.
 %--------------------------------------------------------------------------
@@ -68,7 +68,15 @@ end
 %--------------------------------------------------------------------------
 % Compute global residual force vector except pressure contributions.
 %--------------------------------------------------------------------------
+% GLOBAL.Residual = GLOBAL.T_int - GLOBAL.external_load;
+
+
+% equ. 6.3.3. defines the residual as f_int - f_ext, but algorithm in  
+% in box 6.1 gives f_n = f_ext - f_int ... 
 GLOBAL.Residual = GLOBAL.T_int - GLOBAL.external_load;
+GLOBAL.Reactions = GLOBAL.Residual(BC.fixdof) + GLOBAL.external_load(BC.fixdof);
+
+
 end
 
  
