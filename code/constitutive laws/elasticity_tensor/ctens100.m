@@ -2,7 +2,7 @@
 % Evaluates the constitutive tensor (in Voigt notation) for material type 100.
 %--------------------------------------------------------------------------
 
-function c = ctens1(kinematics,properties,cons)
+function c = ctens100(kinematics,properties,cons)
 
 mu_1         = properties(2);
 mu_2         = properties(3);
