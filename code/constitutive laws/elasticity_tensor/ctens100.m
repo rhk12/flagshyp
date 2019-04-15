@@ -6,20 +6,14 @@ function c = ctens1(kinematics,properties,cons)
 
 mu_1         = properties(2);
 mu_2         = properties(3);
-I_1
-I_2
+kappa        = properties(4)
 J            = kinematics.J;
 F            = kinematics.F;
-kappa        =
-B            = F*transpose(F);
-
-
-
-lambda_    = lambda/J;
-
-mu_        = (mu - lambda*log(J))/J;
-
-c          = lambda_*cons.IDENTITY_TENSORS.c1 + mu_*cons.IDENTITY_TENSORS.c2;
+C            = transpose(F)*F;
+I_1          = trace(C);
+I_2          = 0.5*(trace(C)^2-trace(C^2));
+Fbar         = J^(-1/3)*F; 
+B            = Fbar*transpose(Fbar); %note that this is actually B_bar
 
 c_vol=0;
 c_iso=0;
