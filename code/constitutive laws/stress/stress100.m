@@ -4,8 +4,8 @@
 function Cauchy = stress18(kinematics,properties)
 
 mu_1            = properties(2);
-mu_2            = properties(4);
-kappa           = properties(3);
+mu_2            = properties(3);
+kappa           = properties(4);
 F               = kinematics.F;
 J               = kinematics.J;
 Iden            = eye(length(J),length(J));
