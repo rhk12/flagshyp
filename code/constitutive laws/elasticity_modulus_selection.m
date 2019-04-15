@@ -29,6 +29,6 @@ switch matyp
          plast_gauss.OLD.epbar = PLAST.epbar(igauss);   
          c_tensor = ctens17(kinematics,properties,dimension,plast_gauss);
      case 100
-         c_tensor=ctens100(
+         c_tensor=ctens100(kinematics,properties,dimension);
 end  
 
