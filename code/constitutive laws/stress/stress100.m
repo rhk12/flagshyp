@@ -22,4 +22,4 @@ tau_combined    = tau_vol+tau_iso;
 
 % Convert Kirchhoff Stress to Cauchy Stress
 
-Cauchy          = inv(J)*tau_combined;
+Cauchy          = inv(J)*F*tau_combined*transpose(F);
