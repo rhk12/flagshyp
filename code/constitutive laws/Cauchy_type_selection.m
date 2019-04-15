@@ -31,6 +31,8 @@ switch matyp
                                  PLAST_gauss);
          PLAST                 = plasticity_update(PLAST_gauss.UPDATED,...
                                  PLAST,igauss,matyp);
+    case 100
+         Cauchy = stress100(kinematics, properties);
 end
 
 
