@@ -14,6 +14,8 @@ switch matyp
          c_tensor = ctens4(kinematics,properties,dimension);
     case 5
          c_tensor = ctens5(kinematics,properties,cons,dimension);
+    case 50
+         c_tensor = ctens50(kinematics,properties,cons,dimension);
     case 6
          c_tensor = ctens6(kinematics,properties,cons);
     case 7
