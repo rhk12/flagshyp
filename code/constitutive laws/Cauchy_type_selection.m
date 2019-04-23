@@ -14,6 +14,8 @@ switch matyp
          Cauchy = stress4(kinematics,properties,dim);
     case 5
          Cauchy = stress5(kinematics,properties,cons,dim);
+    case 50
+         Cauchy = stress50(kinematics,properties,cons,dim);
     case 6
          Cauchy = stress6(kinematics,properties,cons);
     case 7
