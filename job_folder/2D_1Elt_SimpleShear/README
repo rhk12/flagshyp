@@ -1,1 +1,5 @@
 corresponds to example 4.8 in bonet and wood
+
+To Run: 
+
+FLagSHyP('y','2D_1Elt_SimpleShear.dat')

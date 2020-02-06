@@ -23,8 +23,9 @@ for igauss=1:QUADRATURE.ngauss
     %----------------------------------------------------------------------
     % Compute various strain measures.
     %----------------------------------------------------------------------
-    F     = xlocal*DN_X';                 
-    J     = det(F);            
+    F     = xlocal*DN_X';                
+    J     = det(F);  
+    C     = F'*F;
     b     = F*F';  
     Ib    = trace(b);     
     [V,D] = eig(b) ;      

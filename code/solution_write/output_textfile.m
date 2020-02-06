@@ -172,7 +172,9 @@ for ielement=1:FEM.mesh.nelem
         end
         % xlocal
         F_avg_over_gauss_pts= F_avg_over_gauss_pts/QUADRATURE.ngauss;
-        Green_Strain_Avg = (1./2.)*(F_avg_over_gauss_pts'*F_avg_over_gauss_pts-eye(GEOM.ndime));
+        Green_Strain_Avg = (1./2.)*(F_avg_over_gauss_pts'*F_avg_over_gauss_pts-eye(GEOM.ndime))
+        b_avg = F_avg_over_gauss_pts*F_avg_over_gauss_pts';
+        Eulerian_Strain_Avg = (1./2.)*( eye(GEOM.ndime) - inv(b_avg));
         %Green_Strain_Avg(2,2);
 
         C_avg=F_avg_over_gauss_pts'* F_avg_over_gauss_pts;
