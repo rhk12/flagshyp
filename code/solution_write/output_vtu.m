@@ -160,6 +160,7 @@ for i = 1:GEOM.npoin
     if GEOM.ndime == 2
         fprintf(fid3,'%s%s%s%s%s%.10e %.10e %.10e\n',space,space,space,space,space,...
             info3(i,3)-info2(i,3),info3(i,4)-info2(i,4),0.0);
+        
     elseif GEOM.ndime == 3
         fprintf(fid3,'%s%s%s%s%s%.10e %.10e %.10e\n',space,space,space,space,space,...
             info3(i,3)-info2(i,3),info3(i,4)-info2(i,4),info3(i,5)-info2(i,5)); 
