@@ -208,7 +208,7 @@ for ielement=1:FEM.mesh.nelem
            end
         end
         Abaqus_NE= lambda_avg-1; 
-        lnV=log(lambda_avg)
+        lnV=log(lambda_avg);
         %log(lambda_avg);
 
 

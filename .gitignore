@@ -1,6 +1,7 @@
 *.vtu
 *RESTART.MAT
 results.dat
+*/*/*.dat~
 *-OUTPUT.txt
 *-OUTPUT_FLAGOUT.txt
 */*/abaqus/*.com
