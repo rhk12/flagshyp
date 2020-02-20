@@ -3,6 +3,7 @@
 results.dat
 */*/*.dat~
 *-OUTPUT.txt
+*-results.txt
 *-OUTPUT_FLAGOUT.txt
 */*/abaqus/*.com
 */*/abaqus/*.dat
