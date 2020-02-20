@@ -34,18 +34,6 @@ fprintf(fid3,'%s<UnstructuredGrid>\n',space);
 fprintf(fid3,'%s%s<Piece NumberOfPoints="%d" NumberOfCells="%d">\n',...
     space,space,GEOM.npoin, FEM.mesh.nelem);
 
-
-%--------------------------------------------------------------------------
-% Print element type. 
-%--------------------------------------------------------------------------
-% fprintf(fid,'%c',FEM.mesh.element_type);
-% fprintf(fid,'\n');
-%--------------------------------------------------------------------------
-% Print number of nodes.
-%--------------------------------------------------------------------------
-% fprintf(fid,'%d',GEOM.npoin);
-% fprintf(fid,'\n');
-%fprintf(fid3,'POINTS %d FLOAT\n',GEOM.npoin);
 %--------------------------------------------------------------------------
 % Print boundary codes, coordinates, reactions and external loads.
 %--------------------------------------------------------------------------
@@ -147,11 +135,6 @@ fprintf(fid3,'%s%s%s</Cells>\n',space,space,space);
 %--------------------------------------------------------------------------
 
 % dispacements
-% fprintf(fid3,'POINT_DATA %d\n',GEOM.npoin);
-% fprintf(fid3,'VECTORS DISP FLOAT\n');
-% for i = 1:GEOM.npoin
-%     fprintf(fid3,'%.10e %.10e %.10e\n',info3(i,3)-info2(i,3),info3(i,4)-info2(i,4),0.0);
-% end
 fprintf(fid3,'%s%s%s<PointData>\n',space,space,space);
 
 fprintf(fid3,'%s%s%s%s<DataArray type="Float32" Name="Disp" NumberOfComponents="3" ComponentName0="x" ComponentName1="y" ComponentName2="z" format="ascii">\n',...
@@ -178,6 +161,52 @@ end
 fprintf(fid3,'%s%s%s%s</DataArray>\n',space,space,space,space);
 
 
+
+
+if (CON.incrm==0)
+    %GLOBAL
+    if GEOM.ndime == 2
+        fprintf(fid3,'%s%s%s%s<DataArray type="Float32" Name="Reactions" NumberOfComponents="2" ComponentName0="x" ComponentName1="y" format="ascii">\n',...
+            space,space,space,space);
+        for i = 1:GEOM.npoin
+            %     fprintf(fid3,'%s%s%s%s%s%d\n',space,space,space,space,space,GLOBAL.Reactions(2*i+0),GLOBAL.Reactions(2*i+1));
+            fprintf(fid3,'%s%s%s%s%s%0.10e %0.10e\n',space,space,space,space,space,0.0, 0.0);
+        end
+    elseif GEOM.ndime == 3
+        fprintf(fid3,'%s%s%s%s<DataArray type="Float32" Name="Reactions" NumberOfComponents="3" ComponentName0="x" ComponentName1="y" ComponentName2="z" format="ascii">\n',...
+            space,space,space,space);
+        for i = 1:GEOM.npoin
+            % fprintf(fid3,'%s%s%s%s%s%d\n',space,space,space,space,space,GLOBAL.Reactions(3*i+0),GLOBAL.Reactions(3*i+1),GLOBAL.Reactions(3*i+2));
+            fprintf(fid3,'%s%s%s%s%s%0.10e %0.10e %0.10e\n',space,space,space,space,space,0.0,0.0,0.0);
+        end
+    end
+else
+    %GLOBAL.Reactions
+    aux(BC.fixdof)            =  GLOBAL.Reactions;
+    %aux(BC.freedof)           =  GLOBAL.external_load(BC.freedof)
+    %aux                       =  reshape(aux,GEOM.ndime,[])
+    
+    %aux(1,1)
+    
+    if GEOM.ndime == 2
+        fprintf(fid3,'%s%s%s%s<DataArray type="Float32" Name="Reactions" NumberOfComponents="2" ComponentName0="x" ComponentName1="y" format="ascii">\n',...
+                space,space,space,space);
+        for i = 1:GEOM.npoin
+       %     fprintf(fid3,'%s%s%s%s%s%d\n',space,space,space,space,space,GLOBAL.Reactions(2*i+0),GLOBAL.Reactions(2*i+1));
+             fprintf(fid3,'%s%s%s%s%s%0.10e %0.10e\n',space,space,space,space,space,aux(1,i), aux(2,i));
+        end
+    elseif GEOM.ndime == 3
+        fprintf(fid3,'%s%s%s%s<DataArray type="Float32" Name="Reactions" NumberOfComponents="3" ComponentName0="x" ComponentName1="y" ComponentName2="z" format="ascii">\n',...
+                space,space,space,space);
+        for i = 1:GEOM.npoin
+           % fprintf(fid3,'%s%s%s%s%s%d\n',space,space,space,space,space,GLOBAL.Reactions(3*i+0),GLOBAL.Reactions(3*i+1),GLOBAL.Reactions(3*i+2));
+             fprintf(fid3,'%s%s%s%s%s%0.10e %0.10e %0.10e\n',space,space,space,space,space,aux(1,i), aux(2,i), aux(3,i));
+        end
+    end
+end
+fprintf(fid3,'%s%s%s%s</DataArray>\n',space,space,space,space);
+
+    
 fprintf(fid3,'%s%s%s</PointData>\n',space,space,space);
 
 

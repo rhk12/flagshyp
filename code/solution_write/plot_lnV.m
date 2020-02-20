@@ -64,7 +64,7 @@ for ielement=1:FEM.mesh.nelem
     b_avg = F_avg_over_gauss_pts * F_avg_over_gauss_pts';
    
     % can be used to check calculation
-    logm(sqrtm(b_avg));
+    %logm(sqrtm(b_avg));
     
     [b_e_vectors,b_e_values] = eig(b_avg);
 
