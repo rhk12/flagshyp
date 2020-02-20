@@ -11,8 +11,8 @@ PLAST = updated_PLAST;
 %--------------------------------------------------------------------------
 %  MATLAB save of converged solution, overwriting previous results.
 %--------------------------------------------------------------------------
-save_restart_file(PRO,FEM,GEOM,QUADRATURE,BC,MAT,LOAD,CON,CONSTANT,...
-                  GLOBAL,PLAST,KINEMATICS,'internal')
+%save_restart_file(PRO,FEM,GEOM,QUADRATURE,BC,MAT,LOAD,CON,CONSTANT,...
+%                  GLOBAL,PLAST,KINEMATICS,'internal')
 %--------------------------------------------------------------------------
 %  MATLAB save of converged solution every CON.OUTPUT.incout increments.
 %--------------------------------------------------------------------------

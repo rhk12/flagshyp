@@ -56,10 +56,11 @@ if ( PRO.resultsfile_name == "nonlinear_solid_truss_elastic_2D-results.txt" )
     n3 = 4;
     outdisp = info3(n1,n1dof);
     %-info2(n1,n1dof);
-    xl = info2(n1,1+2)-info2(n3,1+2);
-    yl = info2(n1,2+2)-info2(n3,2+2);
-    len0 = sqrt(xl^2 + yl^2);
-    fprintf(fid4,'%d %.10e %.10e\n',CON.incrm,-(info3(n1,n1dof+2))/len0,aux(n2dof,n2));
+    xl = info2(n1,1)
+    %-info2(n3,1)
+    yl = info2(n1,2)-info2(n3,2);
+    len0 = sqrt(xl^2 + yl^2)
+    fprintf(fid4,'%d %.10e %.10e\n',CON.incrm,(info3(n1,n1dof)-info2(n1,n1dof))/len0,aux(n2dof,n2));
     
 else
     n1=1;
