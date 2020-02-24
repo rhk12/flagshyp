@@ -1,6 +1,6 @@
 
 % Read Flagshyp file
-file=fopen('nonlinear_solid_truss_plastic_3D-results.txt','r');
+file=fopen('nonlinear_solid_truss_elastic_2D-results.txt','r');
 formatSpec = '%e %e %e';
 sizeA = [3 inf ];
 A = fscanf(file,formatSpec,sizeA);

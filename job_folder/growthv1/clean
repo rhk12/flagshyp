@@ -1,0 +1,6 @@
+rm *RESTART.MAT
+rm *OUTPUT.txt
+rm *OUTPUT_FLAGOUT.txt
+rm *.vtu
+rm *.vtk
+rm results.dat

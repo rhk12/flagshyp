@@ -47,19 +47,36 @@ aux(BC.fixdof)            =  GLOBAL.Reactions;
 
 %output nodes according to job name. 
 if ( PRO.resultsfile_name == "nonlinear_solid_truss_elastic_2D-results.txt" )
-    n1=3; % this is top node where we extract information on disp
-    n1dof = 2;   
-    %node which has reacton force . 
-    n2 = 1;
-    n2dof = 2;
+    n1=3; % %2D  this is top node where we extract information on disp
+    n1dof = 2;  %2D   
+    %node which has reacton force is extracted . 
+    n2 = 1; %2D   
+    n2dof = 2;%2D   
     % bottom node we will use for computing length.
-    n3 = 4;
+    n3 = 4;%2D   
     outdisp = info3(n1,n1dof);
     %-info2(n1,n1dof);
     xl = info2(n1,1+2)-info2(n3,1+2);
     yl = info2(n1,2+2)-info2(n3,2+2);
     len0 = sqrt(xl^2 + yl^2);
-    fprintf(fid4,'%d %.10e %.10e\n',CON.incrm,-(info3(n1,n1dof+2))/len0,aux(n2dof,n2));
+    fprintf(fid4,'%d %.10e %.10e\n',CON.incrm,-(info3(n1,n1dof+2))/len0,aux(n2dof,n2)/(1*0.7071));
+    
+elseif ( PRO.resultsfile_name == "nonlinear_solid_truss_plastic_3D-results.txt" )
+    n1=2; % this is top node where we extract information on disp
+    n1dof = 3;   
+    %node which has reacton force is extracted . 
+    n2 =4;
+    n2dof = 3;
+    % bottom node we will use for computing length.
+    n3 = 1;
+    outdisp = info3(n1,n1dof);
+    %-info2(n1,n1dof);
+    xl = info2(n1,1+2)-info2(n3,1+2);
+    zl = info2(n1,3+2)-info2(n3,3+2);
+    len0 = sqrt(xl^2 + zl^2);
+    youngs = 210000;
+    area = 0.7071;
+    fprintf(fid4,'%d %.10e %.10e\n',CON.incrm,-(info3(n1,n1dof+2))/len0,aux(n2dof,n2)/(youngs*area));
     
 else
     n1=1;
