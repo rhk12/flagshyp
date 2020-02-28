@@ -1,0 +1,1 @@
+matlab -nodisplay -nosplash  -nodesktop -r  "FLagSHyP('y','plane_strain_nearly_incompressible_strip.dat');exit"
