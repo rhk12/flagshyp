@@ -76,7 +76,6 @@ else
                                 CONSTANT,GLOBAL,PLAST,KINEMATICS);
 end
 
-
 end
 %--------------------------------------------------------------------------
 % End of Master m-File.
