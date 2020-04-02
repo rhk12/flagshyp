@@ -18,5 +18,14 @@ results.dat
 */*/abaqus/*.rec
 */*/abaqus/*.inp
 */*/abaqus/*.nfs*
-*/*/abaqus.rpy
-*/*/abaqus.rpy.*
+*/*/abaqus/abaqus.rpy
+*/*/abaqus/abaqus.rpy.*
+*/*/abaqus/*.abq
+*/*/abaqus/*.mdl
+*/*/abaqus/*.pac
+*/*/abaqus/*.res
+*/*/abaqus/*.sel
+*/*/abaqus/*.stt
+*/*/*/abaqus.rpy
+*/*/*/abaqus.rpy.*
+
