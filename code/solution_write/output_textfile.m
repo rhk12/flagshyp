@@ -10,7 +10,7 @@ string='a';
 
 if (~PRO.rest && CON.incrm==1)
     string='w';
-    system('rm results.dat');
+    system('rm *-results.dat');
 end
 
 %string2=sprintf('results.dat');
@@ -77,7 +77,30 @@ elseif ( PRO.resultsfile_name == "nonlinear_solid_truss_plastic_3D-results.txt" 
     youngs = 210000;
     area = 0.7071;
     fprintf(fid4,'%d %.10e %.10e\n',CON.incrm,-(info3(n1,n1dof+2))/len0,aux(n2dof,n2)/(youngs*area));
-    
+elseif(PRO.resultsfile_name == "growthv1-results.txt" )
+    for ielement=1:FEM.mesh.nelem
+        %----------------------------------------------------------------------
+        % Temporary variables associated with a particular element
+        % ready for stress or strain output calculation.
+        %----------------------------------------------------------------------
+        global_nodes    = FEM.mesh.connectivity(:,ielement); 
+        material_number = MAT.matno(ielement);               
+        matyp           = MAT.matyp(material_number);        
+        properties      = MAT.props(:,material_number);      
+        xlocal          = GEOM.x(:,global_nodes);            
+        x0local         = GEOM.x0(:,global_nodes);               
+        Ve              = GEOM.Ve(ielement); 
+        % extract kinematics structure 
+        format short
+        KINEMATICS = gradients(xlocal,x0local,FEM.interpolation.element.DN_chi,...
+                              QUADRATURE,KINEMATICS)  ;
+        F=KINEMATICS.F;
+        F(1,1,1);
+        if (ielement == 4) 
+            fprintf(fid4,'%d %.10e %.10e %.10e %.10e\n',CON.incrm,F(1,1,1),F(1,2,1),F(2,1,1),F(2,2,1));
+        end
+    end % end for loop on ielement.
+      
 else
     n1=1;
     n1dof =1;

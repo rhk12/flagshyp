@@ -1,0 +1,390 @@
+# -*- coding: mbcs -*-
+#
+# Abaqus/CAE Release 2017 replay file
+# Internal Version: 2016_09_27-17.54.59 126836
+# Run by rhk12 on Thu Apr  2 12:35:53 2020
+#
+
+# from driverUtils import executeOnCaeGraphicsStartup
+# executeOnCaeGraphicsStartup()
+#: Executing "onCaeGraphicsStartup()" in the site directory ...
+from abaqus import *
+from abaqusConstants import *
+session.Viewport(name='Viewport: 1', origin=(0.0, 0.0), width=240.166366577148, 
+    height=132.517562866211)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].maximize()
+from caeModules import *
+from driverUtils import executeOnCaeStartup
+executeOnCaeStartup()
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=ON)
+openMdb(
+    pathName='/storage/work/r/rhk12/classes/me563/flagshyp/job_folder/explicit_100elt_3D/abaqus/model.cae')
+#: The model database "/storage/work/r/rhk12/classes/me563/flagshyp/job_folder/explicit_100elt_3D/abaqus/model.cae" has been opened.
+session.viewports['Viewport: 1'].setValues(displayedObject=None)
+p = mdb.models['Model-1'].parts['Part-1']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+#--- Recover file: 'model.rec' ---
+# -*- coding: mbcs -*- 
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['Model-1'].boundaryConditions['BC-4'].setValues(u3=-0.1)
+mdb.models['Model-1'].amplitudes['Amp-1'].setValues(data=((0.0, 0.0), (0.1, 
+    1.0)), smooth=SOLVER_DEFAULT, timeSpan=STEP)
+mdb.models['Model-1'].steps['Step-1'].setValues(timePeriod=0.1)
+mdb.jobs['Job-1'].submit(consistencyChecking=OFF)
+mdb.jobs['Job-1']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'comp-ic-0004.acii.production.int.aci.ics.psu.edu', 
+    'handle': 0, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'INITIAL POISSONS RATIO (PR0) FOR THE HYPERELASTIC MATERIAL IS ZERO OR NEGATIVE: PR0 = -1.0000.  IT IS GENERALLY RECOMMENDED THAT SINGLE ELEMENT MODELS BE USED TO VERIFY THAT THE CHOSEN MATERIAL CONSTANTS LEAD TO A WELL DEFINED HYPERELASTIC MATERIAL.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG STRAIN) WILL BE OUTPUT INSTEAD.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'THE OPTION *BOUNDARY,TYPE=DISPLACEMENT HAS BEEN USED; CHECK STATUS FILE BETWEEN STEPS FOR WARNINGS ON ANY JUMPS PRESCRIBED ACROSS THE STEPS IN DISPLACEMENT VALUES OF TRANSLATIONAL DOF. FOR ROTATIONAL DOF MAKE SURE THAT THERE ARE NO SUCH JUMPS. ALL JUMPS IN DISPLACEMENTS ACROSS STEPS ARE IGNORED', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'Boundary conditions are specified on inactive dof of 1 nodes. The nodes have been identified in node set WarnNodeBCInactiveDof.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STARTED, {'phase': PACKAGER_PHASE, 
+    'clientHost': 'comp-ic-0004.acii.production.int.aci.ics.psu.edu', 
+    'handle': 0, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(WARNING, {'phase': PACKAGER_PHASE, 
+    'message': 'There are 8 warning messages in the data (.dat) file.  Please check the data file for possible errors in the input file.', 
+    'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(COMPLETED, {'phase': PACKAGER_PHASE, 
+    'message': 'Phase complete', 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STARTED, {'phase': EXPLICIT_PHASE, 
+    'clientHost': 'comp-ic-0004.acii.production.int.aci.ics.psu.edu', 
+    'handle': 0, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0, 
+    'stableTimeIncrement': 3.57560247721267e-06, 'stepTime': 0.0, 
+    'totalEnergy': 0.487500131130219, 'cpuTime': 0.0200000107288361, 
+    'jobName': 'Job-1', 'step': 1, 'increment': 0, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 0.487500131130219})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 'step': 0, 
+    'frame': 0, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.005002336576581, 
+    'stableTimeIncrement': 3.42093312610814e-06, 'stepTime': 0.005002336576581, 
+    'totalEnergy': 74439.0859375, 'cpuTime': 0.519999980926514, 
+    'jobName': 'Job-1', 'step': 1, 'increment': 1430, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 9.07699203491211})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 'step': 0, 
+    'frame': 1, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0100022004917264, 
+    'stableTimeIncrement': 3.40429164680245e-06, 
+    'stepTime': 0.0100022004917264, 'totalEnergy': 74438.9375, 
+    'cpuTime': 1.04999995231628, 'jobName': 'Job-1', 'step': 1, 
+    'increment': 2897, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 11.3188447952271})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 'step': 0, 
+    'frame': 2, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0150026567280293, 
+    'stableTimeIncrement': 3.42867861036211e-06, 
+    'stepTime': 0.0150026567280293, 'totalEnergy': 74438.96875, 
+    'cpuTime': 1.5699999332428, 'jobName': 'Job-1', 'step': 1, 
+    'increment': 4361, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 17.1823921203613})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 'step': 0, 
+    'frame': 3, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0200029611587524, 
+    'stableTimeIncrement': 3.44754380421364e-06, 
+    'stepTime': 0.0200029611587524, 'totalEnergy': 74438.9609375, 
+    'cpuTime': 2.08000016212463, 'jobName': 'Job-1', 'step': 1, 
+    'increment': 5815, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 12.0217485427856})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 'step': 0, 
+    'frame': 4, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.025002047419548, 
+    'stableTimeIncrement': 3.46230899594957e-06, 'stepTime': 0.025002047419548, 
+    'totalEnergy': 74438.921875, 'cpuTime': 2.60000014305115, 
+    'jobName': 'Job-1', 'step': 1, 'increment': 7262, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 12.4777965545654})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 'step': 0, 
+    'frame': 5, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0300030130892992, 
+    'stableTimeIncrement': 3.47887294083193e-06, 
+    'stepTime': 0.0300030130892992, 'totalEnergy': 74438.890625, 
+    'cpuTime': 3.1100001335144, 'jobName': 'Job-1', 'step': 1, 
+    'increment': 8703, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 12.968825340271})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 'step': 0, 
+    'frame': 6, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0350001528859138, 
+    'stableTimeIncrement': 3.49550396094855e-06, 
+    'stepTime': 0.0350001528859138, 'totalEnergy': 74438.8671875, 
+    'cpuTime': 3.62000012397766, 'jobName': 'Job-1', 'step': 1, 
+    'increment': 10136, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 12.8021860122681})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 'step': 0, 
+    'frame': 7, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0400033891201019, 
+    'stableTimeIncrement': 3.51184962710249e-06, 
+    'stepTime': 0.0400033891201019, 'totalEnergy': 74438.8359375, 
+    'cpuTime': 4.12999963760376, 'jobName': 'Job-1', 'step': 1, 
+    'increment': 11564, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 12.7747859954834})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 'step': 0, 
+    'frame': 8, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0450019165873528, 
+    'stableTimeIncrement': 3.5283094348415e-06, 'stepTime': 0.0450019165873528, 
+    'totalEnergy': 74438.8125, 'cpuTime': 4.62999963760376, 'jobName': 'Job-1', 
+    'step': 1, 'increment': 12984, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 12.8156681060791})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 'step': 0, 
+    'frame': 9, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0500024519860744, 
+    'stableTimeIncrement': 3.54475309904956e-06, 
+    'stepTime': 0.0500024519860744, 'totalEnergy': 74438.78125, 
+    'cpuTime': 5.12999963760376, 'jobName': 'Job-1', 'step': 1, 
+    'increment': 14398, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 12.8246631622314})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 'step': 0, 
+    'frame': 10, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.05500153824687, 
+    'stableTimeIncrement': 3.56112491317617e-06, 'stepTime': 0.05500153824687, 
+    'totalEnergy': 74438.75, 'cpuTime': 5.61999988555908, 'jobName': 'Job-1', 
+    'step': 1, 'increment': 15805, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 12.8331632614136})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 'step': 0, 
+    'frame': 11, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0600021071732044, 
+    'stableTimeIncrement': 3.57757835445227e-06, 
+    'stepTime': 0.0600021071732044, 'totalEnergy': 74438.7109375, 
+    'cpuTime': 6.12999963760376, 'jobName': 'Job-1', 'step': 1, 
+    'increment': 17206, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 12.8561544418335})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 'step': 0, 
+    'frame': 12, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0650004893541336, 
+    'stableTimeIncrement': 3.59398791260901e-06, 
+    'stepTime': 0.0650004893541336, 'totalEnergy': 74438.671875, 
+    'cpuTime': 6.61999988555908, 'jobName': 'Job-1', 'step': 1, 
+    'increment': 18600, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 12.8823728561401})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 'step': 0, 
+    'frame': 13, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0700001791119576, 
+    'stableTimeIncrement': 3.61033903573116e-06, 
+    'stepTime': 0.0700001791119576, 'totalEnergy': 74438.625, 
+    'cpuTime': 7.10999965667725, 'jobName': 'Job-1', 'step': 1, 
+    'increment': 19988, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 12.9213876724243})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 'step': 0, 
+    'frame': 14, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0750012919306755, 
+    'stableTimeIncrement': 3.62674927600892e-06, 
+    'stepTime': 0.0750012919306755, 'totalEnergy': 74438.5859375, 
+    'cpuTime': 7.58999967575073, 'jobName': 'Job-1', 'step': 1, 
+    'increment': 21370, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 12.9706449508667})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 'step': 0, 
+    'frame': 15, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.080003097653389, 
+    'stableTimeIncrement': 3.64314564649248e-06, 'stepTime': 0.080003097653389, 
+    'totalEnergy': 74438.53125, 'cpuTime': 8.07999992370605, 
+    'jobName': 'Job-1', 'step': 1, 'increment': 22746, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 13.0410890579224})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 'step': 0, 
+    'frame': 16, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0850016549229622, 
+    'stableTimeIncrement': 3.65945243174792e-06, 
+    'stepTime': 0.0850016549229622, 'totalEnergy': 74438.4765625, 
+    'cpuTime': 8.56999969482422, 'jobName': 'Job-1', 'step': 1, 
+    'increment': 24115, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 13.1379823684692})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 'step': 0, 
+    'frame': 17, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0900003761053085, 
+    'stableTimeIncrement': 3.67580105375964e-06, 
+    'stepTime': 0.0900003761053085, 'totalEnergy': 74438.4140625, 
+    'cpuTime': 9.05999946594238, 'jobName': 'Job-1', 'step': 1, 
+    'increment': 25478, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 13.2661600112915})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 'step': 0, 
+    'frame': 18, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.0950030460953712, 
+    'stableTimeIncrement': 3.69217286788626e-06, 
+    'stepTime': 0.0950030460953712, 'totalEnergy': 74438.34375, 
+    'cpuTime': 9.52999973297119, 'jobName': 'Job-1', 'step': 1, 
+    'increment': 26836, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 13.431468963623})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 'step': 0, 
+    'frame': 19, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(STATUS, {'totalTime': 0.100000001490116, 
+    'stableTimeIncrement': 3.70839688912383e-06, 'stepTime': 0.100000001490116, 
+    'totalEnergy': 74438.265625, 'cpuTime': 10.0100002288818, 
+    'jobName': 'Job-1', 'step': 1, 'increment': 28187, 'phase': EXPLICIT_PHASE, 
+    'kineticEnergy': 13.6328773498535})
+mdb.jobs['Job-1']._Message(ODB_FRAME, {'phase': EXPLICIT_PHASE, 'step': 0, 
+    'frame': 20, 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(COMPLETED, {'phase': EXPLICIT_PHASE, 
+    'message': 'Phase complete', 'jobName': 'Job-1'})
+mdb.jobs['Job-1']._Message(JOB_COMPLETED, {'time': 'Thu Apr  2 12:33:25 2020', 
+    'jobName': 'Job-1'})
+#--- End of Recover file ------
+session.viewports['Viewport: 1'].setValues(displayedObject=None)
+o1 = session.openOdb(
+    name='/storage/work/r/rhk12/classes/me563/flagshyp/job_folder/explicit_100elt_3D/abaqus/Job-1.odb')
+session.viewports['Viewport: 1'].setValues(displayedObject=o1)
+#: Model: /storage/work/r/rhk12/classes/me563/flagshyp/job_folder/explicit_100elt_3D/abaqus/Job-1.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     1
+#: Number of Meshes:             1
+#: Number of Element Sets:       5
+#: Number of Node Sets:          5
+#: Number of Steps:              1
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+mdb.save()
+#: The model database has been saved to "/storage/work/r/rhk12/classes/me563/flagshyp/job_folder/explicit_100elt_3D/abaqus/model.cae".
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=ON, bcs=ON, 
+    predefinedFields=ON, connectors=ON, optimizationTasks=OFF, 
+    geometricRestrictions=OFF, stopConditions=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(step='Step-1')
+mdb.models['Model-1'].boundaryConditions['BC-1'].setValuesInStep(
+    stepName='Step-1', ur1=FREED, ur2=FREED, ur3=FREED)
+mdb.save()
+#: The model database has been saved to "/storage/work/r/rhk12/classes/me563/flagshyp/job_folder/explicit_100elt_3D/abaqus/model.cae".
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=OFF, bcs=OFF, 
+    predefinedFields=OFF, connectors=OFF)
+session.viewports['Viewport: 1'].setValues(
+    displayedObject=session.odbs['/storage/work/r/rhk12/classes/me563/flagshyp/job_folder/explicit_100elt_3D/abaqus/Job-1.odb'])
+odb = session.odbs['/storage/work/r/rhk12/classes/me563/flagshyp/job_folder/explicit_100elt_3D/abaqus/Job-1.odb']
+session.viewports['Viewport: 1'].setValues(displayedObject=odb)
+session.viewports['Viewport: 1'].odbDisplay.setFrame(step=0, frame=0 )
+session.viewports['Viewport: 1'].odbDisplay.setFrame(step=0, frame=20 )
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1.61532, 
+    farPlane=2.95534, width=0.777689, height=0.407285, cameraPosition=(0.44548, 
+    0.957819, 2.51136), cameraUpVector=(-0.630626, 0.578599, -0.517237), 
+    cameraTarget=(0.0212697, 0.0193823, 0.55267))
+session.animationController.animationOptions.setValues(frameRate=16)
+session.animationController.setValues(animationType=SCALE_FACTOR, viewports=(
+    'Viewport: 1', ))
+session.animationController.play(duration=UNLIMITED)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1.8147, 
+    farPlane=2.68626, width=0.873682, height=0.457557, cameraPosition=(2.00475, 
+    0.515652, 1.46613), cameraUpVector=(-0.469549, 0.839777, -0.272579), 
+    cameraTarget=(0.0706643, 0.00537536, 0.519559))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1.63814, 
+    farPlane=2.90025, width=0.788676, height=0.413038, cameraPosition=(1.23163, 
+    0.710848, 2.27255), cameraUpVector=(-0.543456, 0.756951, -0.362879), 
+    cameraTarget=(0.0577666, 0.00863179, 0.533012))
+session.animationController.stop()
+mdb.save()
+#: The model database has been saved to "/storage/work/r/rhk12/classes/me563/flagshyp/job_folder/explicit_100elt_3D/abaqus/model.cae".
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+mdb.jobs['Job-1'].submit(consistencyChecking=OFF)
+#: The job input file "Job-1.inp" has been submitted for analysis.
+#: Job Job-1: Analysis Input File Processor completed successfully.
+#: Job Job-1: Abaqus/Explicit Packager completed successfully.
+#: Job Job-1: Abaqus/Explicit completed successfully.
+#: Job Job-1 completed successfully. 
+o3 = session.openOdb(
+    name='/storage/work/r/rhk12/classes/me563/flagshyp/job_folder/explicit_100elt_3D/abaqus/Job-1.odb')
+#: Model: /storage/work/r/rhk12/classes/me563/flagshyp/job_folder/explicit_100elt_3D/abaqus/Job-1.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     1
+#: Number of Meshes:             1
+#: Number of Element Sets:       5
+#: Number of Node Sets:          5
+#: Number of Steps:              1
+session.viewports['Viewport: 1'].setValues(displayedObject=o3)
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].odbDisplay.setFrame(step=0, frame=0 )
+session.viewports['Viewport: 1'].odbDisplay.setFrame(step=0, frame=1 )
+session.viewports['Viewport: 1'].odbDisplay.setFrame(step=0, frame=2 )
+session.viewports['Viewport: 1'].odbDisplay.setFrame(step=0, frame=3 )
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='S', outputPosition=INTEGRATION_POINT, refinement=(COMPONENT, 
+    'S33'), )
+session.viewports['Viewport: 1'].odbDisplay.setFrame(step=0, frame=0 )
+session.viewports['Viewport: 1'].odbDisplay.setFrame(step=0, frame=1 )
+session.viewports['Viewport: 1'].odbDisplay.setFrame(step=0, frame=0 )
+session.viewports['Viewport: 1'].odbDisplay.setFrame(step=0, frame=20 )
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1.62632, 
+    farPlane=3.02781, width=0.782985, height=0.410058, cameraPosition=(
+    -0.384697, -0.177429, 2.72514), cameraUpVector=(-0.142142, 0.947536, 
+    -0.286308), cameraTarget=(0.0105716, 0.0047529, 0.555424))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1.63666, 
+    farPlane=3.01428, width=0.787964, height=0.412666, cameraPosition=(
+    -0.33937, -0.100291, 2.73808), cameraUpVector=(-0.150141, 0.936953, 
+    -0.315558), cameraTarget=(0.0127946, 0.00853603, 0.556059))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1.63508, 
+    farPlane=3.00496, width=0.787204, height=0.412267, cameraPosition=(
+    0.0774157, 0.0243213, 2.77007), cameraUpVector=(-0.184685, 0.924386, 
+    -0.333769), cameraTarget=(0.0329636, 0.0145662, 0.557607))
+session.viewports['Viewport: 1'].odbDisplay.setFrame(step=0, frame=0 )
+session.viewports['Viewport: 1'].odbDisplay.setFrame(step=0, frame=20 )
+session.viewports['Viewport: 1'].view.setValues(nearPlane=1.72696, 
+    farPlane=2.86814, width=0.831439, height=0.435434, cameraPosition=(1.58128, 
+    0.66254, 2.04993), cameraUpVector=(-0.219996, 0.779621, -0.586339), 
+    cameraTarget=(0.102378, 0.0440248, 0.524367))
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(
+    adaptiveMeshConstraints=ON)
+session.viewports['Viewport: 1'].partDisplay.setValues(sectionAssignments=ON, 
+    engineeringFeatures=ON)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=OFF)
+p = mdb.models['Model-1'].parts['Part-1']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+mdb.models['Model-1'].Material(name='Material-2')
+mdb.models['Model-1'].materials['Material-2'].Density(table=((7800.0, ), ))
+mdb.models['Model-1'].materials['Material-2'].Elastic(table=((200000000000.0, 
+    0.3), ))
+mdb.models['Model-1'].sections['Section-1'].setValues(material='Material-2', 
+    thickness=None)
+mdb.save()
+#: The model database has been saved to "/storage/work/r/rhk12/classes/me563/flagshyp/job_folder/explicit_100elt_3D/abaqus/model.cae".
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(
+    adaptiveMeshConstraints=OFF)
+mdb.jobs['Job-1'].submit(consistencyChecking=OFF)
+#: The job input file "Job-1.inp" has been submitted for analysis.
+#: Job Job-1: Analysis Input File Processor completed successfully.
+#: Job Job-1: Abaqus/Explicit Packager completed successfully.
+#: Job Job-1: Abaqus/Explicit completed successfully.
+#: Job Job-1 completed successfully. 
+session.viewports['Viewport: 1'].setValues(
+    displayedObject=session.odbs['/storage/work/r/rhk12/classes/me563/flagshyp/job_folder/explicit_100elt_3D/abaqus/Job-1.odb'])
+#* rfm_TableRepr::rfm_TableRepr: Handle is not to a table object. This is not a 
+#* valid ABAQUS database.
+o3 = session.openOdb(
+    name='/storage/work/r/rhk12/classes/me563/flagshyp/job_folder/explicit_100elt_3D/abaqus/Job-1.odb')

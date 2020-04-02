@@ -28,7 +28,17 @@ end
 %--------------------------------------------------------------------------    
 GEOM.x0              = GEOM.x;
 GLOBAL.Residual      = zeros(FEM.mesh.n_dofs,1);
-GLOBAL.external_load = zeros(FEM.mesh.n_dofs,1);    
+GLOBAL.external_load = zeros(FEM.mesh.n_dofs,1); 
+
+global explicit  % needs to be defined in order for explicit to be global
+% Define velocity and accelerations for explicit method;
+if (explicit == 1)
+   % GLOBAL.velocities = zeros(GEOM.npoin,GEOM.ndime);
+   % GLOBAL.accelerations = zeros(GEOM.npoin,GEOM.ndime);
+    GLOBAL.velocities = zeros(FEM.mesh.n_dofs,1);
+    GLOBAL.accelerations = zeros(FEM.mesh.n_dofs,1);
+end
+
 %--------------------------------------------------------------------------    
 % Initialisation of kinematics. 
 %--------------------------------------------------------------------------
@@ -57,6 +67,14 @@ GLOBAL.nominal_pressure = zeros(FEM.mesh.n_dofs,1);
 % (external contributions will be added later on). 
 %--------------------------------------------------------------------------  
 [GLOBAL,PLAST] = residual_and_stiffness_assembly(CON.xlamb,GEOM,MAT,FEM,GLOBAL,...
-                                                 CONSTANT,QUADRATURE.element,PLAST,KINEMATICS);    
+                                                 CONSTANT,QUADRATURE.element,PLAST,KINEMATICS); 
+                                             
+                                             
+if(explicit ==1)     
+    [GLOBAL] = mass_assembly(CON.xlamb,GEOM,MAT,FEM,GLOBAL,...
+                          CONSTANT,QUADRATURE.element,PLAST,KINEMATICS);
+end 
+
+
 end
 

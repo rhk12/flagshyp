@@ -1,6 +1,6 @@
 
 % Read Flagshyp file
-file=fopen('results.dat','r');
+file=fopen('1elt_3D_incompressible_neohookean-results.dat','r');
 formatSpec = '%d %e %e';
 sizeA = [3 inf ];
 A = fscanf(file,formatSpec,sizeA);
