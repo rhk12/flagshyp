@@ -21,7 +21,7 @@ disp_n = zeros(FEM.mesh.n_dofs,1);
 
 %step 4 - time update/iterations
 Time = 0; 
-tMax = .1; % in seconds
+tMax = 1e-3; % in seconds
 prefactor = 0.8;
 dt= prefactor * CalculateTimeStep(PRO,FEM,GEOM,CON,BC,GLOBAL,MAT); % in seconds
 plot_counter  = 0;
@@ -115,7 +115,7 @@ while(Time<=tMax)
   % correct
   CON.incrm =  CON.incrm + 1;
 
-  disp(['step = ',sprintf('%d', time_step_counter),'     time = ',sprintf('%.2e', t_n), ' sec.     dt = ', sprintf('%.2e', dt) ,' sec.'])
+  disp(['step = ',sprintf('%d', time_step_counter),'   time = ',sprintf('%.3f', t_n), '   dt = ', sprintf('%.3f', dt) ])
   
     
 end % end on while loop

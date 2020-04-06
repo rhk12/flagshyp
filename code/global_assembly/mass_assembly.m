@@ -1,9 +1,14 @@
 %--------------------------------------------------------------------------
-% Computes and assemble residual force vector and global tangent stiffness
-% matrix except surface (line) element pressure contributions.
+% Computes and assemble lumped mass matrix
 %--------------------------------------------------------------------------
 function [GLOBAL,updated_PLAST] = mass_assembly(xlamb,...
-          GEOM,MAT,FEM,GLOBAL,CONSTANT,QUADRATURE,PLAST,KINEMATICS)    
+          GEOM,MAT,FEM,GLOBAL,CONSTANT,QUADRATURE,PLAST,KINEMATICS)   
+      
+%number of dimensions
+ndims = GEOM.ndime; 
+massSize = ndims*GEOM.npoin;
+AssembledMass = zeros(massSize,massSize);
+LumpedMass = zeros(massSize,massSize);   
     
 for ielement=1:FEM.mesh.nelem
     %----------------------------------------------------------------------
@@ -20,28 +25,31 @@ for ielement=1:FEM.mesh.nelem
     N=FEM.interpolation.element.N ;
     DN_chi=FEM.interpolation.element.DN_chi  ;
     
-    rho = 1000; % kg/m^3
+    % assign density
+    rho = properties(1);
     
     % quadrature locations
     QUADRATURE.Chi;
     % quadrature weights
     QUADRATURE.W;
-    ndims = 3;
-    %xs=FEM.interpolation.element.DN_chi
-    bColSize = 8*ndims; %nshp functions * ndims
-    nColSize = 8 * ndims ;%nshp functions * ndims
-    NiSize = ndims*ndims;
-    massSize = ndims*GEOM.npoin;
+   
+   % bColSize = 8*ndims; %nshp functions * ndims
+    bColSize = QUADRATURE.ngauss * ndims;
+    %nColSize = 8 * ndims ;%nshp functions * ndims
+    nColSize = QUADRATURE.ngauss * ndims;
     Nsize = nColSize * ndims;
     mLocalSize = bColSize*bColSize;
-    Nm= zeros(3,24);
-    Me= zeros(bColSize,bColSize);
-    AssembledMass = zeros(massSize,massSize);
-    LumpedMass = zeros(massSize,massSize);
+    %
+    % unsure on the offical size of this 
+    %Nm= zeros(3,24);
+    Nm = zeros(ndims,nColSize);
     
+    %elemental mass matrix 
+    Me= zeros(bColSize,bColSize);
+
     for igauss=1:QUADRATURE.ngauss
 
-         for n=1:8 % nshp functions
+         for n=1:QUADRATURE.ngauss % nshp functions
              index = (n-1)*3;             
              Nm(1,index+1)=N(n,igauss);
              Nm(2,index+2)=N(n,igauss);
@@ -60,18 +68,16 @@ for ielement=1:FEM.mesh.nelem
         prefactor = QUADRATURE.W(igauss) * abs(det(DX_chi));
     
         Me = Me + prefactor*MeGQ*rho;
-   
-    
     end
     
     %Me
     
-    %move mass matrix from element level to global level
-     for n=1:8 % nshp functions
+  %move mass matrix from element level to global level
+     for n=1:QUADRATURE.ngauss  % nshp functions
          g1Index=global_nodes(n)-1;
          %disp([global_nodes]')
          for m=1:ndims
-             for l=1:8 %nshp functions
+             for l=1:QUADRATURE.ngauss %nshp functions
                  g2Index=global_nodes(l)-1;
                  for k=1:ndims
                      %g1Index*ndims+m;
