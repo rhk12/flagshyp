@@ -6,7 +6,7 @@ xlocal          = GEOM.x(:,global_nodes) ;
 
 if (FEM.mesh.element_type == 'hexa8')
     % examine each each edge of hex 
-    % there are 8 edges in a hex...
+    % there are 12 edges in a hex...
     % examine bottom face...
     %set large number
     bdist = 1e20;
@@ -131,7 +131,7 @@ if (FEM.mesh.element_type == 'hexa8')
     distf4 ;
     
     numbers = [bdist,tdist,distf1,distf2,distf3,distf4];
-    le = max(numbers);
+    le = min(numbers);
     
 else
    % error not yet programmed ....
