@@ -85,6 +85,7 @@ while(Time<=tMax)
   
   % save internal force, to be used in energy computation
   fi_prev = GLOBAL.T_int;
+  fe_prev = GLOBAL.external_load;
   
   %step 8 - getForce
   [GLOBAL,updated_PLAST] = getForce_explicit(CON.xlamb,...
@@ -100,7 +101,7 @@ while(Time<=tMax)
   GLOBAL.velocities = velocities_half + (t_np1 - t_nphalf) * GLOBAL.accelerations;
   
   % step 11 check energy
-  check_energy_explicit(PRO,FEM,CON,BC,GLOBAL,disp_n, disp_prev,GLOBAL.T_int,fi_prev,t_n);
+  [energy_value, max_energy] = check_energy_explicit(PRO,FEM,CON,BC,GLOBAL,disp_n, disp_prev,GLOBAL.T_int,fi_prev,GLOBAL.external_load,fe_prev,t_n);
   
   % plot 
   if( mod(time_step_counter,nsteps_plot) == 0 )
@@ -115,7 +116,9 @@ while(Time<=tMax)
   % correct
   CON.incrm =  CON.incrm + 1;
 
-  disp(['step = ',sprintf('%d', time_step_counter),'     time = ',sprintf('%.2e', t_n), ' sec.     dt = ', sprintf('%.2e', dt) ,' sec.'])
+  disp(['step = ',sprintf('%d', time_step_counter),'     time = ',... 
+      sprintf('%.2e', t_n), ' sec.     dt = ', sprintf('%.2e', dt) ,...
+      ' sec.'])
   
     
 end % end on while loop
