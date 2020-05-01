@@ -7,7 +7,7 @@ function c_tensor = elasticity_modulus_selection(kinematics,properties,...
 c_tensor = [];
 switch matyp
     case 1
-         c_tensor = ctens1(kinematics,properties,cons);            
+         c_tensor = ctens1(kinematics,properties,cons);         
     case 3
          c_tensor = ctens3(kinematics,properties,dimension);
     case 4
@@ -19,7 +19,9 @@ switch matyp
     case 7
          c_tensor = ctens7(kinematics,properties,dimension);
     case 8
-         c_tensor = ctens8(kinematics,properties,dimension);            
+         c_tensor = ctens8(kinematics,properties,dimension);
+    case 10
+         c_tensor = ctens10(kinematics,properties,cons);
     case 17
          %-----------------------------------------------------------------
          % Select internal variables at a particular Gauss point (igauss)
