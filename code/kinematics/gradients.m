@@ -23,11 +23,12 @@ for igauss=1:QUADRATURE.ngauss
     %----------------------------------------------------------------------
     % Compute various strain measures.
     %----------------------------------------------------------------------
-    F     = xlocal*DN_X';                
-    J     = det(F);  
+    F     = xlocal*DN_X'                
+    J     = det(F) 
     C     = F'*F;
     b     = F*F';  
-    Ib    = trace(b);     
+    Ib    = trace(b);
+    trb2   = trace(b*b); 
     [V,D] = eig(b) ;      
     %----------------------------------------------------------------------
     % Storage of variables.
@@ -37,7 +38,8 @@ for igauss=1:QUADRATURE.ngauss
     KINEMATICS.F(:,:,igauss)    = F;     
     KINEMATICS.J(igauss)        = J;     
     KINEMATICS.b(:,:,igauss)    = b;   
-    KINEMATICS.Ib(igauss)       = Ib;  
+    KINEMATICS.Ib(igauss)       = Ib;
+    KINEMATICS.trb2(igauss)      =trb2;
     KINEMATICS.lambda(:,igauss) = sqrt(diag(D));   
     KINEMATICS.n(:,:,igauss)    = V  ;             
 end

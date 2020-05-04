@@ -17,7 +17,6 @@ PLAST = updated_PLAST;
 %  MATLAB save of converged solution every CON.OUTPUT.incout increments.
 %--------------------------------------------------------------------------
 if ~mod(CON.incrm,CON.OUTPUT.incout)
-    
     save_restart_file(PRO,FEM,GEOM,QUADRATURE,BC,MAT,LOAD,CON,CONSTANT,...
                       GLOBAL,PLAST,KINEMATICS,'postrun')
 end

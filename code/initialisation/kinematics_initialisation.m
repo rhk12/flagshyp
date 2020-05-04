@@ -17,7 +17,9 @@ switch FEM.mesh.element_type
         % Left Cauchy-Green strain tensor (b).
         KINEMATICS.b      = zeros(GEOM.ndime,GEOM.ndime,QUADRATURE.ngauss);   
         % First invariant of b.
-        KINEMATICS.Ib     = zeros(QUADRATURE.ngauss,1);      
+        KINEMATICS.Ib     = zeros(QUADRATURE.ngauss,1);
+        % Second invariant of b.
+        KINEMATICS.trb2     = zeros(QUADRATURE.ngauss,1);    
         % Principal stretches.
         KINEMATICS.lambda = zeros(GEOM.ndime,QUADRATURE.ngauss);                
         % Spatial principal directions.
