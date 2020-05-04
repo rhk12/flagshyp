@@ -81,6 +81,7 @@ while ((CON.xlamb < CON.xlmax) && (CON.incrm < CON.nincr))
               [GLOBAL,updated_PLAST] = residual_and_stiffness_assembly(CON.xlamb,...
                GEOM,MAT,FEM,GLOBAL,CONSTANT,QUADRATURE.element,PLAST,KINEMATICS);    
               %------------------------------------------------------------
+
               % Update nodal forces due to pressure. 
               %------------------------------------------------------------
               if LOAD.n_pressure_loads       

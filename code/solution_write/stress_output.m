@@ -36,7 +36,7 @@ if matyp~=2
    % Compute pressure from mean dilatation algorithm.
    %-----------------------------------------------------------------------
    switch matyp
-     case {5,7,17}
+     case {5,7,17,18}
           pressure = mean_dilatation_pressure(FEM,dim,matyp,properties,...
                                               Ve,QUADRATURE,KINEMATICS);
      otherwise
@@ -46,8 +46,8 @@ if matyp~=2
        kinematics_gauss = kinematics_gauss_point(KINEMATICS,igauss);
        Cauchy = Cauchy_type_selection(kinematics_gauss,properties,...
                                       CONSTANT,dim,matyp,PLAST_element,igauss);
-       Cauchy  = mean_dilatation_pressure_addition(Cauchy,zeros(dim,dim,dim,dim),...
-                                   CONSTANT,pressure,matyp);           
+       %Cauchy  = mean_dilatation_pressure_addition(Cauchy,zeros(dim,dim,dim,dim),...
+       %                            CONSTANT,pressure,matyp);           
        thickness = thickness_plane_stress(properties,kinematics_gauss.J,matyp);
        Stress(1:end,igauss) = [Cauchy(components);thickness]    ; 
    end
@@ -55,7 +55,7 @@ if matyp~=2
    % Remove thickness from non-plane stress elements.
    %-----------------------------------------------------------------------
    switch matyp
-       case {1,3,5,7,17}
+       case {1,3,5,7,17,18}
             Stress(end,:) = [];
    end
 end

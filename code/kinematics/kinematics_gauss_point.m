@@ -8,6 +8,7 @@ kinematics_gauss.F      = KINEMATICS.F(:,:,igauss);
 kinematics_gauss.J      = KINEMATICS.J(igauss);
 kinematics_gauss.b      = KINEMATICS.b(:,:,igauss);
 kinematics_gauss.Ib     = KINEMATICS.Ib(igauss);
+kinematics_gauss.trb2     = KINEMATICS.trb2(igauss);
 kinematics_gauss.lambda = KINEMATICS.lambda(:,igauss);
 kinematics_gauss.n      = KINEMATICS.n(:,:,igauss);
 end
