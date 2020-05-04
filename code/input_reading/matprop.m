@@ -10,6 +10,8 @@ for jm=1:MAT.nmats
     im                       = fscanf(fid,'%d',1);    
     MAT.matyp(im)            = fscanf(fid,'%d',1);
     properties               = props(MAT.matyp(im));
+
+    
     format                   = repmat('%g ',1,length(properties));
     mat_properties           = (fscanf(fid,format,[length(properties),1]));
     if MAT.matyp(im)==17
@@ -28,7 +30,7 @@ n_nearly_incompressible = 0;
 for ielement=1:FEM.mesh.nelem
     material_number = MAT.matno(ielement);     
     matyp = MAT.matyp(material_number);        
-     if matyp==5 || matyp==7 || matyp==17
+     if matyp==5 || matyp==7 || matyp==17 || matyp==18
         n_nearly_incompressible = n_nearly_incompressible + 1;
      end    
 end
@@ -44,6 +46,8 @@ function  property_numbers    = material_choice(matyp)
              property_numbers = (1:4);
         case 17
              property_numbers = (1:5);
+        case 18 
+            property_numbers= (1:4);
         otherwise
              property_numbers = (1:3);
     end

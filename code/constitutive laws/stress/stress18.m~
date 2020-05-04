@@ -1,0 +1,20 @@
+function Cauchy = stress18(kinematics,properties,cons)
+% Calculate the isochoric / deviatoric sresses: hats are dropped for
+% simplicity and consistency
+mu1              = properties(2);  
+mu2              = properties(3); 
+F               = kinematics.F;
+J               = kinematics.J; 
+b               = F*F'; 
+b2=b*b; 
+% Attention: In the Cheng,Zhang paper, Ib2hat= 1.2/*(Ib*Ib - trace(C*C))
+% First invariant of b_hat: Ibhat=tr(b_hat)=tr(C_hat) 
+Ib=kinematics.Ib; 
+
+I2_b=1/2*(Ib*Ib-trace(b2)); 
+
+% Using b_hat instead of C_hat avoids calculating the inverse of C_hat 
+tau_dev=-1./3.*(mu1*Ib+2*mu2*I2_b*J^(-2./3.))*cons.I - mu2*b*b + (mu1+mu2*Ib)*b; 
+
+Cauchy          = 1/J*tau_dev; 
+end

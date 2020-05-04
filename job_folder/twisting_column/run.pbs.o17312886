@@ -14,6 +14,7 @@ For product information, visit www.mathworks.com.
  Program 
 
 Total mesh volume is:         9.00000 
+rm: cannot remove `out-*.vtu': No such file or directory
 rm: cannot remove `out-*.vtk': No such file or directory
 Step:   1 iteration:   1 residual:   7.124063 
 Step:   1 iteration:   2 residual: 0.01240781 
@@ -859,3 +860,11 @@ Step: 172 iteration:   3 residual: 0.0003544159
 Step: 172 iteration:   4 residual: 0.000167183 
 Step: 172 iteration:   5 residual: 4.715299e-10 
 Step: 173 iteration:   1 residual: 0.01386096 
+Step: 173 iteration:   2 residual:  0.1356593 
+Step: 173 iteration:   3 residual: 0.0003106557 
+Step: 173 iteration:   4 residual: 7.420457e-05 
+Step: 173 iteration:   5 residual: 1.1693e-10 
+Step: 174 iteration:   1 residual: 0.01474742 
+Step: 174 iteration:   2 residual:  0.1310641 
+Step: 174 iteration:   3 residual: 0.0003544159 
+Step: 174 iteration:   4 residual: 0.000167183 

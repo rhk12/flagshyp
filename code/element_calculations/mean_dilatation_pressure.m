@@ -34,4 +34,9 @@ switch matyp
         kappa     = properties(4);
         pressure  = kappa*log(Jbar)/Jbar;
         kappa_bar = kappa/(Jbar) - pressure;
+    case 18 
+        kappa=properties(4); 
+        pressure=kappa*(Jbar-1.); 
+        kappa_bar=kappa*Jbar; 
+
 end

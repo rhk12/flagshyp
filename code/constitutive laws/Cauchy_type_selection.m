@@ -19,7 +19,7 @@ switch matyp
     case 7
          Cauchy = stress7(kinematics,properties,dim);
     case 8
-         Cauchy = stress8(kinematics,properties,dim);        
+         Cauchy = stress8(kinematics,properties,dim);
     case 17
          %-----------------------------------------------------------------
          % Select internal variables at a particular Gauss point (igauss)
@@ -31,6 +31,8 @@ switch matyp
                                  PLAST_gauss);
          PLAST                 = plasticity_update(PLAST_gauss.UPDATED,...
                                  PLAST,igauss,matyp);
+    case 18
+        Cauchy = stress18(kinematics,properties,cons);
 end
 
 
