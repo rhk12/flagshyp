@@ -42,6 +42,8 @@ function  property_numbers    = material_choice(matyp)
              property_numbers = (1:6);
         case 4
              property_numbers = (1:4);
+        case 9
+             property_numbers = (1:4);
         case 17
              property_numbers = (1:5);
         otherwise
