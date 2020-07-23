@@ -1,0 +1,13 @@
+Bower
+http://solidmechanics.org/contents.php
+http://solidmechanics.org/Text/Chapter8_2/Chapter8_2.php
+http://solidmechanics.org/Text/Chapter8_1/Chapter8_1.php
+http://solidmechanics.org/Text/Chapter7_2/Chapter7_2.php
+
+https://www.sciencedirect.com/science/article/pii/B9780128098318000039
+
+Newton Raphson
+http://www.math.pitt.edu/~sussmanm/2070/lab_05/index.html#Introduction
+http://web.mit.edu/18.06/www/Spring17/Multidimensional-Newton.pdf
+http://www.maths.lth.se/na/courses/FMN081/FMN081-06/lecture7.pdf
+http://fourier.eng.hmc.edu/e176/lectures/NM/node21.html

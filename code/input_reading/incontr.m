@@ -31,4 +31,3 @@ if CON.ARCLEN.arcln <1e-20
    CON.ARCLEN.farcl = 1;
 end
 end 
-
