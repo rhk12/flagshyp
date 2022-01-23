@@ -1,9 +1,9 @@
 
 % Read Flagshyp file
-file=fopen('results.dat','r');
-%            step F11 F12 F21 F22 lnV sxx sxy syy
-formatSpec = '%d  %e  %e   %e  %e  %e  %e  %e  %e';
-sizeA = [9 inf ];
+file=fopen('Ex4-2-results.txt','r');
+%            step F11 F12 F21   F22 
+formatSpec = '%d  %e  %e   %e   %e';
+sizeA = [5 inf ];
 A = fscanf(file,formatSpec,sizeA);
 fclose(file);
 

@@ -12,7 +12,7 @@ function output_vtu(PRO,CON,GEOM,FEM,BC,GLOBAL,MAT,PLAST,QUADRATURE,CONSTANT,KIN
 if (~PRO.rest && CON.incrm==0)
     string='w';
     system('rm out-*.vtu');
-    system('rm out-*.vtk');
+    %system('rm out-*.vtk');
 end
 
 
