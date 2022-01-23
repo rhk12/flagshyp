@@ -1,4 +1,4 @@
-# Example 4-2 from text book
+# Example 4-2 from text book Bonet, Wood & Gil
 
 ## Navigate to Ex4-2 folder
 FLagSHyP('y','Ex4-2.dat')
