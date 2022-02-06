@@ -123,6 +123,57 @@ elseif ( PRO.resultsfile_name == "Ex4-2-results.txt" )
             fprintf(fid4,'%d %.10e %.10e %.10e %.10e  \n',CON.incrm,F(1,1),F(1,2),F(2,1),F(2,2));
         end
     end % end for loop on ielement.
+elseif ( PRO.resultsfile_name == "2D_1Elt_PolarDecompExample-results.txt" )
+    n1=2; % this is top node where we extract information on disp
+    n1dof = 3;   
+    %node which has reacton force is extracted . 
+    n2 =4;
+    n2dof = 3;
+    % bottom node we will use for computing length.
+    n3 = 1;
+    %outdisp = info3(n1,n1dof);
+
+    for ielement=1:FEM.mesh.nelem
+        %----------------------------------------------------------------------
+        % Temporary variables associated with a particular element
+        % ready for stress or strain output calculation.
+        %----------------------------------------------------------------------
+        global_nodes    = FEM.mesh.connectivity(:,ielement); 
+        material_number = MAT.matno(ielement);               
+        matyp           = MAT.matyp(material_number);        
+        properties      = MAT.props(:,material_number);      
+        xlocal          = GEOM.x(:,global_nodes);            
+        x0local         = GEOM.x0(:,global_nodes);               
+        Ve              = GEOM.Ve(ielement); 
+        % extract kinematics structure 
+        format short
+        KINEMATICS = gradients(xlocal,x0local,FEM.interpolation.element.DN_chi,...
+                              QUADRATURE,KINEMATICS)  ;
+
+        % Let's just look at guass point #1
+        F=KINEMATICS.F(:,:,1);
+        %F(:,:,1);
+        b = F * F';
+        [b_e_vectors,b_e_values] = eig(b);
+
+        % compute V and lnV
+        % take care of ln(0) = -Inf 
+        if FEM.mesh.element_type == 'quad4'
+            if QUADRATURE.ngauss == 4 % the 2 is b/c it is the largest e-value from matlab 
+                V=  sqrt(b_e_values(1,1))*b_e_vectors(:,1)*b_e_vectors(:,1)'+ ...
+                    sqrt(b_e_values(2,2))*b_e_vectors(:,2)*b_e_vectors(:,2)';
+           
+                lnV=log(sqrt(b_e_values(1,1)))*b_e_vectors(:,1)*b_e_vectors(:,1)'+ ...
+                    log(sqrt(b_e_values(2,2)))*b_e_vectors(:,2)*b_e_vectors(:,2)';
+                
+            end
+       
+        end
+
+        if (ielement == 1) 
+            fprintf(fid4,'%d %.10e %.10e %.10e %.10e  \n',CON.incrm,lnV(1,1),lnV(1,2),lnV(2,1), lnV(2,2));
+        end
+    end % end for loop on ielement.
     
 elseif(PRO.resultsfile_name == "growthv1-results.txt" )
     for ielement=1:FEM.mesh.nelem
