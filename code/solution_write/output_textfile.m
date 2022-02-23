@@ -26,20 +26,24 @@ fid4= fopen(string2,string);
  aux2                       =  reshape(aux2,GEOM.ndime,[]);
  info2(:,3:end)             =  [GEOM.x0'  aux2'];
 % 
-if (CON.incrm > 0)
-    % % extract deformed coordinates
-    info3                      =  zeros(GEOM.npoin,2 + 2*GEOM.ndime);
-    info3(:,1)                 =  (1:GEOM.npoin)';
-    info3(:,2)                 =  BC.icode;
-    aux                       =  zeros(FEM.mesh.n_dofs,1);
-    % % aux(BC.fixdof)            =  GLOBAL.Reactions;
-    % % aux(BC.freedof)           =  GLOBAL.external_load(BC.freedof);
-    aux                       =  reshape(aux,GEOM.ndime,[]);
-    info3(:,3:end)             =  [GEOM.x'  aux'];
+
+% % extract deformed coordinates
+info3                      =  zeros(GEOM.npoin,2 + 2*GEOM.ndime);
+info3(:,1)                 =  (1:GEOM.npoin)';
+info3(:,2)                 =  BC.icode;
+aux                       =  zeros(FEM.mesh.n_dofs,1);
+% % aux(BC.fixdof)            =  GLOBAL.Reactions;
+% % aux(BC.freedof)           =  GLOBAL.external_load(BC.freedof);
+aux                       =  reshape(aux,GEOM.ndime,[]);
+info3(:,3:end)             =  [GEOM.x'  aux'];
+if CON.incrm==0
+    GLOBAL.Reactions(BC.fixdof) = 0.0;
+else
     aux(BC.fixdof)            =  GLOBAL.Reactions;
-    %%format long
-    %aux
 end
+%%format long
+%aux
+
 
 %output nodes according to job name. 
 if ( PRO.resultsfile_name == "nonlinear_solid_truss_elastic_2D-results.txt" )
