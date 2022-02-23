@@ -37,7 +37,7 @@ if (CON.incrm > 0)
     aux                       =  reshape(aux,GEOM.ndime,[]);
     info3(:,3:end)             =  [GEOM.x'  aux'];
     aux(BC.fixdof)            =  GLOBAL.Reactions;
-    %format long
+    %%format long
     %aux
 end
 
