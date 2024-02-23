@@ -1,4 +1,8 @@
 *.vtu
+*.pbs.o*
+*-2017.cae
+*.asv
+slurm-*.out
 *RESTART.MAT
 results.dat
 */*/*.dat~
