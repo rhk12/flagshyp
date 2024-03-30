@@ -19,7 +19,9 @@ switch matyp
     case 7
          Cauchy = stress7(kinematics,properties,dim);
     case 8
-         Cauchy = stress8(kinematics,properties,dim);        
+         Cauchy = stress8(kinematics,properties,dim);   
+    case 10 
+         Cauchy = MooneyRilvlin(kinematics,properties,cons); % Mooney matieral model  
     case 17
          %-----------------------------------------------------------------
          % Select internal variables at a particular Gauss point (igauss)

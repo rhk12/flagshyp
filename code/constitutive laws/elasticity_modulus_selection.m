@@ -19,7 +19,9 @@ switch matyp
     case 7
          c_tensor = ctens7(kinematics,properties,dimension);
     case 8
-         c_tensor = ctens8(kinematics,properties,dimension);            
+         c_tensor = ctens8(kinematics,properties,dimension); 
+    case 10
+         c_tensor = ctens10(kinematics,properties,cons); %Mooney Material Stiffness tensor 
     case 17
          %-----------------------------------------------------------------
          % Select internal variables at a particular Gauss point (igauss)
