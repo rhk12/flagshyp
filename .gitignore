@@ -1,4 +1,6 @@
 *.vtu
+*.rpy
+*abaqus_acis.log
 *.pbs.o*
 *-2017.cae
 *.asv
