@@ -1,0 +1,188 @@
+1
+
+   Abaqus 2022                                  Date 29-Mar-2024   Time 15:09:58
+   For use by PENNSYLVANIA STATE UNIVERSITY under license from Dassault Systemes or its subsidiary.
+
+
+
+                         The Abaqus Software is a product of:
+
+                           Dassault Systemes SIMULIA Corp.
+                           1301 Atwood Avenue, Suite 101W
+                              Johnston, RI 02919, USA
+ 
+
+
+                   The Abaqus Software is available only under license
+                   from Dassault Systemes or its subsidiary and may be
+                   used or reproduced only in accordance with the terms
+                   of such license.
+ 
+                          On machine p-ic-4001 
+                          you are authorized to run
+                          Abaqus/Explicit until 28-Feb-2025
+
+                          Your site id is: SIT00008280 
+
+
+ 
+                    For assistance or any other information you may
+                    obtain contact information for your local office
+                    from the world wide web at:
+
+                      http://www.3ds.com/products/simulia/locations/
+
+ 
+                * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+                *                                                         * 
+                *                   *****************                     * 
+                *                   *  N O T I C E  *                     * 
+                *                   *****************                     * 
+                *                                                         * 
+                *                                                         * 
+                *                       Abaqus 2022                       * 
+                *                                                         * 
+                *          BUILD ID: 2021_09_15-13.57.30 176069           * 
+                *                                                         * 
+                *                                                         * 
+                *  Please make sure you are using                         * 
+                *  release Abaqus 2022 manuals                            * 
+                *  plus the notes accompanying this release.              * 
+                *                                                         * 
+                *                                                         * 
+                *                                                         * 
+                *                                                         * 
+                *                                                         * 
+                *   This program may not be used for commercial purposes  * 
+                *           without payment of a commercial fee.          * 
+                *                                                         * 
+                * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+
+
+ 
+
+
+
+     PROCESSING PART, INSTANCE, AND ASSEMBLY INFORMATION
+   *******************************************************
+
+
+     END PROCESSING PART, INSTANCE, AND ASSEMBLY INFORMATION
+   ***********************************************************
+
+
+
+
+     OPTIONS BEING PROCESSED
+   ***************************
+
+
+  *Heading
+  *Node
+  *Element, type=C3D8R
+  *Nset, nset=ASSEMBLY_PART-1-1_SET-1
+  *Elset, elset=ASSEMBLY_PART-1-1_SET-1
+  *Nset, nset=ASSEMBLY_SET-1
+  *Nset, nset=ASSEMBLY_SET-2
+  *Nset, nset=ASSEMBLY_SET-3
+  *Nset, nset=ASSEMBLY_SET-4
+  *Elset, elset=ASSEMBLY_SET-1
+  *Elset, elset=ASSEMBLY_SET-2
+  *Elset, elset=ASSEMBLY_SET-3
+  *Elset, elset=ASSEMBLY_SET-4
+  *Elset, elset=ASSEMBLY__SURF-1_S5
+  *material, name=MATERIAL-1
+  *density
+  *hyperelastic, neohooke
+
+ ***WARNING: INITIAL POISSONS RATIO (PR0) FOR THE HYPERELASTIC MATERIAL IS ZERO 
+             OR NEGATIVE: PR0 = -1.0000.  IT IS GENERALLY RECOMMENDED THAT 
+             SINGLE ELEMENT MODELS BE USED TO VERIFY THAT THE CHOSEN MATERIAL 
+             CONSTANTS LEAD TO A WELL DEFINED HYPERELASTIC MATERIAL.
+  *material, name=MATERIAL-2
+  *density
+  *elastic
+  *solidsection, elset=ASSEMBLY_PART-1-1_SET-1, material=MATERIAL-2
+  *solidsection, elset=ASSEMBLY_PART-1-1_SET-1, material=MATERIAL-2
+  *surface, type=ELEMENT, name=ASSEMBLY_SURF-1
+  *surface, type=ELEMENT, name=ASSEMBLY_SURF-1
+  *boundary
+  *boundary
+  *boundary
+  *boundary, op=NEW
+  *boundary, op=NEW
+  *boundary, op=NEW
+  *boundary, op=NEW, amplitude=AMP-1
+  *solidsection, elset=ASSEMBLY_PART-1-1_SET-1, material=MATERIAL-2
+  *elementoutput, directions=YES
+  *amplitude, name=AMP-1
+  *output, field
+  *output, history, variable=PRESELECT
+  *Step, name=Step-1, nlgeom=YES
+  *Step, name=Step-1, nlgeom=YES
+  *dynamic, explicit
+  *boundary, op=NEW
+  *boundary, op=NEW
+  *boundary, op=NEW
+  *boundary, op=NEW, amplitude=AMP-1
+  *output, field
+  *nodeoutput
+  *elementoutput, directions=YES
+  *contactoutput
+  *output, history, variable=PRESELECT
+  *endstep
+
+ ***WARNING: OUTPUT REQUEST E IS NOT AVAILABLE IN A NONLINEAR STEP -- LE (LOG 
+             STRAIN) WILL BE OUTPUT INSTEAD.
+
+ ***WARNING: OUTPUT REQUEST EVF IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R
+
+ ***WARNING: OUTPUT REQUEST PEEQVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R
+
+ ***WARNING: OUTPUT REQUEST PEVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R
+
+ ***WARNING: OUTPUT REQUEST SVAVG IS NOT AVAILABLE FOR ELEMENT TYPE C3D8R
+  *surface, type=ELEMENT, name=ASSEMBLY_SURF-1
+  *boundary
+  *boundary
+  *boundary
+  *Step, name=Step-1, nlgeom=YES
+  *dynamic, explicit
+  *boundary, op=NEW
+
+ ***WARNING: THE OPTION *BOUNDARY,TYPE=DISPLACEMENT HAS BEEN USED; CHECK STATUS 
+             FILE BETWEEN STEPS FOR WARNINGS ON ANY JUMPS PRESCRIBED ACROSS THE 
+             STEPS IN DISPLACEMENT VALUES OF TRANSLATIONAL DOF. FOR ROTATIONAL 
+             DOF MAKE SURE THAT THERE ARE NO SUCH JUMPS. ALL JUMPS IN 
+             DISPLACEMENTS ACROSS STEPS ARE IGNORED
+  *boundary, op=NEW
+  *boundary, op=NEW
+  *boundary, op=NEW, amplitude=AMP-1
+  *endstep
+
+ ***NOTE: Boundary conditions are specified on inactive dof of 16 nodes. The 
+          nodes have been identified in node set WarnNodeBCInactiveDof.
+
+
+
+                            P R O B L E M   S I Z E
+
+
+          NUMBER OF ELEMENTS IS                                    90
+          NUMBER OF NODES IS                                      176
+          NUMBER OF NODES DEFINED BY THE USER                     176
+          TOTAL NUMBER OF VARIABLES IN THE MODEL                  528
+          (DEGREES OF FREEDOM PLUS MAX NO. OF ANY LAGRANGE MULTIPLIER
+           VARIABLES. INCLUDE *PRINT,SOLVE=YES TO GET THE ACTUAL NUMBER.)
+
+
+
+                              END OF USER INPUT PROCESSING
+
+
+
+     JOB TIME SUMMARY
+       USER TIME (SEC)      =  3.00000E-02
+       SYSTEM TIME (SEC)    =  1.00000E-02
+       TOTAL CPU TIME (SEC) =  4.00000E-02
+       WALLCLOCK TIME (SEC) =          0
