@@ -1,6 +1,6 @@
 %--------------------------------------------------------------------------
 % Obtain elasticity tensor (for incompressible or nearly incompressible, 
-% only deviatoric component).
+% only deviatoric component)
 %--------------------------------------------------------------------------
 function c_tensor = elasticity_modulus_selection(kinematics,properties,...
                     cons,dimension,matyp,PLAST,plast_gauss,igauss)
