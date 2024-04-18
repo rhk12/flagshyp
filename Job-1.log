@@ -1,0 +1,22 @@
+Analysis initiated from SIMULIA established products
+Abaqus JOB Job-1
+Abaqus 2022
+Abaqus License Manager checked out the following licenses:
+Abaqus/Explicit checked out 5 tokens from Flexnet server license2.2e.hpc.psu.edu.
+<259 out of 300 licenses remain available>.
+Begin Analysis Input File Processor
+Fri Mar 29 15:09:57 2024
+Run pre
+Fri Mar 29 15:09:58 2024
+End Analysis Input File Processor
+Begin Abaqus/Explicit Packager
+Fri Mar 29 15:09:58 2024
+Run package
+Fri Mar 29 15:10:00 2024
+End Abaqus/Explicit Packager
+Begin Abaqus/Explicit Analysis
+Fri Mar 29 15:10:00 2024
+Run explicit
+Fri Mar 29 15:10:01 2024
+End Abaqus/Explicit Analysis
+Abaqus JOB Job-1 COMPLETED

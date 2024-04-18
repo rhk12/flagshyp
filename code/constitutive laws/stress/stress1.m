@@ -6,5 +6,6 @@ mu              = properties(2);
 lambda          = properties(3);
 J               = kinematics.J;
 b               = kinematics.b;
+F = kinematics.F;
 Cauchy          = (mu/J)*(b - cons.I) + (lambda/J)*log(J)*cons.I;
 end
