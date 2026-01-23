@@ -16,7 +16,7 @@
 function FLagSHyP(ansmlv,inputfile)
 
 if nargin ~= 2
-    error("requires two input arguments; e.g.: FLagSHyP('y','1elt_3d.dat')");
+    error("requires two input arguments; e.g.: FLagSHyP('y','1elt_3D.dat')");
 end
 
 %clear all;close all;clc   
