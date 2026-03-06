@@ -3,4 +3,5 @@ rm *OUTPUT.txt
 rm *OUTPUT_FLAGOUT.txt
 rm *.vtu
 rm results.dat
-rm *.pbs.o*
+rm slurm-*.err
+rm slurm-*.out

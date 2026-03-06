@@ -6,7 +6,7 @@
  
 #### specify the required resources
 #SBATCH --account=open
-#SBATCH --partition=open
+#SBATCH --partition=basic
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=4
 #SBATCH --mem=128GB

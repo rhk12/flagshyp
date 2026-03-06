@@ -8,6 +8,7 @@ results.dat
 */*/*.dat~
 *-OUTPUT.txt
 *-results.txt
+*.err
 *-OUTPUT_FLAGOUT.txt
 */*/abaqus/*.com
 */*/abaqus/*.dat

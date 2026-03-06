@@ -1,0 +1,17 @@
+#!/bin/bash
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=5GB
+#SBATCH --time=04:00:00
+#SBATCH --output=slurm-%j.out
+#SBATCH --error=slurm-%j.err
+
+export ABA_SINT_CAP=40000
+cd $SLURM_SUBMIT_DIR
+
+module load matlab
+
+echo "Job Started on $(hostname) at $(date)"
+matlab -nodisplay -nosplash -nodesktop -r "FLagSHyP('y','twisting_column.dat');exit;"
+echo "Job ended at $(date)"
