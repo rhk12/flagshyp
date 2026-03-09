@@ -30,6 +30,14 @@ switch matyp
         kappa     = properties(3);
         pressure  = kappa*log(Jbar)/Jbar;
         kappa_bar = kappa/Jbar - pressure;
+%{ 
+% The mean dilatation pressure approximation makes a 1-element cube too squishy
+% Comment out this case to turn off mean dilatation for Mooney-Rivlin
+    case 9
+        kappa     = properties(3);
+        pressure  = kappa*(Jbar - 1);
+        kappa_bar = kappa*Jbar;
+%}
     case 17
         kappa     = properties(4);
         pressure  = kappa*log(Jbar)/Jbar;
