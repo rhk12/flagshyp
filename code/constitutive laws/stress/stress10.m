@@ -2,6 +2,7 @@
 % Evaluates the Cauchy stress tensor for material type 10. (Mooney-Rivlin)
 %--------------------------------------------------------------------------
 function Cauchy = stress10(kinematics,properties,cons,dimension)
+kappa           = properties(2);
 mu1             = properties(4);
 mu2             = properties(5);
 J               = kinematics.J;
@@ -21,7 +22,8 @@ end
 %Cauchy          = (mu*J^(-5/3))*(b - 1/3*Ib*cons.I);
 
 %%% Cauchy stress for Monney-Rivlin below....
-tau = -1/3*(mu1*Ibmod + 2*mu2*IIbmod)*eye(3) - mu2*bmod*bmod + (mu1+mu2*Ibmod)*bmod; % Kirchhoff stress
-Cauchy = tau/J;
+tauiso = -1/3*(mu1*Ibmod + 2*mu2*IIbmod)*eye(3) - mu2*bmod*bmod + (mu1+mu2*Ibmod)*bmod; % Kirchhoff stress, isochoric
+tauvol = J*(J-1)*kappa*eye(3); % Kirchhoff stress, volumetric
+Cauchy = (tauiso+tauvol)/J;
 
 end
