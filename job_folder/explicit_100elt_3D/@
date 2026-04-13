@@ -1,0 +1,10 @@
+{Index in position 2 exceeds array bounds. Index must not exceed 1.
+Error in getForce_explicit (line 28)
+    xlocal          = GEOM.x(:,global_nodes);
+                      ^^^^^^^^^^^^^^^^^^^^^^
+Error in ExplicitDynamics_algorithm (line 36)
+    [GLOBAL,updated_PLAST] = getForce_explicit(CON.xlamb, GEOM,MAT,FEM,GLOBAL,...
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Error in FLagSHyP (line 75)
+    ExplicitDynamics_algorithm(PRO,FEM,GEOM,QUADRATURE,BC,MAT,LOAD,CON,...
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^} 
