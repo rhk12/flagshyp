@@ -31,6 +31,9 @@ switch matyp
                                  PLAST_gauss);
          PLAST                 = plasticity_update(PLAST_gauss.UPDATED,...
                                  PLAST,igauss,matyp);
+    case 10
+        % Addition of Mooney-Rivlin model
+        Cauchy = stress10(kinematics, properties, cons, dim);
 end
 
 
