@@ -28,5 +28,8 @@ switch matyp
          plast_gauss.OLD.invCp = PLAST.invCp(:,:,igauss);
          plast_gauss.OLD.epbar = PLAST.epbar(igauss);   
          c_tensor = ctens17(kinematics,properties,dimension,plast_gauss);
+    case 10
+        % Addition of Mooney-Rivlin model, derived from mat5
+        c_tensor = ctens10(kinematics, properties, cons, dimension);
 end  
 
