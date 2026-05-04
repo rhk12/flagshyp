@@ -19,6 +19,8 @@ GLOBAL.nominal_external_load  = zeros(FEM.mesh.n_dofs,1);
 format                        = ['%d ' repmat('%g ',1,GEOM.ndime)];
 info                          = (fscanf(fid,format,[1+GEOM.ndime,n_point_loads]))';
 nodes                         = info(:,1);
+disp(nodes)
+disp(size(FEM.mesh.dof_nodes))
 global_dofs                   = reshape(FEM.mesh.dof_nodes(:,nodes),[],1);
 force_value                   = (info(:,2:end))';
 GLOBAL.nominal_external_load(global_dofs,1) = force_value(:);
