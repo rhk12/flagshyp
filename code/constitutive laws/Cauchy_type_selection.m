@@ -5,6 +5,7 @@
 function [Cauchy,PLAST,PLAST_gauss] = Cauchy_type_selection(kinematics,...
           properties,cons,dim,matyp,PLAST,igauss)
 PLAST_gauss = [];
+
 switch matyp
     case 1
          Cauchy = stress1(kinematics,properties,cons);
@@ -19,7 +20,9 @@ switch matyp
     case 7
          Cauchy = stress7(kinematics,properties,dim);
     case 8
-         Cauchy = stress8(kinematics,properties,dim);        
+         Cauchy = stress8(kinematics,properties,dim);
+    case 9
+        Cauchy = stress9(kinematics,properties,dim);
     case 17
          %-----------------------------------------------------------------
          % Select internal variables at a particular Gauss point (igauss)

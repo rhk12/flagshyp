@@ -2,7 +2,7 @@
 % Evaluates the Cauchy stress tensor for material type 5.
 %--------------------------------------------------------------------------
 function Cauchy = stress5(kinematics,properties,cons,dimension)
-mu              = properties(2);  
+mu              = properties(2);
 J               = kinematics.J;
 b               = kinematics.b;
 Ib              = kinematics.Ib;
