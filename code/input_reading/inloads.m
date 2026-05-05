@@ -6,7 +6,9 @@ function [LOAD,BC,FEM,GLOBAL] = inloads(GEOM,FEM,BC,fid)
 n_point_loads                 = fscanf(fid,'%d',1);             
 BC.n_prescribed_displacements = fscanf(fid,'%d',1);             
 LOAD.n_pressure_loads         = fscanf(fid,'%d',1);             
-LOAD.gravt                    = fscanf(fid,'%g',GEOM.ndime);    
+LOAD.gravt                    = fscanf(fid,'%g',GEOM.ndime);
+
+
 %--------------------------------------------------------------------------
 % Initialisation.
 %--------------------------------------------------------------------------
@@ -19,6 +21,7 @@ GLOBAL.nominal_external_load  = zeros(FEM.mesh.n_dofs,1);
 format                        = ['%d ' repmat('%g ',1,GEOM.ndime)];
 info                          = (fscanf(fid,format,[1+GEOM.ndime,n_point_loads]))';
 nodes                         = info(:,1);
+
 global_dofs                   = reshape(FEM.mesh.dof_nodes(:,nodes),[],1);
 force_value                   = (info(:,2:end))';
 GLOBAL.nominal_external_load(global_dofs,1) = force_value(:);

@@ -95,6 +95,7 @@ while ((CON.xlamb < CON.xlmax) && (CON.incrm < CON.nincr))
       % terminate.
       %--------------------------------------------------------------------
       if( CON.niter >= CON.miter) 
+          
         terminate = input(['Solution not converged. Do you want to '...
                            'terminate the program (y/n) ?: ' ' \n'],'s');
         if( strcmp(deblank(terminate),deblank('n')) || strcmp(deblank(terminate),deblank('N')))

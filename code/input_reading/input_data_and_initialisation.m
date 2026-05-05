@@ -18,6 +18,7 @@ if( ~ PRO.rest )
     %----------------------------------------------------------------------
     % Read input file, see textbook for user instructions.
     %----------------------------------------------------------------------
+    
     [FEM,GEOM,QUADRATURE,BC,MAT,LOAD,CON,PRO,GLOBAL] = ...
      reading_input_file(PRO,fid);
     %----------------------------------------------------------------------
